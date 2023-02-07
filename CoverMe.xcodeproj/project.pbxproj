@@ -14,6 +14,7 @@
 		B481170D29924F7C003F7085 /* CoverMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481170C29924F7C003F7085 /* CoverMeTests.swift */; };
 		B481171729924F7C003F7085 /* CoverMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481171629924F7C003F7085 /* CoverMeUITests.swift */; };
 		B481171929924F7C003F7085 /* CoverMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481171829924F7C003F7085 /* CoverMeUITestsLaunchTests.swift */; };
+		B48117262992578A003F7085 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48117252992578A003F7085 /* Timetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B481171229924F7C003F7085 /* CoverMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoverMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B481171629924F7C003F7085 /* CoverMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverMeUITests.swift; sourceTree = "<group>"; };
 		B481171829924F7C003F7085 /* CoverMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B48117252992578A003F7085 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				B48116FD29924F7A003F7085 /* ContentView.swift */,
 				B48116FF29924F7C003F7085 /* Assets.xcassets */,
 				B481170129924F7C003F7085 /* Preview Content */,
+				B48117252992578A003F7085 /* Timetable.swift */,
 			);
 			path = CoverMe;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				B48116FE29924F7A003F7085 /* ContentView.swift in Sources */,
 				B48116FC29924F7A003F7085 /* CoverMeApp.swift in Sources */,
+				B48117262992578A003F7085 /* Timetable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
