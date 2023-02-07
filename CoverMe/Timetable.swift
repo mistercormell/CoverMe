@@ -30,7 +30,7 @@ struct Timetable {
     }
     
     func findAvailableTeachers(lesson: Lesson) -> Set<Teacher> {
-        var availableTeachers = Set(self.team)
+        let availableTeachers = Set(self.team)
         let teachersTeaching = Set(self.timetabledLessons
             .filter({$0.lesson == lesson})
             .map({$0.teacher}))
@@ -64,6 +64,6 @@ enum Room: String {
 }
 
 
-enum Lesson: String {
+enum Lesson: String, CaseIterable {
     case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5
 }

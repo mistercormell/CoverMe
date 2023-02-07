@@ -8,7 +8,7 @@
 import Foundation
 
 class TimetableFileReader {
-    func createTimetabledLessonFromLine(line: String) -> TimetabledLesson? {
+    static func createTimetabledLessonFromLine(line: String) -> TimetabledLesson? {
         let parts = line.components(separatedBy: ",")
         if let lesson = Lesson(rawValue: parts[0]) {
             if let room = Room(rawValue: parts[3]) {
@@ -23,7 +23,7 @@ class TimetableFileReader {
         return nil
     }
     
-    func createTimetableFromFile(filename: String) -> Timetable {
+    static func createTimetableFromFile(filename: String) -> Timetable {
         if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
             do {
                 let contents = try String(contentsOfFile: filepath)

@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct CoverMeApp: App {
+    let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(selectedTeacherInitials: "DPC", selectedLesson: Lesson.Monday1st, timetable: timetable, coverManager: CoverManager(timetable: timetable))
         }
     }
 }

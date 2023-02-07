@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct CoverArrangement {
+struct CoverArrangement: Identifiable {
     let teacher: Teacher
     let room: Room
     let lesson: Lesson
     let notes: String
+    
+    var id: String {
+        "\(self.teacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+    }
 }

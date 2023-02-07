@@ -20,11 +20,10 @@ final class TimetableFileReaderTest: XCTestCase {
 
     func testCreateTimetabledLessonFromLineWithValidLineReturnsTimetabledLesson() {
         //arrange
-        let reader = TimetableFileReader()
         let line = "Monday2nd,BComV-1,MC,Keate1"
         let expected = TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC"), division: Division(code: "BComV-1"), room: Room.Keate1)
         //act
-        let actual = reader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
         //assert
         XCTAssertEqual(actual, expected)
         
@@ -32,20 +31,18 @@ final class TimetableFileReaderTest: XCTestCase {
     
     func testCreateTimetabledLessonFromLineWithInvalidRoomReturnsNil() {
         //arrange
-        let reader = TimetableFileReader()
         let line = "Monday1st,BComV-1,MC,Keate3"
         //act
-        let actual = reader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
         //assert
         XCTAssertNil(actual)
     }
     
     func testCreateTimetabledLessonFromLineWithInvalidDayReturnsNil() {
         //arrange
-        let reader = TimetableFileReader()
         let line = "Monday7th,BComV-1,MC,Keate1"
         //act
-        let actual = reader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
         //assert
         XCTAssertNil(actual)
     }
@@ -53,9 +50,8 @@ final class TimetableFileReaderTest: XCTestCase {
     //TODO - replace to use mocked file rather than actual file
     func testCreateTimetableFromFileWithGenuineFileReturnsNonNil() {
         //arrange
-        let reader = TimetableFileReader()
         //act
-        let actual = reader.createTimetableFromFile(filename: "timetable")
+        let actual = TimetableFileReader.createTimetableFromFile(filename: "timetable")
         //assert
         XCTAssertNotNil(actual)
     }
