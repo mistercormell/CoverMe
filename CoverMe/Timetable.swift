@@ -15,25 +15,26 @@ struct Timetable {
     #endif
 }
 
-struct TimetabledLesson {
+struct TimetabledLesson: Equatable {
     let lesson: Lesson
     let teacher: Teacher
     let division: Division
     let room: Room
 }
 
-struct Division {
+struct Division: Equatable {
     let code: String
 }
 
-struct Teacher {
+struct Teacher: Equatable {
     let initials: String
 }
 
-enum Room {
+enum Room: String {
     case Keate1, Keate2, Birley1, Birley2
 }
 
-enum Lesson {
+
+enum Lesson: String {
     case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5
 }
