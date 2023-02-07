@@ -20,18 +20,27 @@ struct Timetable {
         return workingTeam
     }
     
+    func getRoomFor(lesson: Lesson, teacher: Teacher) -> Room? {
+        let room = timetabledLessons
+            .first(where: {$0.lesson == lesson && $0.teacher == teacher})
+            .map({ $0.room })
+        
+        return room
+            
+    }
+    
     func findAvailableTeachers(lesson: Lesson) -> Set<Teacher> {
         var availableTeachers = Set(self.team)
         let teachersTeaching = Set(self.timetabledLessons
             .filter({$0.lesson == lesson})
-            .map({Teacher(initials: $0.teacher.initials)}))
+            .map({$0.teacher}))
         
         
         return availableTeachers.subtracting(teachersTeaching)
     }
     
     #if DEBUG
-    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC"), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT"), division: Division(code: "FCom1-2"), room: Room.Birley1)]
+    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC"), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT"), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC"), division: Division(code: "BComV-1"), room: Room.Keate2)]
     #endif
 }
 
