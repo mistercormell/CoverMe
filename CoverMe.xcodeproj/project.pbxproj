@@ -23,6 +23,7 @@
 		B481172E29925B88003F7085 /* TimetableFileReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */; };
 		B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FAD299394C500100C33 /* TimetableTest.swift */; };
 		B4838FB02993A50C00100C33 /* devWork in Resources */ = {isa = PBXBuildFile; fileRef = B4838FAF2993A50C00100C33 /* devWork */; };
+		B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFileReaderTest.swift; sourceTree = "<group>"; };
 		B4838FAD299394C500100C33 /* TimetableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTest.swift; sourceTree = "<group>"; };
 		B4838FAF2993A50C00100C33 /* devWork */ = {isa = PBXFileReference; lastKnownFileType = text; path = devWork; sourceTree = "<group>"; };
+		B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPickerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		B48116FA29924F7A003F7085 /* CoverMe */ = {
 			isa = PBXGroup;
 			children = (
+				B4838FB32993B2F800100C33 /* ViewModel */,
 				B4838FB22993B2CF00100C33 /* View */,
 				B4838FB12993B2BE00100C33 /* Model */,
 				B48116FB29924F7A003F7085 /* CoverMeApp.swift */,
@@ -168,6 +171,14 @@
 				B48116FD29924F7A003F7085 /* CoverPickerView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B4838FB32993B2F800100C33 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				B48116FE29924F7A003F7085 /* CoverPickerView.swift in Sources */,
 				B48116FC29924F7A003F7085 /* CoverMeApp.swift in Sources */,
 				B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */,
+				B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,

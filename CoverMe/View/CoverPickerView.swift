@@ -9,37 +9,32 @@ import SwiftUI
 
 struct CoverPickerView: View {
     @State var selectedTeacherInitials: String
-    @State var selectedLesson: Lesson = Lesson.Monday1st
-    @State var availableCover: [CoverArrangement] = []
-    let timetable: Timetable
-    let coverManager: CoverManager
-    
+    @StateObject var viewModel = CoverPickerViewModel()
+
     var body: some View {
         Form {
             Section(header: Text("What needs covering")) {
                 Picker(selection: $selectedTeacherInitials, label: Text("Teacher"), content: {
-                    ForEach(timetable.team, id: \.self.initials) {
-                        Text($0.initials)
+                    ForEach(viewModel.getTeamInitials(), id: \.self) {
+                        Text($0)
                     }
                 })
-                Picker(selection: $selectedLesson, label: Text("Lesson"), content: {
-                    ForEach(Lesson.allCases.filter({
-                        timetable.doesTeachIn($0, for: Teacher(initials: selectedTeacherInitials))
-                    }), id: \.self) {
+                Picker(selection: $viewModel.selectedLesson, label: Text("Lesson"), content: {
+                    ForEach(viewModel.getLessonsTaught(for: selectedTeacherInitials), id: \.self) {
                         Text($0.displayName)
                     }
                 })
             }
             Button("Find Cover", action: {
-                availableCover = coverManager.getCoverOptions(teacher: Teacher(initials: selectedTeacherInitials), lesson: selectedLesson)
+                viewModel.updateAvailableCoverFor(Teacher(initials: selectedTeacherInitials), during: viewModel.selectedLesson)
             })
-            Section(header: Text("\(availableCover.first?.toBeCoveredDisplay ?? "")")) {
-                if availableCover.count <= 0 {
+            Section(header: Text("\(viewModel.availableCover.first?.toBeCoveredDisplay ?? "")")) {
+                if viewModel.availableCover.count <= 0 {
                     Text("No cover options available")
                 } else {
                     
                     List {
-                        ForEach(availableCover) { cover in
+                        ForEach(viewModel.availableCover) { cover in
                             HStack {
                                 Text("\(cover.coverOptionDisplay)")
                             }
@@ -55,6 +50,6 @@ struct CoverPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverPickerView(selectedTeacherInitials: "DPC", selectedLesson: Lesson.Monday1st, timetable: Timetable(timetabledLessons: Timetable.example), coverManager: CoverManager(timetable: Timetable(timetabledLessons: Timetable.example)))
+        CoverPickerView(selectedTeacherInitials: "DPC")
     }
 }
