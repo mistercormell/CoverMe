@@ -1,5 +1,4 @@
-Refactor and clean up views - separate logic into clean distinct areas, consider simplifying Teacher struct to just a string using initials
-Add way to generate text file from Excel (the source of timetable data)
+Fix Bug with updating pickers / selected items
 Make it so that the tests are not dependent on the current live timetable data and instead some dummy data that won't change from year to year'
 Have some tests for the 'current live timetable to act as a sanity check for errors (that would need to be updated year on year, perhaps totalling up SPW for each teacher)'
 New feature - ability to select cover from options and notify teacher e.g. send email
@@ -10,3 +9,4 @@ New feature - Add ability for creative solutions (e.g. other occupied beak to gi
 New feature - Add team 'skills' so that certain teachers are preferred for certain types of cover
 New feature - Recommendation of cover options / sorting / prioritising
 New feature - export of weekly cover arrangements to email
+New FEature - Add way to generate text file from Excel (the source of timetable data)

@@ -75,6 +75,21 @@ struct Division: Equatable {
 
 struct Teacher: Equatable, Hashable {
     let initials: String
+
+    func getEmail() -> String {
+        if initials == "SJT" {
+            return "s.tebbutt@etoncollege.org.uk"
+        } else if initials == "MC" {
+            return "m.collins@etoncollege.org.uk"
+        } else if initials == "JWFS" {
+            return "j.stanforth@etoncollege.org.uk"
+        } else if initials == "SKG" {
+            return "s.grover@etoncollege.org.uk"
+        } else {
+            return "d.cormell@etoncollege.org.uk"
+        }
+                
+    }
 }
 
 enum Room: String {
