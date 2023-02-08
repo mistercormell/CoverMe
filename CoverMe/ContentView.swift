@@ -23,7 +23,9 @@ struct ContentView: View {
                     }
                 })
                 Picker(selection: $selectedLesson, label: Text("Lesson"), content: {
-                    ForEach(Lesson.allCases, id: \.self) {
+                    ForEach(Lesson.allCases.filter({
+                        timetable.doesTeachIn($0, for: Teacher(initials: selectedTeacherInitials))
+                    }), id: \.self) {
                         Text($0.displayName)
                     }
                 })
@@ -33,7 +35,7 @@ struct ContentView: View {
             })
             Section(header: Text("\(availableCover.first?.toBeCoveredDisplay ?? "")")) {
                 if availableCover.count <= 0 {
-                    Text("No cover options available / master does not need cover")
+                    Text("No cover options available")
                 } else {
                     
                     List {

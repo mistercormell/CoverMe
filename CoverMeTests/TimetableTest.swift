@@ -27,6 +27,24 @@ final class TimetableTest: XCTestCase {
     func testTimetable2022To2023HasCorrectStaffTotals() {
         
     }
+    
+    func testDoesTeachInVariousReturnsAsExpected() {
+        //arrange
+        let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
+        let testCases = [(initials: "SKG", lesson: Lesson.Monday3rd, expected: true),
+                         (initials: "DPC", lesson: Lesson.Tuesday3rd, expected: false),
+                         (initials: "JWFS", lesson: Lesson.Saturday3rd, expected: false),
+                         (initials: "SJT", lesson: Lesson.Wednesday3rd, expected: false),
+                         (initials: "MC", lesson: Lesson.Monday3rd, expected: false),
+                         (initials: "SKG", lesson: Lesson.Thursday5th, expected: true)]
+        
+        //act
+        //assert
+        for testCase in testCases {
+            let actual = timetable.doesTeachIn(testCase.lesson, for: Teacher(initials: testCase.initials))
+            XCTAssertEqual(actual, testCase.expected)
+        }
+    }
 
 
 }

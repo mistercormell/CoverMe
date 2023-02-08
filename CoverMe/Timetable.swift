@@ -28,6 +28,14 @@ struct Timetable {
             
     }
 
+    func doesTeachIn(_ lesson: Lesson, for teacher: Teacher) -> Bool {
+        for timetabledLesson in timetabledLessons {
+            if timetabledLesson.teacher == teacher && timetabledLesson.lesson == lesson {
+                return true
+            }
+        }
+        return false
+    }
 
     //TODO - potentially remove as unused now as just getting the room is unhelpful
     func getRoomFor(lesson: Lesson, teacher: Teacher) -> Room? {
