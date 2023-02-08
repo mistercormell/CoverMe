@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CoverPickerView: View {
     @State var selectedTeacherInitials: String
     @State var selectedLesson: Lesson = Lesson.Monday1st
     @State var availableCover: [CoverArrangement] = []
@@ -55,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(selectedTeacherInitials: "DPC", selectedLesson: Lesson.Monday1st, timetable: Timetable(timetabledLessons: Timetable.example), coverManager: CoverManager(timetable: Timetable(timetabledLessons: Timetable.example)))
+        CoverPickerView(selectedTeacherInitials: "DPC", selectedLesson: Lesson.Monday1st, timetable: Timetable(timetabledLessons: Timetable.example), coverManager: CoverManager(timetable: Timetable(timetabledLessons: Timetable.example)))
     }
 }
