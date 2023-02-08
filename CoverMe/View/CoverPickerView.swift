@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct CoverPickerView: View {
-    @State var selectedTeacherInitials: String
     @StateObject var viewModel = CoverPickerViewModel()
 
     var body: some View {
         Form {
             Section(header: Text("What needs covering")) {
-                Picker(selection: $selectedTeacherInitials, label: Text("Teacher"), content: {
+                Picker(selection: $viewModel.selectedTeacherInitials, label: Text("Teacher"), content: {
                     ForEach(viewModel.getTeamInitials(), id: \.self) {
                         Text($0)
                     }
                 })
                 Picker(selection: $viewModel.selectedLesson, label: Text("Lesson"), content: {
-                    ForEach(viewModel.getLessonsTaught(for: selectedTeacherInitials), id: \.self) {
+                    ForEach(viewModel.getLessonsTaught(), id: \.self) {
                         Text($0.displayName)
                     }
                 })
             }
             Button("Find Cover", action: {
-                viewModel.updateAvailableCoverFor(Teacher(initials: selectedTeacherInitials), during: viewModel.selectedLesson)
+                viewModel.updateAvailableCover()
             })
             Section(header: Text("\(viewModel.availableCover.first?.toBeCoveredDisplay ?? "")")) {
                 if viewModel.availableCover.count <= 0 {
@@ -50,6 +49,6 @@ struct CoverPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverPickerView(selectedTeacherInitials: "DPC")
+        CoverPickerView()
     }
 }
