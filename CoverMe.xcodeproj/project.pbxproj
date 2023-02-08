@@ -22,6 +22,7 @@
 		B481172A29925A15003F7085 /* timetable.txt in Resources */ = {isa = PBXBuildFile; fileRef = B481172929925A15003F7085 /* timetable.txt */; };
 		B481172E29925B88003F7085 /* TimetableFileReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */; };
 		B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FAD299394C500100C33 /* TimetableTest.swift */; };
+		B4838FB02993A50C00100C33 /* devWork in Resources */ = {isa = PBXBuildFile; fileRef = B4838FAF2993A50C00100C33 /* devWork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B481172929925A15003F7085 /* timetable.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = timetable.txt; sourceTree = "<group>"; };
 		B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFileReaderTest.swift; sourceTree = "<group>"; };
 		B4838FAD299394C500100C33 /* TimetableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTest.swift; sourceTree = "<group>"; };
+		B4838FAF2993A50C00100C33 /* devWork */ = {isa = PBXFileReference; lastKnownFileType = text; path = devWork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				B481172929925A15003F7085 /* timetable.txt */,
 				B469C459299262F000DEB92F /* CoverManager.swift */,
 				B469C45B2992638100DEB92F /* CoverArrangement.swift */,
+				B4838FAF2993A50C00100C33 /* devWork */,
 			);
 			path = CoverMe;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B481170329924F7C003F7085 /* Preview Assets.xcassets in Resources */,
+				B4838FB02993A50C00100C33 /* devWork in Resources */,
 				B481170029924F7C003F7085 /* Assets.xcassets in Resources */,
 				B481172A29925A15003F7085 /* timetable.txt in Resources */,
 			);
