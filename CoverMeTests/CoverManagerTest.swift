@@ -27,7 +27,7 @@ final class CoverManagerTest: XCTestCase {
         let actual = coverManager.getCoverOptions(teacher: Teacher(initials: "MC"), lesson: Lesson.Monday2nd)
         //assert
         XCTAssertEqual(actual.count, 1)
-        XCTAssertEqual(actual[0].teacher, Teacher(initials: "DPC"))
+        XCTAssertEqual(actual[0].coverTeacher, Teacher(initials: "DPC"))
         XCTAssertEqual(actual[0].lesson, lessonToCover)
         XCTAssertEqual(actual[0].room, Room.Keate1)
     }

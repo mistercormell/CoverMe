@@ -21,6 +21,7 @@
 		B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4811727299259F0003F7085 /* TimetableFileReader.swift */; };
 		B481172A29925A15003F7085 /* timetable.txt in Resources */ = {isa = PBXBuildFile; fileRef = B481172929925A15003F7085 /* timetable.txt */; };
 		B481172E29925B88003F7085 /* TimetableFileReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */; };
+		B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FAD299394C500100C33 /* TimetableTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B4811727299259F0003F7085 /* TimetableFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFileReader.swift; sourceTree = "<group>"; };
 		B481172929925A15003F7085 /* timetable.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = timetable.txt; sourceTree = "<group>"; };
 		B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFileReaderTest.swift; sourceTree = "<group>"; };
+		B4838FAD299394C500100C33 /* TimetableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				B481170C29924F7C003F7085 /* CoverMeTests.swift */,
 				B481172D29925B87003F7085 /* TimetableFileReaderTest.swift */,
 				B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */,
+				B4838FAD299394C500100C33 /* TimetableTest.swift */,
 			);
 			path = CoverMeTests;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B481172E29925B88003F7085 /* TimetableFileReaderTest.swift in Sources */,
+				B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */,
 				B481170D29924F7C003F7085 /* CoverMeTests.swift in Sources */,
 				B469C45E29926A9C00DEB92F /* CoverManagerTest.swift in Sources */,
 			);
@@ -445,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoverMe/Preview Content\"";
+				DEVELOPMENT_TEAM = 599QPW35GD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -452,6 +457,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoverMe/Preview Content\"";
+				DEVELOPMENT_TEAM = 599QPW35GD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -480,6 +487,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

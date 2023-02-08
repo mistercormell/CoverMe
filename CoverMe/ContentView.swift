@@ -31,15 +31,15 @@ struct ContentView: View {
             Button("Find Cover", action: {
                 availableCover = coverManager.getCoverOptions(teacher: Teacher(initials: selectedTeacherInitials), lesson: selectedLesson)
             })
-            Section {
+            Section(header: Text("\(availableCover.first?.toBeCoveredDisplay ?? "")")) {
                 if availableCover.count <= 0 {
-                    Text("No cover options available")
+                    Text("No cover options available / master does not need cover")
                 } else {
+                    
                     List {
                         ForEach(availableCover) { cover in
                             HStack {
-                                Text("\(cover.teacher.initials)")
-                                Text("\(cover.room.rawValue)")
+                                Text("\(cover.coverOptionDisplay)")
                             }
                         }
                     }

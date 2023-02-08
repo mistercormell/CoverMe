@@ -20,6 +20,16 @@ struct Timetable {
         return workingTeam
     }
     
+    func getTimetabledLessonFor(lesson: Lesson, teacher: Teacher) -> TimetabledLesson? {
+        let timetabledLesson = timetabledLessons
+            .first(where: {$0.lesson == lesson && $0.teacher == teacher})
+        
+        return timetabledLesson
+            
+    }
+
+
+    //TODO - potentially remove as unused now as just getting the room is unhelpful
     func getRoomFor(lesson: Lesson, teacher: Teacher) -> Room? {
         let room = timetabledLessons
             .first(where: {$0.lesson == lesson && $0.teacher == teacher})
@@ -65,5 +75,5 @@ enum Room: String {
 
 
 enum Lesson: String, CaseIterable {
-    case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5
+    case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5,Tuesday1st,Tuesday2nd,Tuesday3rd,Tuesday4th,Tuesday5th,Wednesday1st, Wednesday2nd, Wednesday3rd, Wednesday4th, Wednesday5th, WednesdayA4, WednesdayA5,Thursday1st,Thursday2nd,Thursday3rd,Thursday4th,Thursday5th,Friday1st, Friday2nd, Friday3rd, Friday4th, Friday5th, FridayA4, FridayA5,Saturday1st,Saturday2nd,Saturday3rd,Saturday4th
 }

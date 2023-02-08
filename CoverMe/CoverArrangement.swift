@@ -8,12 +8,26 @@
 import Foundation
 
 struct CoverArrangement: Identifiable {
-    let teacher: Teacher
+    let originalTeacher: Teacher
+    let coverTeacher: Teacher
     let room: Room
     let lesson: Lesson
+    let divisionCode: String
     let notes: String
     
     var id: String {
-        "\(self.teacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+        "\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+    }
+    
+    var display: String {
+        "\(lesson.rawValue) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials) to cover in \(room.rawValue)"
+    }
+    
+    var toBeCoveredDisplay: String {
+        "\(lesson.rawValue) - \(divisionCode) (\(originalTeacher.initials))"
+    }
+    
+    var coverOptionDisplay: String {
+        "\(coverTeacher.initials) to cover in \(room.rawValue)"
     }
 }

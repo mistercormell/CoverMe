@@ -16,15 +16,15 @@ class CoverManager {
     
     func getCoverOptions(teacher: Teacher, lesson: Lesson) -> [CoverArrangement] {
         var coverOptions: [CoverArrangement] = []
-        if let room = timetable.getRoomFor(lesson: lesson, teacher: teacher) {
+        if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
             let availableTeachers = timetable.findAvailableTeachers(lesson: lesson)
             for availableTeacher in availableTeachers {
-                let coverArrangement = CoverArrangement(teacher: availableTeacher, room: room, lesson: lesson, notes: "")
+                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "")
                 coverOptions.append(coverArrangement)
             }
             return coverOptions
         } else {
-            print("Couldn't find established room for: \(teacher.initials) during \(lesson.rawValue) where cover would be due to take place")
+            print("Couldn't find timetabled lesson for: \(teacher.initials) during \(lesson.rawValue) where cover would be due to take place")
         }
 
         return []
