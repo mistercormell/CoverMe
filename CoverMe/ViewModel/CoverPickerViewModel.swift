@@ -8,6 +8,7 @@
 import Foundation
 
 class CoverPickerViewModel: ObservableObject {
+    static private let defaultLesson = Lesson.Monday2nd
     let timetable: Timetable
     let coverManager: CoverManager
     @Published var availableCover: [CoverArrangement] = []
@@ -24,7 +25,7 @@ class CoverPickerViewModel: ObservableObject {
             timetable.doesTeachIn($0, for: initialTeacher)
         })
         self.selectedTeacherInitials = initialTeacher.initials
-        self.selectedLesson = lessonsTaught.first ?? Lesson.Monday2nd
+        self.selectedLesson = lessonsTaught.first ?? CoverPickerViewModel.defaultLesson
     }
     
     func updateAvailableCover() {
@@ -32,9 +33,14 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func getLessonsTaught() -> [Lesson] {
-        return Lesson.allCases.filter({
+        let lessonsTaught = Lesson.allCases.filter({
             timetable.doesTeachIn($0, for: Teacher(initials: selectedTeacherInitials))
         })
+        if !lessonsTaught.contains(self.selectedLesson) {
+            //todo fix this bug where perpetual view updates could happen
+            self.selectedLesson = lessonsTaught.first ?? CoverPickerViewModel.defaultLesson
+        }
+        return lessonsTaught
     }
     
     func getTeamInitials() -> [String] {
