@@ -71,9 +71,30 @@ struct Teacher: Equatable, Hashable {
 
 enum Room: String {
     case Keate1, Keate2, Birley1, Birley2
+    
+    var displayName: String {
+        if self.rawValue.hasSuffix("1") {
+            return "1 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("2") {
+            return "2 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else {
+            return self.rawValue
+        }
+    }
 }
 
 
 enum Lesson: String, CaseIterable {
     case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5,Tuesday1st,Tuesday2nd,Tuesday3rd,Tuesday4th,Tuesday5th,Wednesday1st, Wednesday2nd, Wednesday3rd, Wednesday4th, Wednesday5th, WednesdayA4, WednesdayA5,Thursday1st,Thursday2nd,Thursday3rd,Thursday4th,Thursday5th,Friday1st, Friday2nd, Friday3rd, Friday4th, Friday5th, FridayA4, FridayA5,Saturday1st,Saturday2nd,Saturday3rd,Saturday4th
+    
+    //adds a space between the day of the week and the school in that day
+    var displayName: String {
+        if let locationOfY = self.rawValue.firstIndex(of: "y") {
+            var display = self.rawValue
+            display.insert(" ", at: display.index(locationOfY, offsetBy: 1))
+            return display
+        } else {
+            return self.rawValue
+        }
+    }
 }

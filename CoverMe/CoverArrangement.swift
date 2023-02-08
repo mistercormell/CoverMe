@@ -20,14 +20,14 @@ struct CoverArrangement: Identifiable {
     }
     
     var display: String {
-        "\(lesson.rawValue) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials) to cover in \(room.rawValue)"
+        "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials) to cover in \(room.displayName)"
     }
     
     var toBeCoveredDisplay: String {
-        "\(lesson.rawValue) - \(divisionCode) (\(originalTeacher.initials))"
+        "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials))"
     }
     
     var coverOptionDisplay: String {
-        "\(coverTeacher.initials) to cover in \(room.rawValue)"
+        "\(coverTeacher.initials) to cover in \(room.displayName)"
     }
 }

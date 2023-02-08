@@ -24,7 +24,7 @@ struct ContentView: View {
                 })
                 Picker(selection: $selectedLesson, label: Text("Lesson"), content: {
                     ForEach(Lesson.allCases, id: \.self) {
-                        Text($0.rawValue)
+                        Text($0.displayName)
                     }
                 })
             }
