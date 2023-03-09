@@ -22,27 +22,25 @@ struct CoverPickerView: View {
                     DatePicker(selection: $viewModel.selectedDate, in: Date.now..., displayedComponents: .date) {
                         Text("Date of Cover")
                     }
-                    Picker(selection: $viewModel.selectedLesson, label: Text("Lesson"), content: {
-                        ForEach(viewModel.getLessonsTaughtOnDate(), id: \.self) {
-                            Text($0.displayName)
-                        }
-                    })
                 }
                 Button("Find Cover", action: {
-                    viewModel.updateAvailableCover()
+                    viewModel.updateAvailableCoverAllDay()
                 })
-                Section(header: Text("\(viewModel.availableCover.first?.toBeCoveredDisplay ?? "")")) {
-                    if viewModel.availableCover.count <= 0 {
-                        Text("No cover options available")
-                    } else {
-                        
+                ForEach(Array(viewModel.availableCoverAllDay.keys).sorted(), id: \.self) { lesson in
+                    Section(header: Text("\(viewModel.getLessonDisplay(lesson: lesson))")) {
                         List {
-                            ForEach(viewModel.availableCover) { cover in
-                                NavigationLink(cover.coverOptionDisplay) {
-                                    SelectedCoverView(coverDetail: cover.display, date: viewModel.selectedDate, email: cover.coverTeacher.getEmail())
+                            if let availableCover = viewModel.availableCoverAllDay[lesson] {
+                                ForEach(availableCover) { cover in
+                                    NavigationLink(cover.coverOptionDisplay) {
+                                        SelectedCoverView(coverDetail: cover.display, date: viewModel.selectedDate, email: cover.coverTeacher.getEmail())
+                                    }
                                 }
+                            } else {
+                                Text("No cover options available")
                             }
+                            
                         }
+                    
                     }
                 }
             }

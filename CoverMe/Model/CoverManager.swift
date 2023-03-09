@@ -29,4 +29,29 @@ class CoverManager {
 
         return []
     }
+    
+    func getLessonsTaught(on date: Date, by teacher: Teacher) -> [Lesson] {
+        let lessonsTaught = Lesson.allCases.filter({
+            timetable.doesTeachIn($0, for: teacher)
+        })
+        
+        let lessonsTaughtOnDate = lessonsTaught.filter({
+            let currentDay = date.day
+            return currentDay == $0.dayOfWeek
+        })
+        
+        return lessonsTaughtOnDate
+    }
+    
+    func getCoverOptions(date: Date, teacher: Teacher) -> [Lesson:[CoverArrangement]] {
+        var coverOptions: [Lesson:[CoverArrangement]] = [:]
+        let lessons = getLessonsTaught(on: date, by: teacher)
+        
+        for lesson in lessons {
+            let coverPossibilities = getCoverOptions(teacher: teacher, lesson: lesson)
+            coverOptions[lesson] = coverPossibilities
+        }
+        
+        return coverOptions
+    }
 }

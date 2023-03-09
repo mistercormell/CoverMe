@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct LessonCoverPossibilities {
+    let lesson: Lesson
+    let coverPossibilities: [CoverArrangement]
+}
+
 struct CoverArrangement: Identifiable {
     let originalTeacher: Teacher
     let coverTeacher: Teacher
