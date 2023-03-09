@@ -20,6 +20,10 @@ struct CoverArrangementWithDate: Identifiable {
     var id: String {
         "\(coverArrangement.id)"
     }
+    
+    var startOfDayDate: Date {
+        Calendar.current.startOfDay(for: date)
+    }
 }
 
 struct CoverArrangement: Identifiable {
@@ -35,7 +39,11 @@ struct CoverArrangement: Identifiable {
     }
     
     var display: String {
-        "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials) to cover in \(room.displayName)"
+        "\(shortDisplay) to cover in \(room.displayName)"
+    }
+    
+    var shortDisplay: String {
+        "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials)"
     }
     
     var toBeCoveredDisplay: String {
