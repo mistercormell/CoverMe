@@ -19,8 +19,11 @@ struct CoverPickerView: View {
                             Text($0)
                         }
                     })
+                    DatePicker(selection: $viewModel.selectedDate, in: Date.now..., displayedComponents: .date) {
+                        Text("Date of Cover")
+                    }
                     Picker(selection: $viewModel.selectedLesson, label: Text("Lesson"), content: {
-                        ForEach(viewModel.getLessonsTaught(), id: \.self) {
+                        ForEach(viewModel.getLessonsTaughtOnDate(), id: \.self) {
                             Text($0.displayName)
                         }
                     })
@@ -36,7 +39,7 @@ struct CoverPickerView: View {
                         List {
                             ForEach(viewModel.availableCover) { cover in
                                 NavigationLink(cover.coverOptionDisplay) {
-                                    SelectedCoverView(coverDetail: cover.display, date: Date.now, email: cover.coverTeacher.getEmail())
+                                    SelectedCoverView(coverDetail: cover.display, date: viewModel.selectedDate, email: cover.coverTeacher.getEmail())
                                 }
                             }
                         }

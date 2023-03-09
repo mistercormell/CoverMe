@@ -61,7 +61,7 @@ final class TimetableTest: XCTestCase {
         //act
         let actual = lesson.dayOfWeek
         //assert
-        XCTAssertEqual(actual, "Monda")
+        XCTAssertEqual(actual, "Monday")
     }
 
 

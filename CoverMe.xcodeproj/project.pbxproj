@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B461AF6629BA2A50005F216E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6529BA2A50005F216E /* Date.swift */; };
 		B469C45A299262F000DEB92F /* CoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C459299262F000DEB92F /* CoverManager.swift */; };
 		B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C45B2992638100DEB92F /* CoverArrangement.swift */; };
 		B469C45E29926A9C00DEB92F /* CoverManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B461AF6529BA2A50005F216E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B469C459299262F000DEB92F /* CoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverManager.swift; sourceTree = "<group>"; };
 		B469C45B2992638100DEB92F /* CoverArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArrangement.swift; sourceTree = "<group>"; };
 		B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverManagerTest.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B461AF6429BA2A3C005F216E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B461AF6529BA2A50005F216E /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B48116EF29924F7A003F7085 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		B48116FA29924F7A003F7085 /* CoverMe */ = {
 			isa = PBXGroup;
 			children = (
+				B461AF6429BA2A3C005F216E /* Extensions */,
 				B4838FB32993B2F800100C33 /* ViewModel */,
 				B4838FB22993B2CF00100C33 /* View */,
 				B4838FB12993B2BE00100C33 /* Model */,
@@ -323,6 +334,7 @@
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
 				B4838FB72993C3B700100C33 /* SelectedCoverView.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
+				B461AF6629BA2A50005F216E /* Date.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

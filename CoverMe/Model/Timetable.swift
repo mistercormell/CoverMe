@@ -123,7 +123,7 @@ enum Lesson: String, CaseIterable {
     
     var dayOfWeek: String {
         if let locationOfY = self.rawValue.firstIndex(of: "y") {
-            return String(self.rawValue.prefix(upTo: locationOfY))
+            return String(self.rawValue.prefix(upTo: locationOfY)) + "y"
         } else {
             return self.rawValue
         }
