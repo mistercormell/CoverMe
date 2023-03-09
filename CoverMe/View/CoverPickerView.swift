@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CoverPickerView: View {
-    @StateObject var viewModel = CoverPickerViewModel()
+    @ObservedObject var viewModel: CoverPickerViewModel
+    @State private var showConfirmation = false
 
     var body: some View {
         NavigationView {
@@ -31,8 +32,23 @@ struct CoverPickerView: View {
                         List {
                             if let availableCover = viewModel.availableCoverAllDay[lesson] {
                                 ForEach(availableCover) { cover in
-                                    NavigationLink(cover.coverOptionDisplay) {
-                                        SelectedCoverView(coverDetail: cover.display, date: viewModel.selectedDate, email: cover.coverTeacher.getEmail())
+                                    Button(cover.coverOptionDisplay) {
+                                        showConfirmation = true
+                                    }
+                                    .buttonStyle(.plain)
+                                    .actionSheet(isPresented: $showConfirmation) {
+                                        ActionSheet(
+                                            title: Text("\(cover.coverOptionDisplay)"),
+                                            buttons: [
+                                                .default(Text("Add to proposed cover")) {
+                                                    viewModel.addCoverArrangementWithDate(cover: cover)
+                                                },
+                                                .destructive(Text("Cancel")) {
+                                                    print("Cancelled")
+                                                }
+
+                                            ]
+                                        )
                                     }
                                 }
                             } else {
@@ -50,6 +66,6 @@ struct CoverPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverPickerView()
+        CoverPickerView(viewModel: CoverPickerViewModel())
     }
 }

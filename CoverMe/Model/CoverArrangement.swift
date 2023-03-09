@@ -12,6 +12,16 @@ struct LessonCoverPossibilities {
     let coverPossibilities: [CoverArrangement]
 }
 
+struct CoverArrangementWithDate: Identifiable {
+    let coverArrangement: CoverArrangement
+    let date: Date
+    
+    //TODO - change so that this is unique with a given date (won't have this issue for a while)
+    var id: String {
+        "\(coverArrangement.id)"
+    }
+}
+
 struct CoverArrangement: Identifiable {
     let originalTeacher: Teacher
     let coverTeacher: Teacher

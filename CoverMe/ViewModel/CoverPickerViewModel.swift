@@ -14,6 +14,7 @@ class CoverPickerViewModel: ObservableObject {
     @Published var availableCoverAllDay: [Lesson: [CoverArrangement]] = [:]
     @Published var selectedTeacherInitials: String
     @Published var selectedDate: Date = Date.now
+    @Published var coverRecord: [CoverArrangementWithDate] = []
     
     //TODO replace to dependency inject TimetableFileReader and CoverManager
     init() {
@@ -22,6 +23,11 @@ class CoverPickerViewModel: ObservableObject {
         self.coverManager = CoverManager(timetable: timetable)
         let initialTeacher = timetable.team.first ?? Teacher(initials: "Unknown")
         self.selectedTeacherInitials = initialTeacher.initials
+    }
+    
+    func addCoverArrangementWithDate(cover: CoverArrangement) {
+        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate)
+        coverRecord.append(coverArrangementWithDate)
     }
     
     func updateAvailableCoverAllDay() {

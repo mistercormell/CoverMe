@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B461AF6629BA2A50005F216E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6529BA2A50005F216E /* Date.swift */; };
+		B461AF6829BA6AF0005F216E /* CurrentCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */; };
+		B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6929BA6BDA005F216E /* MainTabView.swift */; };
 		B469C45A299262F000DEB92F /* CoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C459299262F000DEB92F /* CoverManager.swift */; };
 		B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C45B2992638100DEB92F /* CoverArrangement.swift */; };
 		B469C45E29926A9C00DEB92F /* CoverManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		B461AF6529BA2A50005F216E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoverView.swift; sourceTree = "<group>"; };
+		B461AF6929BA6BDA005F216E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B469C459299262F000DEB92F /* CoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverManager.swift; sourceTree = "<group>"; };
 		B469C45B2992638100DEB92F /* CoverArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArrangement.swift; sourceTree = "<group>"; };
 		B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverManagerTest.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 			children = (
 				B48116FD29924F7A003F7085 /* CoverPickerView.swift */,
 				B4838FB62993C3B700100C33 /* SelectedCoverView.swift */,
+				B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */,
+				B461AF6929BA6BDA005F216E /* MainTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,10 +333,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B461AF6829BA6AF0005F216E /* CurrentCoverView.swift in Sources */,
 				B48116FE29924F7A003F7085 /* CoverPickerView.swift in Sources */,
 				B48116FC29924F7A003F7085 /* CoverMeApp.swift in Sources */,
 				B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */,
 				B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */,
+				B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
 				B4838FB72993C3B700100C33 /* SelectedCoverView.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
