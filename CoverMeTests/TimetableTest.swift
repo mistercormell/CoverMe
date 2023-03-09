@@ -45,6 +45,24 @@ final class TimetableTest: XCTestCase {
             XCTAssertEqual(actual, testCase.expected)
         }
     }
+    
+    func testTimetableLessonDisplayNameReturnsWithSpaces() {
+        //arrange
+        let lesson = Lesson.Monday1st
+        //act
+        let actual = lesson.displayName
+        //assert
+        XCTAssertEqual(actual, "Monday 1st")
+    }
+    
+    func testTimetableLessonDayOfWeekReturnsAsExpected() {
+        //arrange
+        let lesson = Lesson.Monday1st
+        //act
+        let actual = lesson.dayOfWeek
+        //assert
+        XCTAssertEqual(actual, "Monda")
+    }
 
 
 }

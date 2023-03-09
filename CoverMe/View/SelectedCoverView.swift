@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectedCoverView: View {
     @State var coverDetail: String
+    var date: Date
     let email: String
     
     var body: some View {
@@ -33,6 +34,6 @@ struct SelectedCoverView: View {
 
 struct SelectedCoverView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedCoverView(coverDetail: "Monday 2nd - BComV-1 (MC) - DPC to cover in 1 Keate", email: "d.cormell@etoncollege.org.uk")
+        SelectedCoverView(coverDetail: "Monday 2nd - BComV-1 (MC) - DPC to cover in 1 Keate", date: Date.now, email: "d.cormell@etoncollege.org.uk")
     }
 }

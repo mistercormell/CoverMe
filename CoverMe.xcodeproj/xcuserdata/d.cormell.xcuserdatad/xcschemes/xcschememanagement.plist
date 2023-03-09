@@ -7,6 +7,16 @@
 		<key>CoverMe.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>CoverMeTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>CoverMeUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 	</dict>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>B481170729924F7C003F7085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B481171129924F7C003F7085</key>
 		<dict>
 			<key>primary</key>
 			<true/>

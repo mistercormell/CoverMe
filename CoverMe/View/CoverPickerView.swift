@@ -11,7 +11,7 @@ struct CoverPickerView: View {
     @StateObject var viewModel = CoverPickerViewModel()
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Form {
                 Section(header: Text("What needs covering")) {
                     Picker(selection: $viewModel.selectedTeacherInitials, label: Text("Teacher"), content: {
@@ -36,7 +36,7 @@ struct CoverPickerView: View {
                         List {
                             ForEach(viewModel.availableCover) { cover in
                                 NavigationLink(cover.coverOptionDisplay) {
-                                    SelectedCoverView(coverDetail: cover.display, email: cover.coverTeacher.getEmail())
+                                    SelectedCoverView(coverDetail: cover.display, date: Date.now, email: cover.coverTeacher.getEmail())
                                 }
                             }
                         }

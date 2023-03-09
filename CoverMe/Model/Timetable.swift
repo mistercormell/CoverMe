@@ -120,4 +120,12 @@ enum Lesson: String, CaseIterable {
             return self.rawValue
         }
     }
+    
+    var dayOfWeek: String {
+        if let locationOfY = self.rawValue.firstIndex(of: "y") {
+            return String(self.rawValue.prefix(upTo: locationOfY))
+        } else {
+            return self.rawValue
+        }
+    }
 }
