@@ -25,6 +25,21 @@ struct CurrentCoverView: View {
                     Section(header: Text(header, style: .date)) {
                         ForEach(groupedByDate[header]!) { cover in
                             Text("\(cover.coverArrangement.display)")
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        cover.confirm()
+                                    } label: {
+                                        Label("Confirm", systemImage: "person.fill.checkmark")
+                                    }
+                                    .tint(.green)
+                                }
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        viewModel.removeCoverFromRecord(cover)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash.fill")
+                                    }
+                                }
                         }
                         Button("Send Email") {
                             sendEmail(groupedByDate[header]!, date: header)

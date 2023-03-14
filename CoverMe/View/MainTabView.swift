@@ -19,8 +19,9 @@ struct MainTabView: View {
 
             CurrentCoverView(viewModel: viewModel)
                 .tabItem {
-                    Label("Review", systemImage: "square.and.pencil")
+                    Label("Pending", systemImage: "square.and.pencil")
                 }
+                .badge(viewModel.coverRecord.count)
         }
     }
 }

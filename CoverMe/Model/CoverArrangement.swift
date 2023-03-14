@@ -12,9 +12,24 @@ struct LessonCoverPossibilities {
     let coverPossibilities: [CoverArrangement]
 }
 
-struct CoverArrangementWithDate: Identifiable {
+enum CoverStatus {
+    case draft, confirmed
+}
+
+class CoverArrangementWithDate: Identifiable, Equatable, ObservableObject {
     let coverArrangement: CoverArrangement
     let date: Date
+    @Published var status: CoverStatus
+    
+    init(coverArrangement: CoverArrangement, date: Date) {
+        self.coverArrangement = coverArrangement
+        self.date = date
+        self.status = .draft
+    }
+    
+    static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
+        return lhs.id == rhs.id
+    }
     
     //TODO - change so that this is unique with a given date (won't have this issue for a while)
     var id: String {
@@ -23,6 +38,10 @@ struct CoverArrangementWithDate: Identifiable {
     
     var startOfDayDate: Date {
         Calendar.current.startOfDay(for: date)
+    }
+    
+    func confirm() {
+        self.status = .confirmed
     }
 }
 

@@ -52,6 +52,12 @@ class CoverPickerViewModel: ObservableObject {
         
     }
     
+    func removeCoverFromRecord(_ cover: CoverArrangementWithDate) {
+        coverRecord.removeAll(where: {
+            $0 == cover
+        })
+    }
+    
     func getTeamInitials() -> [String] {
         return timetable.team.map({ $0.initials })
     }
