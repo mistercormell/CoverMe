@@ -58,7 +58,7 @@ struct CurrentCoverView: View {
         let coverDetails = coverArrangements.map({ $0.coverArrangement.display })
         let coverDetailsMessage = coverDetails.joined(separator: "\n")
         
-        let mailtoString = "mailto:\(emailSequence)?subject=COVER REQUESTS FOR: \(date.description)&body=Please can you let me know ASAP if it is not possible for you to cover the requests shown below. Any subsequent email overrides any previously communicated cover requests.\n\n \(coverDetailsMessage)\n\n Best wishes,\nDave".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let mailtoString = "mailto:\(emailSequence)?subject=COVER REQUESTS FOR: \(date.longDateDescription)&body=Please can you respond and let me know if you can or can't cover the request/s shown below. Any subsequent email overrides any previously communicated cover requests for this day.\n\n \(coverDetailsMessage)\n\n Best wishes,\nDave".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let mailtoUrl = URL(string: mailtoString!)!
         if UIApplication.shared.canOpenURL(mailtoUrl) {
                 UIApplication.shared.open(mailtoUrl, options: [:])

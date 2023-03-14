@@ -25,4 +25,11 @@ extension Date {
         
         return weekDays[dayOfWeek - 1]
     }
+    
+    var longDateDescription: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        
+        return dateFormatter.string(from: self)
+    }
 }
