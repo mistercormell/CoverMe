@@ -10,6 +10,7 @@ import SwiftUI
 struct CoverPickerView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
     @State private var showConfirmation = false
+    @State private var selectedCover: CoverArrangement?
 
     var body: some View {
         NavigationView {
@@ -34,14 +35,17 @@ struct CoverPickerView: View {
                                 ForEach(availableCover) { cover in
                                     Button(cover.coverOptionDisplay) {
                                         showConfirmation = true
+                                        selectedCover = cover
                                     }
                                     .buttonStyle(.plain)
                                     .actionSheet(isPresented: $showConfirmation) {
                                         ActionSheet(
-                                            title: Text("\(cover.coverOptionDisplay)"),
+                                            title: Text("\(selectedCover?.coverOptionDisplay ?? "No cover")"),
                                             buttons: [
                                                 .default(Text("Add to proposed cover")) {
-                                                    viewModel.addCoverArrangementWithDate(cover: cover)
+                                                    if let cover = selectedCover {
+                                                        viewModel.addCoverArrangementWithDate(cover: cover)
+                                                    }
                                                 },
                                                 .destructive(Text("Cancel")) {
                                                     print("Cancelled")

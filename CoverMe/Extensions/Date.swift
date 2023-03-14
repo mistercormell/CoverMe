@@ -19,9 +19,8 @@ extension Date {
             "Saturday"
         ]
         
-        let date = Date()
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
+        let components = calendar.dateComponents([.weekday], from: self)
         let dayOfWeek = components.weekday ?? 1
         
         return weekDays[dayOfWeek - 1]
