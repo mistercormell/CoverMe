@@ -27,7 +27,6 @@ struct CoverArrangementWithDate: Identifiable {
 }
 
 struct CoverArrangement: Identifiable {
-    let id: UUID = UUID()
     let originalTeacher: Teacher
     let coverTeacher: Teacher
     let room: Room
@@ -35,9 +34,9 @@ struct CoverArrangement: Identifiable {
     let divisionCode: String
     let notes: String
     
-//    var id: String {
-//        "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
-//    }
+    var id: String {
+        "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+    }
     
     var display: String {
         "\(shortDisplay) to cover in \(room.displayName)"
