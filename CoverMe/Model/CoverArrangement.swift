@@ -18,7 +18,7 @@ struct CoverArrangementWithDate: Identifiable {
     
     //TODO - change so that this is unique with a given date (won't have this issue for a while)
     var id: String {
-        "\(coverArrangement.id)"
+        "\(coverArrangement.id)-\(date.description)"
     }
     
     var startOfDayDate: Date {
@@ -27,6 +27,7 @@ struct CoverArrangementWithDate: Identifiable {
 }
 
 struct CoverArrangement: Identifiable {
+    let id: UUID = UUID()
     let originalTeacher: Teacher
     let coverTeacher: Teacher
     let room: Room
@@ -34,9 +35,9 @@ struct CoverArrangement: Identifiable {
     let divisionCode: String
     let notes: String
     
-    var id: String {
-        "\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
-    }
+//    var id: String {
+//        "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+//    }
     
     var display: String {
         "\(shortDisplay) to cover in \(room.displayName)"
