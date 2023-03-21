@@ -17,11 +17,15 @@ struct MainTabView: View {
                     Label("Set", systemImage: "list.dash")
                 }
 
-            CurrentCoverView(viewModel: viewModel)
+            DraftCoverView(viewModel: viewModel)
                 .tabItem {
                     Label("Pending", systemImage: "square.and.pencil")
                 }
                 .badge(viewModel.coverRecord.count)
+            ConfirmedCoverView(viewModel: viewModel)
+                .tabItem {
+                    Label("Confirmed", systemImage: "person.fill.checkmark")
+                }
         }
     }
 }

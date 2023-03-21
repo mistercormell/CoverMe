@@ -23,6 +23,7 @@ class CoverPickerViewModel: ObservableObject {
         self.coverManager = CoverManager(timetable: timetable)
         let initialTeacher = timetable.team.first ?? Teacher(initials: "Unknown")
         self.selectedTeacherInitials = initialTeacher.initials
+        
     }
     
     func addCoverArrangementWithDate(cover: CoverArrangement) {
@@ -61,4 +62,12 @@ class CoverPickerViewModel: ObservableObject {
     func getTeamInitials() -> [String] {
         return timetable.team.map({ $0.initials })
     }
+    
+//    func saveCoverRecord() {
+//        FileManager.default.save(to: "coverRecord.json", object: coverRecord)
+//    }
+//    
+//    func restoreDraftCoverRecord() {
+//        
+//    }
 }

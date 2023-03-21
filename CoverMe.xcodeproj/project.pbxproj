@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B461AF6629BA2A50005F216E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6529BA2A50005F216E /* Date.swift */; };
-		B461AF6829BA6AF0005F216E /* CurrentCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */; };
+		B461AF6829BA6AF0005F216E /* DraftCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6729BA6AF0005F216E /* DraftCoverView.swift */; };
 		B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6929BA6BDA005F216E /* MainTabView.swift */; };
 		B469C45A299262F000DEB92F /* CoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C459299262F000DEB92F /* CoverManager.swift */; };
 		B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469C45B2992638100DEB92F /* CoverArrangement.swift */; };
@@ -28,6 +28,8 @@
 		B4838FB02993A50C00100C33 /* devWork in Resources */ = {isa = PBXBuildFile; fileRef = B4838FAF2993A50C00100C33 /* devWork */; };
 		B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */; };
 		B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3429C9F67E001BBA84 /* FileManager.swift */; };
+		B4D2DD3729C9F714001BBA84 /* ConfirmedCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3629C9F714001BBA84 /* ConfirmedCoverView.swift */; };
+		B4D2DD3929C9FF20001BBA84 /* CoverRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		B461AF6529BA2A50005F216E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoverView.swift; sourceTree = "<group>"; };
+		B461AF6729BA6AF0005F216E /* DraftCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftCoverView.swift; sourceTree = "<group>"; };
 		B461AF6929BA6BDA005F216E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B469C459299262F000DEB92F /* CoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverManager.swift; sourceTree = "<group>"; };
 		B469C45B2992638100DEB92F /* CoverArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArrangement.swift; sourceTree = "<group>"; };
@@ -72,6 +74,8 @@
 		B4838FAF2993A50C00100C33 /* devWork */ = {isa = PBXFileReference; lastKnownFileType = text; path = devWork; sourceTree = "<group>"; };
 		B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPickerViewModel.swift; sourceTree = "<group>"; };
 		B4D2DD3429C9F67E001BBA84 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		B4D2DD3629C9F714001BBA84 /* ConfirmedCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedCoverView.swift; sourceTree = "<group>"; };
+		B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverRowItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				B48116FD29924F7A003F7085 /* CoverPickerView.swift */,
-				B461AF6729BA6AF0005F216E /* CurrentCoverView.swift */,
+				B461AF6729BA6AF0005F216E /* DraftCoverView.swift */,
 				B461AF6929BA6BDA005F216E /* MainTabView.swift */,
+				B4D2DD3629C9F714001BBA84 /* ConfirmedCoverView.swift */,
+				B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,12 +339,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B461AF6829BA6AF0005F216E /* CurrentCoverView.swift in Sources */,
+				B461AF6829BA6AF0005F216E /* DraftCoverView.swift in Sources */,
 				B48116FE29924F7A003F7085 /* CoverPickerView.swift in Sources */,
 				B48116FC29924F7A003F7085 /* CoverMeApp.swift in Sources */,
 				B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */,
+				B4D2DD3729C9F714001BBA84 /* ConfirmedCoverView.swift in Sources */,
 				B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */,
 				B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */,
+				B4D2DD3929C9FF20001BBA84 /* CoverRowItem.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
 				B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,

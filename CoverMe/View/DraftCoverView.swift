@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct CurrentCoverView: View {
+struct DraftCoverView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
     
+    var draftCover: [CoverArrangementWithDate] {
+        viewModel.coverRecord.filter({
+            $0.status == .draft
+        })
+    }
+    
     var groupedByDate: [Date: [CoverArrangementWithDate]] {
-        Dictionary(grouping: viewModel.coverRecord, by: {$0.startOfDayDate})
+        Dictionary(grouping: draftCover, by: {$0.startOfDayDate})
     }
 
     var headers: [Date] {
@@ -24,22 +30,7 @@ struct CurrentCoverView: View {
                 ForEach(headers, id: \.self) { header in
                     Section(header: Text(header, style: .date)) {
                         ForEach(groupedByDate[header]!) { cover in
-                            Text("\(cover.coverArrangement.display)")
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        cover.confirm()
-                                    } label: {
-                                        Label("Confirm", systemImage: "person.fill.checkmark")
-                                    }
-                                    .tint(.green)
-                                }
-                                .swipeActions(edge: .trailing) {
-                                    Button(role: .destructive) {
-                                        viewModel.removeCoverFromRecord(cover)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash.fill")
-                                    }
-                                }
+                            CoverRowItem(cover: cover, vm: viewModel)
                         }
                         Button("Send Email") {
                             sendEmail(groupedByDate[header]!, date: header)
@@ -68,6 +59,6 @@ struct CurrentCoverView: View {
 
 struct CurrentCoverView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentCoverView(viewModel: CoverPickerViewModel())
+        DraftCoverView(viewModel: CoverPickerViewModel())
     }
 }

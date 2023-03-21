@@ -12,7 +12,7 @@ struct LessonCoverPossibilities {
     let coverPossibilities: [CoverArrangement]
 }
 
-enum CoverStatus {
+enum CoverStatus: String, Codable {
     case draft, confirmed
 }
 
@@ -26,6 +26,18 @@ class CoverArrangementWithDate: Identifiable, Equatable, ObservableObject {
         self.date = date
         self.status = .draft
     }
+//
+//    enum CodingKeys: CodingKey {
+//        case coverArrangement, date, status
+//    }
+//
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//
+//        try container.encode(coverArrangement, forKey: .coverArrangement)
+//        try container.encode(date, forKey: .date)
+//        try container.encode(status, forKey: .status)
+//    }
     
     static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
         return lhs.id == rhs.id
@@ -45,7 +57,7 @@ class CoverArrangementWithDate: Identifiable, Equatable, ObservableObject {
     }
 }
 
-struct CoverArrangement: Identifiable {
+struct CoverArrangement: Identifiable, Codable {
     let originalTeacher: Teacher
     let coverTeacher: Teacher
     let room: Room

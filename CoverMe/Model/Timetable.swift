@@ -77,7 +77,7 @@ struct Division: Equatable {
     let code: String
 }
 
-struct Teacher: Equatable, Hashable {
+struct Teacher: Equatable, Hashable, Codable {
     let initials: String
 
     func getEmail() -> String {
@@ -96,7 +96,7 @@ struct Teacher: Equatable, Hashable {
     }
 }
 
-enum Room: String {
+enum Room: String, Codable {
     case Keate1, Keate2, Birley1, Birley2
     
     var displayName: String {
@@ -111,7 +111,7 @@ enum Room: String {
 }
 
 
-enum Lesson: String, CaseIterable, Hashable, Comparable {
+enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
     static func < (lhs: Lesson, rhs: Lesson) -> Bool {
         return lhs.comparisonValue < rhs.comparisonValue
     }
