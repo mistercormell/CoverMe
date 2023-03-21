@@ -14,7 +14,11 @@ class CoverPickerViewModel: ObservableObject {
     @Published var availableCoverAllDay: [Lesson: [CoverArrangement]] = [:]
     @Published var selectedTeacherInitials: String
     @Published var selectedDate: Date = Date.now
-    @Published var coverRecord: [CoverArrangementWithDate] = []
+    @Published var coverRecord: [CoverArrangementWithDate] = [] {
+        didSet {
+            self.saveCoverRecord()
+        }
+    }
     
     //TODO replace to dependency inject TimetableFileReader and CoverManager
     init() {
@@ -55,6 +59,7 @@ class CoverPickerViewModel: ObservableObject {
     
     func confirmCover(_ cover: CoverArrangementWithDate) {
         cover.confirm()
+        self.saveCoverRecord()
         objectWillChange.send()
     }
     
@@ -85,11 +90,13 @@ class CoverPickerViewModel: ObservableObject {
         return dictionary
     }
     
-//    func saveCoverRecord() {
-//        FileManager.default.save(to: "coverRecord.json", object: coverRecord)
-//    }
-//    
-//    func restoreDraftCoverRecord() {
-//        
-//    }
+    func saveCoverRecord() {
+        FileManager.default.save(to: "coverRecord.json", object: coverRecord)
+    }
+    
+    func restoreCoverRecord() {
+        if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.load(from: "coverRecord.json") {
+            coverRecord = loadedCoverRecord
+        }
+    }
 }

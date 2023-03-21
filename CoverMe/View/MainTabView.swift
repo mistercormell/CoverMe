@@ -29,6 +29,9 @@ struct MainTabView: View {
                     Label("Confirmed", systemImage: "person.fill.checkmark")
                 }
         }
+        .onAppear(perform: {
+            viewModel.restoreCoverRecord()
+        })
     }
 }
 

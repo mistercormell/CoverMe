@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoverRowItem: View {
-    @ObservedObject var cover: CoverArrangementWithDate
+    var cover: CoverArrangementWithDate
     @ObservedObject var vm: CoverPickerViewModel
     let isDraftCoverRow: Bool
     

@@ -21,28 +21,16 @@ struct CoverTally {
     let count: Int
 }
 
-class CoverArrangementWithDate: Identifiable, Equatable, ObservableObject {
+class CoverArrangementWithDate: Identifiable, Equatable, Codable {
     let coverArrangement: CoverArrangement
     let date: Date
-    @Published var status: CoverStatus
+    var status: CoverStatus
     
     init(coverArrangement: CoverArrangement, date: Date) {
         self.coverArrangement = coverArrangement
         self.date = date
         self.status = .draft
     }
-//
-//    enum CodingKeys: CodingKey {
-//        case coverArrangement, date, status
-//    }
-//
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//
-//        try container.encode(coverArrangement, forKey: .coverArrangement)
-//        try container.encode(date, forKey: .date)
-//        try container.encode(status, forKey: .status)
-//    }
     
     static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
         return lhs.id == rhs.id
