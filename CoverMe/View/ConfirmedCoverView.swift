@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConfirmedCoverView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
+    @State private var showingTallyPopover = false
     
     var confirmedCover: [CoverArrangementWithDate] {
         viewModel.coverRecord.filter({
@@ -26,17 +27,30 @@ struct ConfirmedCoverView: View {
 
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(headers, id: \.self) { header in
-                    Section(header: Text(header, style: .date)) {
-                        ForEach(groupedByDate[header]!) { cover in
-                            CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(headers, id: \.self) { header in
+                        Section(header: Text(header, style: .date)) {
+                            ForEach(groupedByDate[header]!) { cover in
+                                CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
+                            }
                         }
                     }
                 }
             }
+            .toolbar {
+                Button {
+                    showingTallyPopover = true
+                } label: {
+                    Image(systemName: "chart.pie")
+                }
+            }
         }
+        .popover(isPresented: $showingTallyPopover) {
+            CoverTallyView(teacherCoverTally: viewModel.getCoverTally())
+        }
+
     }
 }
 

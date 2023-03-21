@@ -16,6 +16,11 @@ enum CoverStatus: String, Codable {
     case draft, confirmed
 }
 
+struct CoverTally {
+    let teacher: Teacher
+    let count: Int
+}
+
 class CoverArrangementWithDate: Identifiable, Equatable, ObservableObject {
     let coverArrangement: CoverArrangement
     let date: Date

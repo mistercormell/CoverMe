@@ -77,7 +77,11 @@ struct Division: Equatable {
     let code: String
 }
 
-struct Teacher: Equatable, Hashable, Codable {
+struct Teacher: Equatable, Hashable, Codable, Comparable {
+    static func < (lhs: Teacher, rhs: Teacher) -> Bool {
+        return lhs.initials < rhs.initials
+    }
+    
     let initials: String
 
     func getEmail() -> String {

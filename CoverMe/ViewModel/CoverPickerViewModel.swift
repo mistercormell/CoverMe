@@ -68,6 +68,23 @@ class CoverPickerViewModel: ObservableObject {
         return timetable.team.map({ $0.initials })
     }
     
+    func getCoverTally() -> [Teacher:Int] {
+        var dictionary: [Teacher:Int] = [:]
+        let confirmedCover = coverRecord.filter({
+            $0.status == .confirmed
+        })
+        
+        for teacher in timetable.team {
+            dictionary[teacher] = 0
+        }
+    
+        for cover in confirmedCover {
+            dictionary[cover.coverArrangement.coverTeacher]! += 1
+        }
+        
+        return dictionary
+    }
+    
 //    func saveCoverRecord() {
 //        FileManager.default.save(to: "coverRecord.json", object: coverRecord)
 //    }
