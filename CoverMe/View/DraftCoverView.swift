@@ -30,7 +30,7 @@ struct DraftCoverView: View {
                 ForEach(headers, id: \.self) { header in
                     Section(header: Text(header, style: .date)) {
                         ForEach(groupedByDate[header]!) { cover in
-                            CoverRowItem(cover: cover, vm: viewModel)
+                            CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: true)
                         }
                         Button("Send Email") {
                             sendEmail(groupedByDate[header]!, date: header)

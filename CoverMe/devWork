@@ -9,3 +9,4 @@ New feature - Add team 'skills' so that certain teachers are preferred for certa
 New feature - Recommendation of cover options / sorting / prioritising
 New feature - export of weekly cover arrangements to email
 New FEature - Add way to generate text file from Excel (the source of timetable data)
+fix bug where if you delete a confirmed person, it's currently impossible to re-confirm them!

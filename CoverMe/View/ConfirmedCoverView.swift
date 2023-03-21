@@ -16,10 +16,25 @@ struct ConfirmedCoverView: View {
         })
     }
     
+    var groupedByDate: [Date: [CoverArrangementWithDate]] {
+        Dictionary(grouping: confirmedCover, by: {$0.startOfDayDate})
+    }
+
+    var headers: [Date] {
+        groupedByDate.map({ $0.key }).sorted()
+    }
+
+    
     var body: some View {
-        List {
-            ForEach(confirmedCover) { cover in
-                Text("\(cover.coverArrangement.display)")
+        VStack {
+            List {
+                ForEach(headers, id: \.self) { header in
+                    Section(header: Text(header, style: .date)) {
+                        ForEach(groupedByDate[header]!) { cover in
+                            CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
+                        }
+                    }
+                }
             }
         }
     }
