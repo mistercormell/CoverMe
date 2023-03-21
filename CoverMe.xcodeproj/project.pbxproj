@@ -27,6 +27,7 @@
 		B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FAD299394C500100C33 /* TimetableTest.swift */; };
 		B4838FB02993A50C00100C33 /* devWork in Resources */ = {isa = PBXBuildFile; fileRef = B4838FAF2993A50C00100C33 /* devWork */; };
 		B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */; };
+		B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3429C9F67E001BBA84 /* FileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B4838FAD299394C500100C33 /* TimetableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTest.swift; sourceTree = "<group>"; };
 		B4838FAF2993A50C00100C33 /* devWork */ = {isa = PBXFileReference; lastKnownFileType = text; path = devWork; sourceTree = "<group>"; };
 		B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPickerViewModel.swift; sourceTree = "<group>"; };
+		B4D2DD3429C9F67E001BBA84 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B461AF6529BA2A50005F216E /* Date.swift */,
+				B4D2DD3429C9F67E001BBA84 /* FileManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */,
 				B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
+				B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
 				B461AF6629BA2A50005F216E /* Date.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,
