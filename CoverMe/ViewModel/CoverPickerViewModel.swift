@@ -53,6 +53,11 @@ class CoverPickerViewModel: ObservableObject {
         
     }
     
+    func confirmCover(_ cover: CoverArrangementWithDate) {
+        cover.confirm()
+        objectWillChange.send()
+    }
+    
     func removeCoverFromRecord(_ cover: CoverArrangementWithDate) {
         coverRecord.removeAll(where: {
             $0 == cover

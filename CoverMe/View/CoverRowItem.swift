@@ -12,24 +12,22 @@ struct CoverRowItem: View {
     @ObservedObject var vm: CoverPickerViewModel
     
     var body: some View {
-        if cover.status == .draft {
-            Text("\(cover.coverArrangement.display) - \(cover.status.rawValue)")
-                .swipeActions(edge: .leading) {
-                    Button {
-                        cover.confirm()
-                    } label: {
-                        Label("Confirm", systemImage: "person.fill.checkmark")
-                    }
-                    .tint(.green)
+        Text("\(cover.coverArrangement.display) - \(cover.status.rawValue)")
+            .swipeActions(edge: .leading) {
+                Button {
+                    vm.confirmCover(cover)
+                } label: {
+                    Label("Confirm", systemImage: "person.fill.checkmark")
                 }
-                .swipeActions(edge: .trailing) {
-                    Button(role: .destructive) {
-                        vm.removeCoverFromRecord(cover)
-                    } label: {
-                        Label("Delete", systemImage: "trash.fill")
-                    }
+                .tint(.green)
+            }
+            .swipeActions(edge: .trailing) {
+                Button(role: .destructive) {
+                    vm.removeCoverFromRecord(cover)
+                } label: {
+                    Label("Delete", systemImage: "trash.fill")
                 }
-        }
+            }
 
     }
 }

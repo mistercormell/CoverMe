@@ -21,7 +21,9 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Pending", systemImage: "square.and.pencil")
                 }
-                .badge(viewModel.coverRecord.count)
+                .badge(viewModel.coverRecord.filter({
+                    $0.status == .draft
+                }).count)
             ConfirmedCoverView(viewModel: viewModel)
                 .tabItem {
                     Label("Confirmed", systemImage: "person.fill.checkmark")
