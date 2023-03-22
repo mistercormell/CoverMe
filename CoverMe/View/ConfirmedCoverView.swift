@@ -29,13 +29,18 @@ struct ConfirmedCoverView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    ForEach(headers, id: \.self) { header in
-                        Section(header: Text(header, style: .date)) {
-                            ForEach(groupedByDate[header]!) { cover in
-                                CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
-                            }
+                ScrollViewReader { proxy in
+                    List {
+                        ForEach(headers, id: \.self) { header in
+                            Section(header: Text(header, style: .date)) {
+                                ForEach(groupedByDate[header]!) { cover in
+                                    CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
+                                }
+                            }.id(header)
                         }
+                    }
+                    .onAppear {
+                        proxy.scrollTo(getNearestDateToToday(), anchor: .top)
                     }
                 }
             }
@@ -51,6 +56,18 @@ struct ConfirmedCoverView: View {
             CoverTallyView(teacherCoverTally: viewModel.getCoverTally())
         }
 
+    }
+    
+    func getNearestDateToToday() -> Date {
+        let today = Date.now.startOfDayDate
+        var dateToReturn = today
+        for date in headers {
+            if date >= today {
+                return dateToReturn
+            }
+            dateToReturn = date
+        }
+        return today
     }
 }
 
