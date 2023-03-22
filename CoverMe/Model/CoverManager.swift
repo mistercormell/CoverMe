@@ -30,6 +30,35 @@ class CoverManager {
         return []
     }
     
+    func getBestCoverOption(teacher: Teacher, lesson: Lesson, coverTally: [Teacher: Int]) -> CoverArrangement {
+        let coverOptions = getCoverOptions(teacher: teacher, lesson: lesson)
+        
+        if coverOptions.count == 1 {
+            return coverOptions[0]
+        } else {
+            let teachersAvailable = Set(coverOptions.map({
+                $0.coverTeacher
+            }))
+            let leastUtilisedAvailableTeacher = getLeastUtilisedTeacher(from: coverTally, using: teachersAvailable)
+            return coverOptions.first(where: {
+                $0.coverTeacher == leastUtilisedAvailableTeacher
+            })! //TODO Fix this!!!
+        }
+    }
+    
+    private func getLeastUtilisedTeacher(from tally: [Teacher:Int], using teachersAvailable: Set<Teacher>) -> Teacher {
+        let filteredTally = tally.filter({
+            teachersAvailable.contains($0.key)
+        })
+        
+        let entry = filteredTally.min(by: {
+            $0.value < $1.value
+        })
+        
+        //fix this! TODO!!
+        return entry!.key
+    }
+    
     func getLessonsTaught(on date: Date, by teacher: Teacher) -> [Lesson] {
         let lessonsTaught = Lesson.allCases.filter({
             timetable.doesTeachIn($0, for: teacher)
@@ -41,6 +70,18 @@ class CoverManager {
         })
         
         return lessonsTaughtOnDate
+    }
+    
+    func getBestCoverOptions(date: Date, teacher: Teacher, coverTally: [Teacher:Int]) -> [CoverArrangement] {
+        var bestCover: [CoverArrangement] = []
+        let lessons = getLessonsTaught(on: date, by: teacher)
+        
+        for lesson in lessons {
+            let bestOption = getBestCoverOption(teacher: teacher, lesson: lesson, coverTally: coverTally)
+            bestCover.append(bestOption)
+        }
+        
+        return bestCover
     }
     
     func getCoverOptions(date: Date, teacher: Teacher) -> [Lesson:[CoverArrangement]] {
