@@ -26,24 +26,29 @@ struct DraftCoverView: View {
     
     var body: some View {
         VStack {
-            List {
-                ForEach(headers, id: \.self) { header in
-                    Section(header: Text(header, style: .date)) {
-                        ForEach(groupedByDate[header]!) { cover in
-                            CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: true)
-                        }
-                        Button("Send Email") {
-                            sendEmail(groupedByDate[header]!, date: header)
+            if draftCover.count <= 0 {
+                Text("No Pending Cover Requests")
+            } else {
+                List {
+                    ForEach(headers, id: \.self) { header in
+                        Section(header: Text(header, style: .date)) {
+                            ForEach(groupedByDate[header]!) { cover in
+                                CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: true)
+                            }
+                            Button("Send Email") {
+                                sendEmail(groupedByDate[header]!, date: header)
+                            }
                         }
                     }
                 }
             }
+
         }
 
     }
     
     func sendEmail(_ coverArrangements: [CoverArrangementWithDate], date: Date) {
-        let mailToUrl = MailHandler.mailToUrl(coverArrangements, date: date)
+        let mailToUrl = MailHandler.draftCoverEmail(coverArrangements, date: date)
         if UIApplication.shared.canOpenURL(mailToUrl) {
                 UIApplication.shared.open(mailToUrl, options: [:])
         }

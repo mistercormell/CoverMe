@@ -2,7 +2,6 @@ Make it so that the tests are not dependent on the current live timetable data a
 Have some tests for the 'current live timetable to act as a sanity check for errors (that would need to be updated year on year, perhaps totalling up SPW for each teacher)'
 Clean up architecture and remove dependencies on CoverPickerViewModel
 New feature - Add ability to give readers
-New feature - export of weekly cover arrangements to email
 fix bug where if you delete a confirmed person, it's currently impossible to re-confirm them!
 Fix bug where you can't add the same cover twice to the draft list
 Fix bug where it currently can assign someone for cover if they are free but down to cover someone else!
