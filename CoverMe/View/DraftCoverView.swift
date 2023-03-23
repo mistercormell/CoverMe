@@ -43,16 +43,9 @@ struct DraftCoverView: View {
     }
     
     func sendEmail(_ coverArrangements: [CoverArrangementWithDate], date: Date) {
-        let emails = Set(coverArrangements.map({ $0.coverArrangement.coverTeacher.getEmail()}))
-        let emailSequence = emails.joined(separator: ",")
-        
-        let coverDetails = coverArrangements.map({ $0.coverArrangement.display })
-        let coverDetailsMessage = coverDetails.joined(separator: "\n")
-        
-        let mailtoString = "mailto:\(emailSequence)?subject=COVER REQUESTS FOR: \(date.longDateDescription)&body=Please can you respond and let me know if you can or can't cover the request/s shown below. Any subsequent email overrides any previously communicated cover requests for this day.\n\n \(coverDetailsMessage)\n\n Best wishes,\nDave".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let mailtoUrl = URL(string: mailtoString!)!
-        if UIApplication.shared.canOpenURL(mailtoUrl) {
-                UIApplication.shared.open(mailtoUrl, options: [:])
+        let mailToUrl = MailHandler.mailToUrl(coverArrangements, date: date)
+        if UIApplication.shared.canOpenURL(mailToUrl) {
+                UIApplication.shared.open(mailToUrl, options: [:])
         }
     }
 }

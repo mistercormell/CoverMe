@@ -17,6 +17,12 @@ struct ConfirmedCoverView: View {
         })
     }
     
+    var confirmedCoverFuture: [CoverArrangementWithDate] {
+        confirmedCover.filter({
+            $0.date.startOfDayDate >= Date.now.startOfDayDate
+        })
+    }
+    
     var groupedByDate: [Date: [CoverArrangementWithDate]] {
         Dictionary(grouping: confirmedCover, by: {$0.startOfDayDate})
     }
@@ -50,12 +56,24 @@ struct ConfirmedCoverView: View {
                 } label: {
                     Image(systemName: "chart.pie")
                 }
+                Button {
+                    sendEmail()
+                } label: {
+                    Image(systemName: "envelope")
+                }
             }
         }
         .popover(isPresented: $showingTallyPopover) {
             CoverTallyView(teacherCoverTally: viewModel.getCoverTally())
         }
 
+    }
+    
+    func sendEmail() {
+        let mailToUrl = MailHandler.coverConfirmationEmail(futureCoverArrangements: confirmedCoverFuture)
+        if UIApplication.shared.canOpenURL(mailToUrl) {
+                UIApplication.shared.open(mailToUrl, options: [:])
+        }
     }
     
     func getNearestDateToToday() -> Date {

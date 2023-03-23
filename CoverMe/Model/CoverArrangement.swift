@@ -41,6 +41,10 @@ class CoverArrangementWithDate: Identifiable, Equatable, Codable {
         "\(coverArrangement.id)-\(date.description)"
     }
     
+    var display: String {
+        "\(date.longDateDescription): \(coverArrangement.display)"
+    }
+    
     var startOfDayDate: Date {
         Calendar.current.startOfDay(for: date)
     }

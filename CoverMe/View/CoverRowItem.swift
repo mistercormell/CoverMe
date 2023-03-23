@@ -13,7 +13,7 @@ struct CoverRowItem: View {
     let isDraftCoverRow: Bool
     
     var body: some View {
-        Text("\(cover.coverArrangement.display) - \(cover.status.rawValue)")
+        Text("\(cover.coverArrangement.display)")
             .swipeActions(edge: .leading) {
                 if isDraftCoverRow {
                     Button {
