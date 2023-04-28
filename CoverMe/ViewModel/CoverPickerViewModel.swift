@@ -10,6 +10,7 @@ import Foundation
 class CoverPickerViewModel: ObservableObject {
     static private let defaultLesson = Lesson.Monday2nd
     let timetable: Timetable
+    let termDates: TermDates
     let coverManager: CoverManager
     @Published var availableCoverAllDay: [Lesson: [CoverArrangement]] = [:]
     @Published var selectedTeacherInitials: String
@@ -27,6 +28,8 @@ class CoverPickerViewModel: ObservableObject {
         self.coverManager = CoverManager(timetable: timetable)
         let initialTeacher = timetable.team.first ?? Teacher(initials: "Unknown")
         self.selectedTeacherInitials = initialTeacher.initials
+        let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
+        self.termDates = termDates
         
     }
     

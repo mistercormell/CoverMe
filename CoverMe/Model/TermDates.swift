@@ -8,7 +8,17 @@
 import Foundation
 
 struct TermDates {
-    let startDates: [TermDate] = []
+    var startDates: [TermDate] = []
+    
+    var isSummer: Bool {
+        let now = Date.now
+        for startDateOfTerm in startDates {
+            if now >= startDateOfTerm.date {
+                return startDateOfTerm.term == Term.Summer
+            }
+        }
+        return false
+    }
 }
 
 struct TermDate {
@@ -16,6 +26,6 @@ struct TermDate {
     let date: Date
 }
 
-enum Term {
+enum Term: String {
     case Michaelmas, Lent, Summer
 }

@@ -8,20 +8,38 @@
 import Foundation
 
 class TermDatesFileReader {
-    static func createTermDatesFromFile() -> TermDates {
+    static func createTermStartDateFrom(line: String) -> TermDate? {
+        let parts = line.components(separatedBy: ",")
+        if let term = Term(rawValue: parts[1]) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-mm-y"
+            if let date = formatter.date(from: parts[0]) {
+                let termDate = TermDate(term: term, date: date)
+                return termDate
+            } else {
+                print("Invalid term date")
+            }
+        } else {
+            print("Invalid term name: parts[1]")
+        }
+        return nil
+    }
+    
+    static func createTermDatesFromFile(filename: String) -> TermDates {
         if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
             do {
                 let contents = try String(contentsOfFile: filepath)
-                let lines = contents.components(separatedBy: "\n")
-                var timetabledLessons: [TimetabledLesson] = []
+                let trimmedContent = contents.trimmingCharacters(in: .whitespacesAndNewlines)
+                let lines = trimmedContent.components(separatedBy: "\n")
+                var startDates: [TermDate] = []
                 for line in lines {
-                    if let timetabledLesson = createTimetabledLessonFromLine(line: line) {
-                        timetabledLessons.append(timetabledLesson)
+                    if let termDate = createTermStartDateFrom(line: line) {
+                        startDates.append(termDate)
                     } else {
                         print("Error, could not extract valid timetabled lesson from: \(line)")
                     }
                 }
-                return Timetable(timetabledLessons: timetabledLessons)
+                return TermDates(startDates: startDates)
             } catch {
                 print("Couldn't load contents of file")
             }
@@ -29,7 +47,6 @@ class TermDatesFileReader {
             print("File not found!")
         }
         
-        return Timetable(timetabledLessons: [])
         return TermDates()
     }
 }
