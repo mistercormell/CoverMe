@@ -31,7 +31,7 @@ class MailHandler {
         let coverEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.coverTeacher.getEmail()}))
         let coveredEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.originalTeacher.getEmail()}))
         let emails = coverEmails.union(coveredEmails)
-        let coverDetails = futureCoverArrangements.map({ $0.display})
+        let coverDetails = futureCoverArrangements.sorted(by: {$0 < $1}).map({ $0.display})
         let subject = "CONFIRMED Cover From: \(Date.now.longDateDescription) Onwards"
         let body = "Dear All,\n\nThank you to those shown below who have agreed to provide cover. \n\nIf you are being covered for any of the schools below, please contact the relevant master/s detailing what needs to be covered, if you haven't already."
         

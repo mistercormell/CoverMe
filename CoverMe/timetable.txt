@@ -88,6 +88,8 @@ Saturday3rd,CComX-1,DPC,Keate2
 Saturday3rd,FCom2-1m,MC,Keate1
 Saturday3rd,BComX-1,SJT,Birley1
 Saturday3rd,FCom2-1,SKG,Birley2
+Saturday2nd,NotAvailable,SFB,Keate2
+Saturday3rd,NotAvailable,SFB,Keate2
 
 
 

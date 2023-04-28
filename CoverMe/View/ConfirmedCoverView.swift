@@ -14,7 +14,7 @@ struct ConfirmedCoverView: View {
     var confirmedCover: [CoverArrangementWithDate] {
         viewModel.coverRecord.filter({
             $0.status == .confirmed
-        })
+        }).sorted()
     }
     
     var confirmedCoverFuture: [CoverArrangementWithDate] {

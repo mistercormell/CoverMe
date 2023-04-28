@@ -21,7 +21,7 @@ struct CoverTally {
     let count: Int
 }
 
-class CoverArrangementWithDate: Identifiable, Equatable, Codable {
+class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     let coverArrangement: CoverArrangement
     let date: Date
     var status: CoverStatus
@@ -34,6 +34,16 @@ class CoverArrangementWithDate: Identifiable, Equatable, Codable {
     
     static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
+        if lhs.startOfDayDate < rhs.startOfDayDate {
+            return true
+        } else if lhs.startOfDayDate == rhs.startOfDayDate {
+            return lhs.coverArrangement.lesson < rhs.coverArrangement.lesson
+        } else {
+            return false
+        }
     }
     
     //TODO - change so that this is unique with a given date (won't have this issue for a while)

@@ -93,6 +93,8 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
             return "j.stanforth@etoncollege.org.uk"
         } else if initials == "SKG" {
             return "s.grover@etoncollege.org.uk"
+        } else if initials == "SFB" {
+            return "s.birtles@etoncollege.org.uk"
         } else {
             return "d.cormell@etoncollege.org.uk"
         }
