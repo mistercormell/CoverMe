@@ -122,7 +122,7 @@ enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
         return lhs.comparisonValue < rhs.comparisonValue
     }
     
-    case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, MondayA4, MondayA5,Tuesday1st,Tuesday2nd,Tuesday3rd,Tuesday4th,Tuesday5th,Wednesday1st, Wednesday2nd, Wednesday3rd, Wednesday4th, Wednesday5th, WednesdayA4, WednesdayA5,Thursday1st,Thursday2nd,Thursday3rd,Thursday4th,Thursday5th,Friday1st, Friday2nd, Friday3rd, Friday4th, Friday5th, FridayA4, FridayA5,Saturday1st,Saturday2nd,Saturday3rd,Saturday4th
+    case Monday1st, Monday2nd, Monday3rd, Monday4th, Monday5th, Monday6th, Monday7th,Tuesday1st,Tuesday2nd,Tuesday3rd,Tuesday4th,Tuesday5th,Wednesday1st, Wednesday2nd, Wednesday3rd, Wednesday4th, Wednesday5th, Wednesday6th, Wednesday7th,Thursday1st,Thursday2nd,Thursday3rd,Thursday4th,Thursday5th,Friday1st, Friday2nd, Friday3rd, Friday4th, Friday5th, Friday6th, Friday7th,Saturday1st,Saturday2nd,Saturday3rd,Saturday4th
     
     //this needs replacing, perhaps enum no longer fit for Lessons now...
     private var comparisonValue: Int {
@@ -137,9 +137,9 @@ enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
         return 4
       case .Monday5th:
         return 5
-      case .MondayA4:
+      case .Monday6th:
         return 6
-      case .MondayA5:
+      case .Monday7th:
         return 7
       case .Tuesday1st:
         return 8
@@ -161,9 +161,9 @@ enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
         return 16
       case .Wednesday5th:
         return 17
-      case .WednesdayA4:
+      case .Wednesday6th:
         return 18
-      case .WednesdayA5:
+      case .Wednesday7th:
         return 19
       case .Thursday1st:
         return 20
@@ -185,9 +185,9 @@ enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
         return 28
       case .Friday5th:
         return 29
-      case .FridayA4:
+      case .Friday6th:
         return 30
-      case .FridayA5:
+      case .Friday7th:
         return 31
       case .Saturday1st:
         return 32
