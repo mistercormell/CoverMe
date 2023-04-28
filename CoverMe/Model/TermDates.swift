@@ -10,14 +10,18 @@ import Foundation
 struct TermDates {
     var startDates: [TermDate] = []
     
-    var isSummer: Bool {
-        let now = Date.now
-        for startDateOfTerm in startDates {
-            if now >= startDateOfTerm.date {
-                return startDateOfTerm.term == Term.Summer
+    func isSummer(at date: Date) -> Bool {
+        for i in 0..<startDates.count {
+            let startDateOfTerm = startDates[i]
+            if date <= startDateOfTerm.date {
+                return startDates[i-1].term == Term.Summer
             }
         }
         return false
+    }
+    
+    var isSummer: Bool {
+        self.isSummer(at: Date.now)
     }
 }
 

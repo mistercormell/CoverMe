@@ -12,7 +12,7 @@ class TermDatesFileReader {
         let parts = line.components(separatedBy: ",")
         if let term = Term(rawValue: parts[1]) {
             let formatter = DateFormatter()
-            formatter.dateFormat = "dd-mm-y"
+            formatter.dateFormat = "dd/MM/yy"
             if let date = formatter.date(from: parts[0]) {
                 let termDate = TermDate(term: term, date: date)
                 return termDate
