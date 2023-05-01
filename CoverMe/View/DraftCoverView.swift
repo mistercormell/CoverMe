@@ -13,7 +13,7 @@ struct DraftCoverView: View {
     var draftCover: [CoverArrangementWithDate] {
         viewModel.coverRecord.filter({
             $0.status == .draft
-        })
+        }).sorted()
     }
     
     var groupedByDate: [Date: [CoverArrangementWithDate]] {

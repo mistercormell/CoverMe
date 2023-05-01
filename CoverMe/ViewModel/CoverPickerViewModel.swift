@@ -41,7 +41,7 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func addCoverArrangementWithDate(cover: CoverArrangement) {
-        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate)
+        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate, inSummer: termDates.isSummer(at: selectedDate))
         coverRecord.append(coverArrangementWithDate)
     }
     
@@ -51,14 +51,8 @@ class CoverPickerViewModel: ObservableObject {
     
     func getLessonDisplay(lesson: Lesson) -> String {
         let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: Teacher(initials: selectedTeacherInitials))
-        var sixth = "A4"
-        var seventh = "A5"
-        if termDates.isSummer(at: self.selectedDate) {
-            sixth = "A3"
-            seventh = "A4"
-        }
-        var display = timetabledLesson?.display.replacingOccurrences(of: "6th", with: sixth)
-        return display?.replacingOccurrences(of: "7th", with: seventh) ?? ""
+        
+        return CoverArrangementWithDate.getDisplay(text: timetabledLesson?.display ?? "", inSummer: termDates.isSummer(at: selectedDate))
     }
     
     func getLessonsTaughtOnDate() -> [Lesson] {

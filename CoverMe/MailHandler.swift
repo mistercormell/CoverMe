@@ -20,7 +20,7 @@ class MailHandler {
     
     static func draftCoverEmail(_ coverArrangements: [CoverArrangementWithDate], date: Date) -> URL {
         let emails = Set(coverArrangements.map({ $0.coverArrangement.coverTeacher.getEmail()}))
-        let coverDetails = coverArrangements.map({ $0.coverArrangement.display })
+        let coverDetails = coverArrangements.sorted(by: { $0 < $1 }).map({ $0.displayWithoutDate })
         let subject = "COVER REQUESTS FOR: \(date.longDateDescription)"
         let body = "Please can you respond and let me know if you can or can't cover the request/s shown below. Any subsequent email overrides any previously communicated cover requests for this day: \(date.longDateDescription)"
         

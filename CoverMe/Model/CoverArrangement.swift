@@ -24,12 +24,14 @@ struct CoverTally {
 class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     let coverArrangement: CoverArrangement
     let date: Date
+    let inSummer: Bool
     var status: CoverStatus
     
-    init(coverArrangement: CoverArrangement, date: Date) {
+    init(coverArrangement: CoverArrangement, date: Date, inSummer: Bool) {
         self.coverArrangement = coverArrangement
         self.date = date
         self.status = .draft
+        self.inSummer = inSummer
     }
     
     static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
@@ -52,7 +54,11 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     }
     
     var display: String {
-        "\(date.longDateDescription): \(coverArrangement.display)"
+        "\(date.longDateDescription): \(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, inSummer: inSummer))"
+    }
+    
+    var displayWithoutDate: String {
+        "\(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, inSummer: inSummer))"
     }
     
     var startOfDayDate: Date {
@@ -61,6 +67,17 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     
     func confirm() {
         self.status = .confirmed
+    }
+    
+    static func getDisplay(text: String, inSummer: Bool) -> String {
+        var sixth = "A4"
+        var seventh = "A5"
+        if inSummer {
+            sixth = "A3"
+            seventh = "A4"
+        }
+        var display = text.replacingOccurrences(of: "6th", with: sixth)
+        return display.replacingOccurrences(of: "7th", with: seventh)
     }
 }
 

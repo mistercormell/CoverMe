@@ -13,7 +13,7 @@ struct CoverRowItem: View {
     let isDraftCoverRow: Bool
     
     var body: some View {
-        Text("\(cover.coverArrangement.display)")
+        Text("\(cover.displayWithoutDate)")
             .swipeActions(edge: .leading) {
                 if isDraftCoverRow {
                     Button {
@@ -37,6 +37,6 @@ struct CoverRowItem: View {
 
 struct CoverRowItem_Previews: PreviewProvider {
     static var previews: some View {
-        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC"), coverTeacher: Teacher(initials: "MC"), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: ""), date: Date.now), vm: CoverPickerViewModel(), isDraftCoverRow: true)
+        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC"), coverTeacher: Teacher(initials: "MC"), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: ""), date: Date.now, inSummer: false), vm: CoverPickerViewModel(), isDraftCoverRow: true)
     }
 }
