@@ -88,24 +88,26 @@ struct CoverArrangement: Identifiable, Codable {
     let lesson: Lesson
     let divisionCode: String
     let notes: String
+    let isReadingSchool: Bool
     
     var id: String {
         "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
     }
     
     var display: String {
-        "\(shortDisplay) to cover in \(room.displayName)"
+        "\(toBeCoveredDisplay) - \(coverOptionDisplay)"
     }
-    
-    var shortDisplay: String {
-        "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials)) - \(coverTeacher.initials)"
-    }
-    
+        
     var toBeCoveredDisplay: String {
         "\(lesson.displayName) - \(divisionCode) (\(originalTeacher.initials))"
     }
     
     var coverOptionDisplay: String {
-        "\(coverTeacher.initials) to cover in \(room.displayName)"
+        if isReadingSchool {
+            return "Reader to be given"
+        } else {
+            return "\(coverTeacher.initials) to cover in \(room.displayName)"
+        }
+        
     }
 }

@@ -88,7 +88,7 @@ class CoverPickerViewModel: ObservableObject {
     func getCoverTally() -> [Teacher:Int] {
         var dictionary: [Teacher:Int] = [:]
         let confirmedCover = coverRecord.filter({
-            $0.status == .confirmed
+            $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
         })
         
         for teacher in timetable.team {
@@ -100,6 +100,21 @@ class CoverPickerViewModel: ObservableObject {
         }
         
         return dictionary
+    }
+    
+    func getReadingSchoolTally() -> Int {
+        return coverRecord.filter({
+            $0.coverArrangement.isReadingSchool
+        }).count
+    }
+    
+    func getTallyDisplay(for cover: CoverArrangement) -> Int {
+        let tally = getCoverTally()
+        if cover.isReadingSchool {
+            return getReadingSchoolTally()
+        } else {
+            return tally[cover.coverTeacher] ?? 0
+        }
     }
     
     func saveCoverRecord() {

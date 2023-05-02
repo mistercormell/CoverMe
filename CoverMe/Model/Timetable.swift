@@ -71,6 +71,16 @@ struct TimetabledLesson: Equatable {
     var display: String {
         "\(lesson.displayName) - \(division.code) (\(teacher.initials))"
     }
+    
+    func canBeGivenReader() -> Bool {
+        if division.code.hasPrefix("C") || division.code.hasPrefix("B") {
+            if lesson.canBeGivenReader {
+                return true
+            }
+        }
+        
+        return false
+    }
 }
 
 struct Division: Equatable {
@@ -217,6 +227,14 @@ enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
             return String(self.rawValue.prefix(upTo: locationOfY)) + "y"
         } else {
             return self.rawValue
+        }
+    }
+    
+    var canBeGivenReader: Bool {
+        if self.rawValue.contains("1st") || self.rawValue.contains("6th") || self.rawValue.contains("7th") {
+            return false
+        } else {
+            return true
         }
     }
 }

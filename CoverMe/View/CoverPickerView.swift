@@ -42,9 +42,16 @@ struct CoverPickerView: View {
                         List {
                             if let availableCover = viewModel.availableCoverAllDay[lesson] {
                                 ForEach(availableCover) { cover in
-                                    Button(cover.coverOptionDisplay) {
+                                    Button {
                                         showConfirmation = true
                                         selectedCover = cover
+                                    } label: {
+                                        HStack {
+                                            Text(cover.coverOptionDisplay)
+                                            Spacer()
+                                            Image(systemName: "\(viewModel.getTallyDisplay(for: cover)).circle")
+                                                .foregroundColor(.gray)
+                                        }
                                     }
                                     .buttonStyle(.plain)
                                     .actionSheet(isPresented: $showConfirmation) {

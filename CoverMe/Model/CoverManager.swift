@@ -13,14 +13,17 @@ class CoverManager {
     init(timetable: Timetable) {
         self.timetable = timetable
     }
-    
+        
     func getCoverOptions(teacher: Teacher, lesson: Lesson) -> [CoverArrangement] {
         var coverOptions: [CoverArrangement] = []
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
             let availableTeachers = timetable.findAvailableTeachers(lesson: lesson)
             for availableTeacher in availableTeachers {
-                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "")
+                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false)
                 coverOptions.append(coverArrangement)
+            }
+            if timetabledLesson.canBeGivenReader() {
+                coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true))
             }
             return coverOptions
         } else {
