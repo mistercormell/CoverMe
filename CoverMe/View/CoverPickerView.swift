@@ -49,8 +49,10 @@ struct CoverPickerView: View {
                                         HStack {
                                             Text(cover.coverOptionDisplay)
                                             Spacer()
-                                            Image(systemName: "\(viewModel.getTallyDisplay(for: cover)).circle")
-                                                .foregroundColor(.gray)
+                                            if viewModel.getTallyDisplay(for: cover) > 0 {
+                                                Image(systemName: "\(viewModel.getTallyDisplay(for: cover)).circle")
+                                                    .foregroundColor(.gray)
+                                            }
                                         }
                                     }
                                     .buttonStyle(.plain)
