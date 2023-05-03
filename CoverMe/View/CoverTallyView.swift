@@ -14,19 +14,24 @@ struct CoverTallyView: View {
     var body: some View {
         List {
             ForEach(teacherCoverTally.sorted(by: <), id: \.key) { (key, value) in
-                HStack {
-                    Text("\(key.initials)")
-                    Spacer()
-                    Text("\(value )")
-                }
+                CoverTallyItemView(key: key.initials, value: value)
             }
             Section {
-                HStack {
-                    Text("Readers")
-                    Spacer()
-                    Text("\(readerTally)")
-                }
+                CoverTallyItemView(key: "Readers", value: readerTally)
             }
+        }
+    }
+}
+
+struct CoverTallyItemView: View {
+    let key: String
+    let value: Int
+    
+    var body: some View {
+        HStack {
+            Text(key)
+            Spacer()
+            Text("\(value)")
         }
     }
 }
