@@ -38,7 +38,14 @@ struct ConfirmedCoverView: View {
                 ScrollViewReader { proxy in
                     List {
                         ForEach(headers, id: \.self) { header in
-                            Section(header: Text(header, style: .date)) {
+                            Section(header: HStack {
+                                Button {
+                                    sendEmail(by: header.startOfDayDate)
+                                } label: {
+                                    Image(systemName: "envelope.open.badge.clock")
+                                }
+                                Text(header, style: .date)
+                            }) {
                                 ForEach(groupedByDate[header]!) { cover in
                                     CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
                                 }
@@ -70,7 +77,15 @@ struct ConfirmedCoverView: View {
     }
     
     func sendEmail() {
-        let mailToUrl = MailHandler.coverConfirmationEmail(futureCoverArrangements: confirmedCoverFuture)
+        sendEmail(coverArrangements: confirmedCoverFuture, isSingleDate: false)
+    }
+    
+    func sendEmail(by date: Date) {
+        sendEmail(coverArrangements: groupedByDate[date] ?? [], isSingleDate: true)
+    }
+    
+    func sendEmail(coverArrangements: [CoverArrangementWithDate], isSingleDate: Bool) {
+        let mailToUrl = MailHandler.coverConfirmationEmail(futureCoverArrangements: coverArrangements, isSingleDate: isSingleDate)
         if UIApplication.shared.canOpenURL(mailToUrl) {
                 UIApplication.shared.open(mailToUrl, options: [:])
         }

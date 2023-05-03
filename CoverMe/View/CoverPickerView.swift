@@ -21,7 +21,7 @@ struct CoverPickerView: View {
                             Text($0)
                         }
                     })
-                    DatePicker(selection: $viewModel.selectedDate, in: Date.now..., displayedComponents: .date) {
+                    DatePicker(selection: $viewModel.selectedDate, displayedComponents: .date) {
                         Text("Date of Cover")
                     }
                 }
