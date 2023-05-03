@@ -33,6 +33,13 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    var twoDigitYear: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy"
+        
+        return dateFormatter.string(from: self)
+    }
+    
     var startOfDayDate: Date {
         Calendar.current.startOfDay(for: self)
     }

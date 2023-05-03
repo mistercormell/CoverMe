@@ -36,7 +36,7 @@ class TermDatesFileReader {
                     if let termDate = createTermStartDateFrom(line: line) {
                         startDates.append(termDate)
                     } else {
-                        print("Error, could not extract valid timetabled lesson from: \(line)")
+                        print("Error, could not extract valid term date from: \(line)")
                     }
                 }
                 return TermDates(startDates: startDates)

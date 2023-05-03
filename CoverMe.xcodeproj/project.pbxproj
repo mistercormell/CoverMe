@@ -36,6 +36,7 @@
 		B4D2DD3929C9FF20001BBA84 /* CoverRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */; };
 		B4D2DD3B29CA089F001BBA84 /* CoverTallyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD3A29CA089F001BBA84 /* CoverTallyView.swift */; };
 		B4D2DD5B29CC666E001BBA84 /* MailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD5A29CC666E001BBA84 /* MailHandler.swift */; };
+		B4E41A822A029AAA00DF19F8 /* TermDatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E41A812A029AAA00DF19F8 /* TermDatesTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverRowItem.swift; sourceTree = "<group>"; };
 		B4D2DD3A29CA089F001BBA84 /* CoverTallyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverTallyView.swift; sourceTree = "<group>"; };
 		B4D2DD5A29CC666E001BBA84 /* MailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailHandler.swift; sourceTree = "<group>"; };
+		B4E41A812A029AAA00DF19F8 /* TermDatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				B469C45D29926A9C00DEB92F /* CoverManagerTest.swift */,
 				B4838FAD299394C500100C33 /* TimetableTest.swift */,
 				B471D3E829FBE991001C15DD /* TermDatesFileReaderTest.swift */,
+				B4E41A812A029AAA00DF19F8 /* TermDatesTest.swift */,
 			);
 			path = CoverMeTests;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				B481172E29925B88003F7085 /* TimetableFileReaderTest.swift in Sources */,
 				B471D3E929FBE991001C15DD /* TermDatesFileReaderTest.swift in Sources */,
 				B4838FAE299394C500100C33 /* TimetableTest.swift in Sources */,
+				B4E41A822A029AAA00DF19F8 /* TermDatesTest.swift in Sources */,
 				B481170D29924F7C003F7085 /* CoverMeTests.swift in Sources */,
 				B469C45E29926A9C00DEB92F /* CoverManagerTest.swift in Sources */,
 			);
