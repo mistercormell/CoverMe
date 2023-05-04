@@ -37,6 +37,6 @@ struct CoverRowItem: View {
 
 struct CoverRowItem_Previews: PreviewProvider {
     static var previews: some View {
-        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC", department: .ComputerScience), coverTeacher: Teacher(initials: "MC", department: .ComputerScience), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: "", isReadingSchool: false), date: Date.now, inSummer: false), vm: CoverPickerViewModel(), isDraftCoverRow: true)
+        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC", department: .ComputerScience), coverTeacher: Teacher(initials: "MC", department: .ComputerScience), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: "", isReadingSchool: false), date: Date.now, inSummer: false), vm: CoverPickerViewModel(selectedDepartment: .ComputerScience), isDraftCoverRow: true)
     }
 }

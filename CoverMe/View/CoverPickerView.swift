@@ -87,6 +87,6 @@ struct CoverPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverPickerView(viewModel: CoverPickerViewModel())
+        CoverPickerView(viewModel: CoverPickerViewModel(selectedDepartment: .ComputerScience))
     }
 }

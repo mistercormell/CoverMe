@@ -15,7 +15,7 @@ class CoverPickerViewModel: ObservableObject {
     @Published var availableCoverAllDay: [Lesson: [CoverArrangement]] = [:]
     @Published var selectedTeacherInitials: String
     @Published var selectedDate: Date = Date.now
-    @Published var selectedDepartment: Department = .ComputerScience //default subject!
+    @Published var selectedDepartment: Department //default subject!
     @Published var coverRecord: [CoverArrangementWithDate] = [] {
         didSet {
             self.saveCoverRecord()
@@ -23,11 +23,13 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     //TODO replace to dependency inject TimetableFileReader and CoverManager
-    init() {
+    init(selectedDepartment: Department) {
         let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
         self.timetable = timetable
         self.coverManager = CoverManager(timetable: timetable)
-        let initialTeacher = timetable.getTeam(by: .ComputerScience).first ?? Teacher(initials: "Unknown", department: .ComputerScience)
+        //TODO Fix this so that it uses the correct team!
+        self.selectedDepartment = selectedDepartment
+        let initialTeacher = timetable.getTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", department: selectedDepartment)
         self.selectedTeacherInitials = initialTeacher.initials
         let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
         self.termDates = termDates

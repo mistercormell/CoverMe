@@ -9,10 +9,9 @@ import SwiftUI
 
 @main
 struct CoverMeApp: App {
-    let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            LaunchScreenView()
         }
     }
 }
