@@ -8,11 +8,21 @@
 import Foundation
 
 class TimetableFileReader {
+    static private func getDepartment(from divisionCode: String) -> Department {
+        if divisionCode.contains("Com") {
+            return .ComputerScience
+        } else if divisionCode.contains("Div") || divisionCode.contains("The") {
+            return .Divinity
+        } else {
+            return .ComputerScience
+        }
+    }
+    
     static func createTimetabledLessonFromLine(line: String) -> TimetabledLesson? {
         let parts = line.components(separatedBy: ",")
         if let lesson = Lesson(rawValue: parts[0]) {
             if let room = Room(rawValue: parts[3]) {
-                let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: Teacher(initials: parts[2]), division: Division(code: parts[1]), room: room)
+                let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: Teacher(initials: parts[2], department: getDepartment(from: parts[1])), division: Division(code: parts[1]), room: room)
                 return timetabledLesson
             } else {
                 print("Invalid room name")

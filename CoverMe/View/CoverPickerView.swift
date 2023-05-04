@@ -13,9 +13,9 @@ struct CoverPickerView: View {
     @State private var selectedCover: CoverArrangement?
 
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Form {
-                Section(header: Text("What needs covering")) {
+                Section(header: Text("What needs covering for: \(viewModel.selectedDepartment.display)")) {
                     Picker(selection: $viewModel.selectedTeacherInitials, label: Text("Teacher"), content: {
                         ForEach(viewModel.getTeamInitials(), id: \.self) {
                             Text($0)
@@ -82,7 +82,6 @@ struct CoverPickerView: View {
                     }
                 }
             }
-        }
     }
 }
 

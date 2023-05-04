@@ -76,7 +76,7 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
             sixth = "A3"
             seventh = "A4"
         }
-        var display = text.replacingOccurrences(of: "6th", with: sixth)
+        let display = text.replacingOccurrences(of: "6th", with: sixth)
         return display.replacingOccurrences(of: "7th", with: seventh)
     }
 }

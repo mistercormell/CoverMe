@@ -17,7 +17,9 @@ class CoverManager {
     func getCoverOptions(teacher: Teacher, lesson: Lesson) -> [CoverArrangement] {
         var coverOptions: [CoverArrangement] = []
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
-            let availableTeachers = timetable.findAvailableTeachers(lesson: lesson)
+            let availableTeachers = timetable.findAvailableTeachers(lesson: lesson).filter({
+                $0.department == teacher.department
+            })
             for availableTeacher in availableTeachers {
                 let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false)
                 coverOptions.append(coverArrangement)

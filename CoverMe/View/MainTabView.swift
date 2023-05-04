@@ -11,27 +11,33 @@ struct MainTabView: View {
     @StateObject var viewModel = CoverPickerViewModel()
     
     var body: some View {
-        TabView {
-            CoverPickerView(viewModel: viewModel)
-                .tabItem {
-                    Label("Set", systemImage: "list.dash")
-                }
+        if let department = UserDefaults.standard.selectedDepartment {
+            TabView {
+                CoverPickerView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Set", systemImage: "list.dash")
+                    }
 
-            DraftCoverView(viewModel: viewModel)
-                .tabItem {
-                    Label("Pending", systemImage: "square.and.pencil")
-                }
-                .badge(viewModel.coverRecord.filter({
-                    $0.status == .draft
-                }).count)
-            ConfirmedCoverView(viewModel: viewModel)
-                .tabItem {
-                    Label("Confirmed", systemImage: "person.fill.checkmark")
-                }
+                DraftCoverView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Pending", systemImage: "square.and.pencil")
+                    }
+                    .badge(viewModel.coverRecord.filter({
+                        $0.status == .draft
+                    }).count)
+                ConfirmedCoverView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Confirmed", systemImage: "person.fill.checkmark")
+                    }
+            }
+            .onAppear(perform: {
+                viewModel.selectedDepartment = department
+                viewModel.restoreCoverRecord()
+            })
+        } else {
+            CoverSetupView(viewModel: viewModel)
         }
-        .onAppear(perform: {
-            viewModel.restoreCoverRecord()
-        })
+
     }
 }
 
