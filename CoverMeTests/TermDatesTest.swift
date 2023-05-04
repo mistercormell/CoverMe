@@ -41,7 +41,10 @@ final class TermDatesTest: XCTestCase {
                          (date: "16/04/2023", expected: "L23"),
                          (date: "04/09/2023", expected: "M23"),
                          (date: "10/10/2023", expected: "M23"),
-                         (date: "10/01/2024", expected: "L24"),]
+                         (date: "10/01/2024", expected: "L24"),
+                         (date: "20/04/2024", expected: "S24"),
+                         (date: "01/01/2023", expected: "L23"),
+                         (date: "09/01/2023", expected: "L23")]
         
         //act
         //assert

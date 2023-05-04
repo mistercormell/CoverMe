@@ -26,7 +26,9 @@ struct TermDates {
     func getTermDisplay(for date: Date) -> String {
         for i in 0..<startDates.count {
             let startDateOfTerm = startDates[i]
-            if date < startDateOfTerm.date {
+            if (date < startDateOfTerm.date && i == 0) || (i == startDates.count - 1 && date >= startDateOfTerm.date) {
+                return startDates[i].term.displayInitial + date.twoDigitYear
+            } else if date < startDateOfTerm.date  {
                 return startDates[i-1].term.displayInitial + date.twoDigitYear
             }
         }
