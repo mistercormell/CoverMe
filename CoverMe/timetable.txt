@@ -90,6 +90,8 @@ Saturday3rd,BComX-1,SJT,Birley1
 Saturday3rd,FCom2-1,SKG,Birley2
 Saturday2nd,NotAvailable,SFB,Keate2
 Saturday3rd,NotAvailable,SFB,Keate2
+Monday2nd,DDiv1-2,LEM,Lyttleton1
+Monday3rd,BTheV-1,AFK,Lyttleton2
 
 
 

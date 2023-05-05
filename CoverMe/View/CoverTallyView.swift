@@ -39,8 +39,8 @@ struct CoverTallyItemView: View {
 struct CoverTallyView_Previews: PreviewProvider {
     static var previews: some View {
         CoverTallyView(teacherCoverTally: [
-            Teacher(initials: "DPC"):13,
-            Teacher(initials: "JWFS"):9
+            Teacher(initials: "DPC", department: .ComputerScience):13,
+            Teacher(initials: "JWFS", department: .ComputerScience):9
         ], readerTally: 5)
     }
 }

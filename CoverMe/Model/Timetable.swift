@@ -10,7 +10,7 @@ import Foundation
 struct Timetable {
     var timetabledLessons: [TimetabledLesson]
     
-    var team: [Teacher] {
+    var allStaff: [Teacher] {
         var workingTeam: [Teacher] = []
         for timetabledLesson in timetabledLessons {
             if !workingTeam.contains(where: { $0 == timetabledLesson.teacher}) {
@@ -18,6 +18,10 @@ struct Timetable {
             }
         }
         return workingTeam
+    }
+    
+    func getTeam(by department: Department) -> [Teacher] {
+        return allStaff.filter({ $0.department == department })
     }
     
     func getTimetabledLessonFor(lesson: Lesson, teacher: Teacher) -> TimetabledLesson? {
@@ -48,7 +52,7 @@ struct Timetable {
     }
     
     func findAvailableTeachers(lesson: Lesson) -> Set<Teacher> {
-        let availableTeachers = Set(self.team)
+        let availableTeachers = Set(self.allStaff)
         let teachersTeaching = Set(self.timetabledLessons
             .filter({$0.lesson == lesson})
             .map({$0.teacher}))
@@ -58,7 +62,7 @@ struct Timetable {
     }
     
     #if DEBUG
-    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC"), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT"), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC"), division: Division(code: "BComV-1"), room: Room.Keate2)]
+    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience), division: Division(code: "BComV-1"), room: Room.Keate2)]
     #endif
 }
 
@@ -87,12 +91,25 @@ struct Division: Equatable {
     let code: String
 }
 
+enum Department: String, Codable, CaseIterable {
+    case ComputerScience, Divinity
+    
+    var display: String {
+        if self == .ComputerScience {
+            return "Computer Science"
+        } else {
+            return self.rawValue
+        }
+    }
+}
+
 struct Teacher: Equatable, Hashable, Codable, Comparable {
     static func < (lhs: Teacher, rhs: Teacher) -> Bool {
         return lhs.initials < rhs.initials
     }
     
     let initials: String
+    let department: Department
 
     func getEmail() -> String {
         if initials == "SJT" {
@@ -113,7 +130,7 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
 }
 
 enum Room: String, Codable {
-    case Keate1, Keate2, Birley1, Birley2
+    case Keate1, Keate2, Birley1, Birley2, Lyttleton1, Lyttleton2
     
     var displayName: String {
         if self.rawValue.hasSuffix("1") {
