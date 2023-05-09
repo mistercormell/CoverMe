@@ -1,7 +1,6 @@
 Make it so that the tests are not dependent on the current live timetable data and instead some dummy data that won't change from year to year'
 Have some tests for the 'current live timetable to act as a sanity check for errors (that would need to be updated year on year, perhaps totalling up SPW for each teacher)'
 Clean up architecture and remove dependencies on CoverPickerViewModel
-New feature - ability to send out confirmed cover on a per-day basis
 New feature - Store cover record in the cloud!
 New feature - see cover tally by half (or last three halves and global)
 New feature - Add ability for creative solutions (e.g. other occupied beak to give reader and then cover)

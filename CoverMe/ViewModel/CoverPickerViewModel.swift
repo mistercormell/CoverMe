@@ -27,7 +27,6 @@ class CoverPickerViewModel: ObservableObject {
         let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
         self.timetable = timetable
         self.coverManager = CoverManager(timetable: timetable)
-        //TODO Fix this so that it uses the correct team!
         self.selectedDepartment = selectedDepartment
         let initialTeacher = timetable.getTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", department: selectedDepartment)
         self.selectedTeacherInitials = initialTeacher.initials
@@ -100,6 +99,22 @@ class CoverPickerViewModel: ObservableObject {
     
         for cover in confirmedCover {
             dictionary[cover.coverArrangement.coverTeacher]! += 1
+        }
+        
+        return dictionary
+    }
+    
+    func getCoverTallyBreakdown() -> [Teacher:(Int,Int)] {
+        var dictionary: [Teacher:(Int,Int)] = [:]
+        let confirmedCover = coverRecord.filter({
+            $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
+        })
+        
+        for teacher in timetable.getTeam(by: selectedDepartment) {
+            let global = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher}).count
+            let currentHalf = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher && termDates.getTermDisplay(for: $0.date) == termDates.getTermDisplay(for: Date.now.startOfDayDate)}).count
+            
+            dictionary[teacher] = (global, currentHalf)
         }
         
         return dictionary
