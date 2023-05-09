@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CoverSetupView: View {
-    @ObservedObject var viewModel: CoverPickerViewModel
     @State private var selectedDepartment: Department = .ComputerScience
+    @ObservedObject var viewModel: SetupViewModel
     
     var body: some View {
         VStack {
@@ -23,7 +23,6 @@ struct CoverSetupView: View {
                 }
             }
             Button {
-                UserDefaults.standard.selectedDepartment = selectedDepartment
                 viewModel.selectedDepartment = selectedDepartment
             } label: {
                 Text("Confirm")
@@ -35,6 +34,6 @@ struct CoverSetupView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverSetupView(viewModel: CoverPickerViewModel())
+        CoverSetupView(viewModel: SetupViewModel())
     }
 }

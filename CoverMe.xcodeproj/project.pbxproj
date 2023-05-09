@@ -39,6 +39,8 @@
 		B4D2DD5B29CC666E001BBA84 /* MailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DD5A29CC666E001BBA84 /* MailHandler.swift */; };
 		B4E41A822A029AAA00DF19F8 /* TermDatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E41A812A029AAA00DF19F8 /* TermDatesTest.swift */; };
 		B4E9C3902A0428D200E385C6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9C38F2A0428D200E385C6 /* UserDefaults.swift */; };
+		B4E9C3922A0444EF00E385C6 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9C3912A0444EF00E385C6 /* LaunchScreenView.swift */; };
+		B4E9C3942A04493500E385C6 /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9C3932A04493500E385C6 /* SetupViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		B4D2DD5A29CC666E001BBA84 /* MailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailHandler.swift; sourceTree = "<group>"; };
 		B4E41A812A029AAA00DF19F8 /* TermDatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesTest.swift; sourceTree = "<group>"; };
 		B4E9C38F2A0428D200E385C6 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		B4E9C3912A0444EF00E385C6 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		B4E9C3932A04493500E385C6 /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,7 @@
 				B4D2DD3829C9FF20001BBA84 /* CoverRowItem.swift */,
 				B4D2DD3A29CA089F001BBA84 /* CoverTallyView.swift */,
 				B4AA93BB2A0425EE00CE3DDB /* CoverSetupView.swift */,
+				B4E9C3912A0444EF00E385C6 /* LaunchScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B4838FB42993B30700100C33 /* CoverPickerViewModel.swift */,
+				B4E9C3932A04493500E385C6 /* SetupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				B471D3E129FBE10C001C15DD /* TermDates.swift in Sources */,
 				B48116FE29924F7A003F7085 /* CoverPickerView.swift in Sources */,
 				B4AA93BC2A0425EF00CE3DDB /* CoverSetupView.swift in Sources */,
+				B4E9C3942A04493500E385C6 /* SetupViewModel.swift in Sources */,
 				B48116FC29924F7A003F7085 /* CoverMeApp.swift in Sources */,
 				B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */,
 				B4D2DD3729C9F714001BBA84 /* ConfirmedCoverView.swift in Sources */,
@@ -382,6 +389,7 @@
 				B4D2DD3B29CA089F001BBA84 /* CoverTallyView.swift in Sources */,
 				B4E9C3902A0428D200E385C6 /* UserDefaults.swift in Sources */,
 				B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */,
+				B4E9C3922A0444EF00E385C6 /* LaunchScreenView.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
 				B461AF6629BA2A50005F216E /* Date.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,
