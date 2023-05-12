@@ -175,10 +175,14 @@ class CoverPickerViewModel: ObservableObject {
             let query = DepartmentCoverDao.query(constraint).order([.descending("updatedAt")])
             
             let departmentCoverDaos = try? query.find()
-            if let departmentCoverDaoJson = departmentCoverDaos?.first?.json {
-                if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.deserializeJson(from: departmentCoverDaoJson) {
-                    coverRecord = loadedCoverRecord
+            if let departmentCoverDao = departmentCoverDaos?.first {
+                if let departmentCoverDaoJson = departmentCoverDao.json {
+                    if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.deserializeJson(from: departmentCoverDaoJson) {
+                        coverRecord = loadedCoverRecord
+                        coverRecordDaoObjectId = departmentCoverDao.objectId
+                    }
                 }
+
             }
         }
     }

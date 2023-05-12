@@ -14,7 +14,7 @@ struct CoverPickerView: View {
 
     var body: some View {
         Form {
-                Section(header: Text("What needs covering for: \(viewModel.selectedDepartment.display)")) {
+                Section(header: Text("What needs covering:")) {
                     Picker(selection: $viewModel.selectedTeacherInitials, label: Text("Teacher"), content: {
                         ForEach(viewModel.getTeamInitials(), id: \.self) {
                             Text($0)
