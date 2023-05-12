@@ -13,6 +13,33 @@ extension FileManager {
         return paths[0]
     }
     
+    func getJson<T: Codable>(object: T) -> String? {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(object) {
+            if let json = String(data: encoded, encoding: .utf8) {
+                return json
+            }
+        }
+                
+        return nil
+    }
+    
+    func deserializeJson<T: Codable>(from json: String) -> T? {
+        let decoder = JSONDecoder()
+        if let data = json.data(using: .utf8) {
+            if let loaded = try? decoder.decode(T.self, from: data) {
+                return loaded
+            } else {
+                print("Failed to decode")
+                return nil
+            }
+        } else {
+            print("Couldn't understand json as utf8")
+            return nil
+        }
+
+    }
+    
     func save<T: Codable>(to filePath: String, object: T) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(object) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B448D10E2A0E626100C2B0FB /* ParseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B448D10D2A0E626100C2B0FB /* ParseSwift */; };
+		B448D1112A0E765000C2B0FB /* DepartmentCoverDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */; };
 		B461AF6629BA2A50005F216E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6529BA2A50005F216E /* Date.swift */; };
 		B461AF6829BA6AF0005F216E /* DraftCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6729BA6AF0005F216E /* DraftCoverView.swift */; };
 		B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6929BA6BDA005F216E /* MainTabView.swift */; };
@@ -61,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCoverDao.swift; sourceTree = "<group>"; };
 		B461AF6529BA2A50005F216E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B461AF6729BA6AF0005F216E /* DraftCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftCoverView.swift; sourceTree = "<group>"; };
 		B461AF6929BA6BDA005F216E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B448D10E2A0E626100C2B0FB /* ParseSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B448D10F2A0E763300C2B0FB /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		B461AF6429BA2A3C005F216E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		B48116FA29924F7A003F7085 /* CoverMe */ = {
 			isa = PBXGroup;
 			children = (
+				B448D10F2A0E763300C2B0FB /* Persistence */,
 				B461AF6429BA2A3C005F216E /* Extensions */,
 				B4838FB32993B2F800100C33 /* ViewModel */,
 				B4838FB22993B2CF00100C33 /* View */,
@@ -256,6 +269,9 @@
 			dependencies = (
 			);
 			name = CoverMe;
+			packageProductDependencies = (
+				B448D10D2A0E626100C2B0FB /* ParseSwift */,
+			);
 			productName = CoverMe;
 			productReference = B48116F829924F7A003F7085 /* CoverMe.app */;
 			productType = "com.apple.product-type.application";
@@ -328,6 +344,9 @@
 				Base,
 			);
 			mainGroup = B48116EF29924F7A003F7085;
+			packageReferences = (
+				B448D10C2A0E626100C2B0FB /* XCRemoteSwiftPackageReference "Parse-Swift" */,
+			);
 			productRefGroup = B48116F929924F7A003F7085 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,6 +404,7 @@
 				B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */,
 				B4D2DD3929C9FF20001BBA84 /* CoverRowItem.swift in Sources */,
 				B471D3E529FBE1A9001C15DD /* TermDatesFileReader.swift in Sources */,
+				B448D1112A0E765000C2B0FB /* DepartmentCoverDao.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
 				B4D2DD3B29CA089F001BBA84 /* CoverTallyView.swift in Sources */,
 				B4E9C3902A0428D200E385C6 /* UserDefaults.swift in Sources */,
@@ -727,6 +747,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B448D10C2A0E626100C2B0FB /* XCRemoteSwiftPackageReference "Parse-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/parse-community/Parse-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B448D10D2A0E626100C2B0FB /* ParseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B448D10C2A0E626100C2B0FB /* XCRemoteSwiftPackageReference "Parse-Swift" */;
+			productName = ParseSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B48116F029924F7A003F7085 /* Project object */;
 }

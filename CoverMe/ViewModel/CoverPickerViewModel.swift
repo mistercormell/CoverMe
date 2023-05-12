@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import ParseSwift
 
 class CoverPickerViewModel: ObservableObject {
     static private let defaultLesson = Lesson.Monday2nd
     let timetable: Timetable
     let termDates: TermDates
     let coverManager: CoverManager
+    var coverRecordDaoObjectId: String?
     @Published var availableCoverAllDay: [Lesson: [CoverArrangement]] = [:]
     @Published var selectedTeacherInitials: String
     @Published var selectedDate: Date = Date.now
@@ -147,11 +149,37 @@ class CoverPickerViewModel: ObservableObject {
     
     func saveCoverRecord() {
         FileManager.default.save(to: "coverRecord.json", object: coverRecord)
+        if let json = FileManager.default.getJson(object: coverRecord) {
+            if let objectId = coverRecordDaoObjectId {
+                var itemToUpdate = DepartmentCoverDao(objectId: objectId)
+                itemToUpdate.json = json
+                itemToUpdate.save { result in
+                    print("Item with \(objectId) just saved in cloud")
+                }
+            } else {
+                var coverRecordDao = DepartmentCoverDao(departmentName: selectedDepartment.rawValue, json: json)
+                coverRecordDao.save { result in
+                    print("Item saved to the cloud for the first time")
+                    self.coverRecordDaoObjectId = try? result.get().objectId
+                }
+            }
+
+        }
     }
     
     func restoreCoverRecord() {
         if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.load(from: "coverRecord.json") {
             coverRecord = loadedCoverRecord
+        } else {
+            let constraint: QueryConstraint = "departmentName" == selectedDepartment.rawValue
+            let query = DepartmentCoverDao.query(constraint).order([.descending("updatedAt")])
+            
+            let departmentCoverDaos = try? query.find()
+            if let departmentCoverDaoJson = departmentCoverDaos?.first?.json {
+                if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.deserializeJson(from: departmentCoverDaoJson) {
+                    coverRecord = loadedCoverRecord
+                }
+            }
         }
     }
 }

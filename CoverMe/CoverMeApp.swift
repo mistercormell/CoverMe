@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ParseSwift
 
 @main
 struct CoverMeApp: App {
@@ -13,5 +14,10 @@ struct CoverMeApp: App {
         WindowGroup {
             LaunchScreenView()
         }
+    }
+    
+    init() {
+        ParseSwift.initialize(applicationId: "VqXwbxL4VLSrYW5laWKRPMYK2rWH80JAmvZQZogA", clientKey: "OjspuQcAHkJFAyrq3K4FZgQ732qqhMn5wEzM704H", serverURL: URL(string: "https://parseapi.back4app.com")!)
+
     }
 }
