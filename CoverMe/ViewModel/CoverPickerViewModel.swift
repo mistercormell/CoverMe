@@ -104,8 +104,8 @@ class CoverPickerViewModel: ObservableObject {
         return dictionary
     }
     
-    func getCoverTallyBreakdown() -> [Teacher:(Int,Int)] {
-        var dictionary: [Teacher:(Int,Int)] = [:]
+    func getCoverTallyBreakdown() -> [(Teacher, Tally)] {
+        var teacherTally: [(Teacher, Tally)] = []
         let confirmedCover = coverRecord.filter({
             $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
         })
@@ -114,16 +114,26 @@ class CoverPickerViewModel: ObservableObject {
             let global = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher}).count
             let currentHalf = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher && termDates.getTermDisplay(for: $0.date) == termDates.getTermDisplay(for: Date.now.startOfDayDate)}).count
             
-            dictionary[teacher] = (global, currentHalf)
+            teacherTally.append((teacher, Tally(currentHalf: currentHalf, allTime: global)))
         }
         
-        return dictionary
+        return teacherTally
     }
     
     func getReadingSchoolTally() -> Int {
         return coverRecord.filter({
             $0.coverArrangement.isReadingSchool
         }).count
+    }
+    
+    func getReadingSchoolTallyBreakdown() -> (Int, Int) {
+        let currentHalfReaders = coverRecord.filter({
+            $0.coverArrangement.isReadingSchool && termDates.getTermDisplay(for: $0.date) == termDates.getTermDisplay(for: Date.now.startOfDayDate)
+        }).count
+        
+        let allTimeReaders = getReadingSchoolTally()
+        
+        return (currentHalfReaders, allTimeReaders)
     }
     
     func getTallyDisplay(for cover: CoverArrangement) -> Int {

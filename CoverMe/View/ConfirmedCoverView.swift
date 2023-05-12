@@ -71,7 +71,7 @@ struct ConfirmedCoverView: View {
             }
         }
         .popover(isPresented: $showingTallyPopover) {
-            CoverTallyView(teacherCoverTally: viewModel.getCoverTally(), readerTally: viewModel.getReadingSchoolTally())
+            CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown())
         }
 
     }

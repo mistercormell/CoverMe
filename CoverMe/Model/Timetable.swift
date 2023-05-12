@@ -103,6 +103,11 @@ enum Department: String, Codable, CaseIterable {
     }
 }
 
+struct Tally {
+    let currentHalf: Int
+    let allTime: Int
+}
+
 struct Teacher: Equatable, Hashable, Codable, Comparable {
     static func < (lhs: Teacher, rhs: Teacher) -> Bool {
         return lhs.initials < rhs.initials
