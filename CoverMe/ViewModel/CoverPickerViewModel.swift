@@ -178,8 +178,8 @@ class CoverPickerViewModel: ObservableObject {
             if let departmentCoverDao = departmentCoverDaos?.first {
                 if let departmentCoverDaoJson = departmentCoverDao.json {
                     if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.deserializeJson(from: departmentCoverDaoJson) {
-                        coverRecord = loadedCoverRecord
                         coverRecordDaoObjectId = departmentCoverDao.objectId
+                        coverRecord = loadedCoverRecord
                     }
                 }
 
