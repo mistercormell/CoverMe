@@ -33,7 +33,7 @@ struct CoverTallyItemView: View {
     var body: some View {
         HStack {
             Text(key)
-                .frame(minWidth:220,alignment: .leading)
+                .frame(minWidth:200,alignment: .leading)
             Spacer()
             HStack {
                 Divider()
