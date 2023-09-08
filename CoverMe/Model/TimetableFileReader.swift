@@ -65,4 +65,39 @@ class TimetableFileReader {
         return Timetable(timetabledLessons: [])
     }
     
+    static func createTeacherFromLine(line: line) -> Teacher? {
+        let parts = line.components(separatedBy: ",")
+        if let department = Department(rawValue: parts[1]) {
+            let teacher = Teacher(initials: parts[0], department: department)
+            return teacher
+        } else {
+            print("Invalid room name")
+        }
+        return nil
+    }
+    
+    static func getStaffFromFile(filename: String) -> [Teacher] {
+        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                let lines = contents.components(separatedBy: "\n")
+                var allStaff: [Teacher] = []
+                for line in lines {
+                    if let teacher = createTeacherFromLine(line: line) {
+                        allStaff.append(teacher)
+                    } else {
+                        print("Error, could not extract valid timetabled lesson from: \(line)")
+                    }
+                }
+                return allStaff
+            } catch {
+                print("Couldn't load contents of staff file")
+            }
+        } else {
+            print("File not found! (staffing)")
+        }
+        
+        return []
+    }
+    
 }
