@@ -13,6 +13,14 @@ class TimetableFileReader {
             return .ComputerScience
         } else if divisionCode.contains("Div") || divisionCode.contains("The") {
             return .Divinity
+        } else if divisionCode.contains("His") || divisionCode.contains("Hmn") || divisionCode.contains("Hml") || divisionCode.contains("Hem") || divisionCode.contains("Hoa") || divisionCode.contains("Art") || divisionCode.contains("Opt") || divisionCode.contains("Eng") || divisionCode.contains("Spr") {
+            return .History
+        } else if divisionCode == "NotAvailable" {
+            if divisionCode.contains("History") {
+                return .History
+            } else {
+                return .ComputerScience
+            }
         } else {
             return .ComputerScience
         }

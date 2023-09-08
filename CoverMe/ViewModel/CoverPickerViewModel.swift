@@ -99,6 +99,7 @@ class CoverPickerViewModel: ObservableObject {
             dictionary[teacher] = 0
         }
     
+        //TODO Fix this urgently!
         for cover in confirmedCover {
             dictionary[cover.coverArrangement.coverTeacher]! += 1
         }

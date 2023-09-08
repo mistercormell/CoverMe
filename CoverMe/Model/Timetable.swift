@@ -92,7 +92,7 @@ struct Division: Equatable {
 }
 
 enum Department: String, Codable, CaseIterable {
-    case ComputerScience, Divinity
+    case ComputerScience, Divinity, History
     
     var display: String {
         if self == .ComputerScience {
@@ -135,13 +135,25 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
 }
 
 enum Room: String, Codable {
-    case Keate1, Keate2, Birley1, Birley2, Lyttleton1, Lyttleton2
+    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2
     
     var displayName: String {
         if self.rawValue.hasSuffix("1") {
             return "1 \(self.rawValue.prefix(self.rawValue.count-1))"
         } else if self.rawValue.hasSuffix("2") {
             return "2 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("3") {
+            return "3 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("4") {
+            return "4 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("5") {
+            return "5 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("6") {
+            return "6 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("7") {
+            return "7 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("8") {
+            return "8 \(self.rawValue.prefix(self.rawValue.count-1))"
         } else {
             return self.rawValue
         }

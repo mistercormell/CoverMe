@@ -1,0 +1,6 @@
+DPC,ComputerScience
+SJT,ComputerScience
+JWFS,ComputerScience
+MDS,ComputerScience
+MC,ComputerScience
+SFB,ComputerScience
