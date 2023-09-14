@@ -34,7 +34,7 @@ struct Timetable {
 
     func doesTeachIn(_ lesson: Lesson, for teacher: Teacher) -> Bool {
         for timetabledLesson in timetabledLessons {
-            if timetabledLesson.teacher == teacher && timetabledLesson.lesson == lesson {
+            if timetabledLesson.teacher == teacher && timetabledLesson.lesson == lesson && timetabledLesson.division.code != "NotAvailable" {
                 return true
             }
         }
