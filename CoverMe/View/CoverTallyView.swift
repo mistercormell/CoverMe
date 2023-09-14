@@ -52,10 +52,10 @@ struct CoverTallyItemView: View {
 struct CoverTallyView_Previews: PreviewProvider {
     static var previews: some View {
         CoverTallyView(teacherCoverTally: [
-            (Teacher(initials: "DPC", department: .ComputerScience), Tally(currentHalf: 9, allTime: 15)),
-            (Teacher(initials: "SJT", department: .ComputerScience), Tally(currentHalf: 3, allTime: 23)),
-            (Teacher(initials: "MC", department: .ComputerScience), Tally(currentHalf: 0, allTime: 8)),
-            (Teacher(initials: "JWFS", department: .ComputerScience), Tally(currentHalf: 9, allTime: 11))
+            (Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), Tally(currentHalf: 9, allTime: 15)),
+            (Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), Tally(currentHalf: 3, allTime: 23)),
+            (Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), Tally(currentHalf: 0, allTime: 8)),
+            (Teacher(initials: "JWFS", department: .ComputerScience, email: "j.stanforth@etoncollege.org.uk"), Tally(currentHalf: 9, allTime: 11))
         ], readerTally: (5, 14))
     }
 }

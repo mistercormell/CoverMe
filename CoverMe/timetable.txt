@@ -469,4 +469,3 @@ Saturday1st,NotAvailableHistory,SCH,Marten6
 Saturday2nd,NotAvailableHistory,SCH,Marten6
 Saturday3rd,NotAvailableHistory,SCH,Marten6
 Saturday4th,NotAvailableHistory,SCH,Marten6
-

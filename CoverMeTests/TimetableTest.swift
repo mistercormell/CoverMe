@@ -13,11 +13,11 @@ final class TimetableTest: XCTestCase {
     //TODO - change test so no longer dependent on TimetableFileReader
     func testTimetableGetRoomSKGandWednesday3rdGivesValidRoom()  {
         //arrange
-        let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
+        let timetable = TimetableFileReader.initialiseTimetableAndStaffData().0
         let expected = Room.Birley2
         
         //act
-        let actual = timetable.getRoomFor(lesson: Lesson.Wednesday3rd, teacher: Teacher(initials: "SKG"))
+        let actual = timetable.getRoomFor(lesson: Lesson.Wednesday3rd, teacher: Teacher(initials: "MDS", department: .ComputerScience, email: "m.stockdale@etoncollege.org.uk"))
         
         //assert
         XCTAssertEqual(actual, expected)
@@ -30,7 +30,8 @@ final class TimetableTest: XCTestCase {
     
     func testDoesTeachInVariousReturnsAsExpected() {
         //arrange
-        let timetable = TimetableFileReader.createTimetableFromFile(filename: "timetable")
+        let data = TimetableFileReader.initialiseTimetableAndStaffData()
+        let timetable = data.0
         let testCases = [(initials: "SKG", lesson: Lesson.Monday3rd, expected: true),
                          (initials: "DPC", lesson: Lesson.Tuesday3rd, expected: false),
                          (initials: "JWFS", lesson: Lesson.Saturday3rd, expected: false),
@@ -41,7 +42,8 @@ final class TimetableTest: XCTestCase {
         //act
         //assert
         for testCase in testCases {
-            let actual = timetable.doesTeachIn(testCase.lesson, for: Teacher(initials: testCase.initials))
+            let teacher = TimetableFileReader.getTeacher(by: testCase.initials, teachers: data.1)
+            let actual = timetable.doesTeachIn(testCase.lesson, for: teacher)
             XCTAssertEqual(actual, testCase.expected)
         }
     }

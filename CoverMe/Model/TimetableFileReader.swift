@@ -8,29 +8,15 @@
 import Foundation
 
 class TimetableFileReader {
-    static private func getDepartment(from divisionCode: String) -> Department {
-        if divisionCode.contains("Com") {
-            return .ComputerScience
-        } else if divisionCode.contains("Div") || divisionCode.contains("The") {
-            return .Divinity
-        } else if divisionCode.contains("His") || divisionCode.contains("Hmn") || divisionCode.contains("Hml") || divisionCode.contains("Hem") || divisionCode.contains("Hoa") || divisionCode.contains("Art") || divisionCode.contains("Opt") || divisionCode.contains("Eng") || divisionCode.contains("Spr") {
-            return .History
-        } else if divisionCode == "NotAvailable" {
-            if divisionCode.contains("History") {
-                return .History
-            } else {
-                return .ComputerScience
-            }
-        } else {
-            return .ComputerScience
-        }
+    static func getTeacher(by initials: String, teachers: [Teacher]) -> Teacher {
+        return teachers.first(where: {$0.initials == initials}) ?? Teacher.dummy
     }
     
-    static func createTimetabledLessonFromLine(line: String) -> TimetabledLesson? {
+    static func createTimetabledLessonFromLine(line: String, teachers: [Teacher]) -> TimetabledLesson? {
         let parts = line.components(separatedBy: ",")
         if let lesson = Lesson(rawValue: parts[0]) {
             if let room = Room(rawValue: parts[3]) {
-                let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: Teacher(initials: parts[2], department: getDepartment(from: parts[1])), division: Division(code: parts[1]), room: room)
+                let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: getTeacher(by: parts[2], teachers: teachers), division: Division(code: parts[1]), room: room)
                 return timetabledLesson
             } else {
                 print("Invalid room name")
@@ -41,14 +27,20 @@ class TimetableFileReader {
         return nil
     }
     
-    static func createTimetableFromFile(filename: String) -> Timetable {
+    static func initialiseTimetableAndStaffData() -> (Timetable,[Teacher]) {
+        let teachers = getStaffFromFile(filename: "staff")
+        
+        return (createTimetableFromFileWithTeachers(filename: "timetable", teachers: teachers), teachers)
+    }
+    
+    static func createTimetableFromFileWithTeachers(filename: String, teachers: [Teacher]) -> Timetable {
         if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
             do {
                 let contents = try String(contentsOfFile: filepath)
                 let lines = contents.components(separatedBy: "\n")
                 var timetabledLessons: [TimetabledLesson] = []
                 for line in lines {
-                    if let timetabledLesson = createTimetabledLessonFromLine(line: line) {
+                    if let timetabledLesson = createTimetabledLessonFromLine(line: line, teachers: teachers) {
                         timetabledLessons.append(timetabledLesson)
                     } else {
                         print("Error, could not extract valid timetabled lesson from: \(line)")
@@ -65,13 +57,13 @@ class TimetableFileReader {
         return Timetable(timetabledLessons: [])
     }
     
-    static func createTeacherFromLine(line: line) -> Teacher? {
+    static func createTeacherFromLine(line: String) -> Teacher? {
         let parts = line.components(separatedBy: ",")
         if let department = Department(rawValue: parts[1]) {
-            let teacher = Teacher(initials: parts[0], department: department)
+            let teacher = Teacher(initials: parts[0], department: department, email: parts[2])
             return teacher
         } else {
-            print("Invalid room name")
+            print("Invalid teacher's department")
         }
         return nil
     }
@@ -83,10 +75,12 @@ class TimetableFileReader {
                 let lines = contents.components(separatedBy: "\n")
                 var allStaff: [Teacher] = []
                 for line in lines {
-                    if let teacher = createTeacherFromLine(line: line) {
-                        allStaff.append(teacher)
-                    } else {
-                        print("Error, could not extract valid timetabled lesson from: \(line)")
+                    if !line.isEmpty {
+                        if let teacher = createTeacherFromLine(line: line) {
+                            allStaff.append(teacher)
+                        } else {
+                            print("Error, could not extract valid staff member from: \(line)")
+                        }
                     }
                 }
                 return allStaff

@@ -62,7 +62,7 @@ struct Timetable {
     }
     
     #if DEBUG
-    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience), division: Division(code: "BComV-1"), room: Room.Keate2)]
+    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: Room.Keate2)]
     #endif
 }
 
@@ -115,23 +115,13 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
     
     let initials: String
     let department: Department
+    let email: String
 
     func getEmail() -> String {
-        if initials == "SJT" {
-            return "s.tebbutt@etoncollege.org.uk"
-        } else if initials == "MC" {
-            return "m.collins@etoncollege.org.uk"
-        } else if initials == "JWFS" {
-            return "j.stanforth@etoncollege.org.uk"
-        } else if initials == "SKG" {
-            return "s.grover@etoncollege.org.uk"
-        } else if initials == "SFB" {
-            return "s.birtles@etoncollege.org.uk"
-        } else {
-            return "d.cormell@etoncollege.org.uk"
-        }
-                
+        return email
     }
+    
+    static let dummy: Teacher = Teacher(initials: "unknown", department: .ComputerScience, email: "unknownEmail")
 }
 
 enum Room: String, Codable {

@@ -1,6 +1,6 @@
-DPC,ComputerScience
-SJT,ComputerScience
-JWFS,ComputerScience
-MDS,ComputerScience
-MC,ComputerScience
-SFB,ComputerScience
+DPC,ComputerScience,d.cormell@etoncollege.org.uk
+SJT,ComputerScience,s.tebbutt@etoncollege.org.uk
+JWFS,ComputerScience,j.stanforth@etoncollege.org.uk
+MDS,ComputerScience,m.stockdale@etoncollege.org.uk
+MC,ComputerScience,m.collins@etoncollege.org.uk
+SFB,ComputerScience,s.birtles@etoncollege.org.uk
