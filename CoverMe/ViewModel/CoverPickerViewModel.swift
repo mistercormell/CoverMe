@@ -53,7 +53,7 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func addCoverArrangementWithDate(cover: CoverArrangement) {
-        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate, inSummer: termDates.isSummer(at: selectedDate))
+        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate, timetableTiming: termDates.getTimetableTiming(at: selectedDate))
         coverRecord.append(coverArrangementWithDate)
     }
     
@@ -64,7 +64,7 @@ class CoverPickerViewModel: ObservableObject {
     func getLessonDisplay(lesson: Lesson) -> String {
         let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: getTeacherByInitials(initials: selectedTeacherInitials))
         
-        return CoverArrangementWithDate.getDisplay(text: timetabledLesson?.display ?? "", inSummer: termDates.isSummer(at: selectedDate))
+        return CoverArrangementWithDate.getDisplay(text: timetabledLesson?.display ?? "", timetableTiming: termDates.getTimetableTiming(at: selectedDate))
     }
     
     func getLessonsTaughtOnDate() -> [Lesson] {

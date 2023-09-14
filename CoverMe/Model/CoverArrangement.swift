@@ -24,14 +24,14 @@ struct CoverTally {
 class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     let coverArrangement: CoverArrangement
     let date: Date
-    let inSummer: Bool
+    let timetableTiming: TimetableTiming
     var status: CoverStatus
     
-    init(coverArrangement: CoverArrangement, date: Date, inSummer: Bool) {
+    init(coverArrangement: CoverArrangement, date: Date, timetableTiming: TimetableTiming) {
         self.coverArrangement = coverArrangement
         self.date = date
         self.status = .draft
-        self.inSummer = inSummer
+        self.timetableTiming = timetableTiming
     }
     
     static func == (lhs: CoverArrangementWithDate, rhs: CoverArrangementWithDate) -> Bool {
@@ -54,11 +54,11 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     }
     
     var display: String {
-        "\(date.longDateDescription): \(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, inSummer: inSummer))"
+        "\(date.longDateDescription): \(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, timetableTiming: timetableTiming))"
     }
     
     var displayWithoutDate: String {
-        "\(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, inSummer: inSummer))"
+        "\(CoverArrangementWithDate.getDisplay(text: coverArrangement.display, timetableTiming: timetableTiming))"
     }
     
     var startOfDayDate: Date {
@@ -69,12 +69,15 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
         self.status = .confirmed
     }
     
-    static func getDisplay(text: String, inSummer: Bool) -> String {
+    static func getDisplay(text: String, timetableTiming: TimetableTiming) -> String {
         var sixth = "A4"
         var seventh = "A5"
-        if inSummer {
+        if timetableTiming == .Summer {
             sixth = "A3"
             seventh = "A4"
+        } else if timetableTiming == .EarlyMichaelmas {
+            sixth = "A2"
+            seventh = "A3"
         }
         let display = text.replacingOccurrences(of: "6th", with: sixth)
         return display.replacingOccurrences(of: "7th", with: seventh)

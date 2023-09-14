@@ -9,18 +9,24 @@ import Foundation
 
 struct TermDates {
     var startDates: [TermDate] = []
-    var isSummer: Bool {
-        self.isSummer(at: Date.now)
-    }
     
-    func isSummer(at date: Date) -> Bool {
+    func getTimetableTiming(at date: Date) -> TimetableTiming {
         for i in 0..<startDates.count {
             let startDateOfTerm = startDates[i]
             if date <= startDateOfTerm.date {
-                return startDates[i-1].term == Term.Summer
+                if startDates[i-1].term == Term.Summer {
+                    return .Summer
+                } else if startDates[i-1].term == Term.Michaelmas {
+                    if let weeksDifference = Calendar.current.dateComponents([.weekOfYear], from: startDates[i-1].date, to: date).weekOfYear {
+                        if weeksDifference <= 6 {
+                            return .EarlyMichaelmas
+                        }
+                    }
+                }
+                return .Normal
             }
         }
-        return false
+        return .Normal
     }
     
     func getTermDisplay(for date: Date) -> String {
@@ -40,6 +46,10 @@ struct TermDates {
 struct TermDate {
     let term: Term
     let date: Date
+}
+
+enum TimetableTiming: Codable {
+   case EarlyMichaelmas, Normal, Summer
 }
 
 enum Term: String {
