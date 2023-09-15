@@ -112,9 +112,13 @@ class CoverPickerViewModel: ObservableObject {
             dictionary[teacher] = 0
         }
     
-        //TODO Fix this urgently!
         for cover in confirmedCover {
-            dictionary[cover.coverArrangement.coverTeacher]! += 1
+            if dictionary[cover.coverArrangement.coverTeacher] != nil {
+                dictionary[cover.coverArrangement.coverTeacher]! += 1
+            } else {
+                print("{} is no longer in the team, discounting their tally")
+            }
+            
         }
         
         return dictionary

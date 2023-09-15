@@ -27,7 +27,7 @@ final class TermDatesFileReaderTest: XCTestCase {
     func testCreateTermStartDateFromLineIsNotNil() {
         //arrange
         let line = "09-01-2023,Lent"
-        let expected = TermDate(term: Term.Lent, date: createDateFrom(string: "09/01/2023"))
+        _ = TermDate(term: Term.Lent, date: createDateFrom(string: "09/01/2023"))
         //act
         let termDate = TermDatesFileReader.createTermStartDateFrom(line: line)
         //assert
