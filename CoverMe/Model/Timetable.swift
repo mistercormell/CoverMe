@@ -125,7 +125,7 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
 }
 
 enum Room: String, Codable {
-    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2
+    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2, CIRLObs,Birley5
     
     var displayName: String {
         if self.rawValue.hasSuffix("1") {

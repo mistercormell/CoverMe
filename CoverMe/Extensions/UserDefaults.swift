@@ -26,4 +26,12 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue?.rawValue, forKey: "selectedDepartment")
         }
     }
+    
+    var cloudStorageId: String? {
+        get {
+            return UserDefaults.standard.value(forKey: "cloudStorageId") as? String
+        } set {
+            UserDefaults.standard.setValue(newValue, forKey: "cloudStorageId")
+        }
+    }
 }

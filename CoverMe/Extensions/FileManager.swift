@@ -27,10 +27,12 @@ extension FileManager {
     func deserializeJson<T: Codable>(from json: String) -> T? {
         let decoder = JSONDecoder()
         if let data = json.data(using: .utf8) {
-            if let loaded = try? decoder.decode(T.self, from: data) {
+            
+            do {
+                let loaded = try decoder.decode(T.self, from: data)
                 return loaded
-            } else {
-                print("Failed to decode")
+            } catch {
+                print(error)
                 return nil
             }
         } else {

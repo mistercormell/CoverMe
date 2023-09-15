@@ -11,5 +11,6 @@ New feature - Allow other teams to use this / configuration by department
 New FEature - Add way to generate text file from Excel (the source of timetable data)
 New Feature - Add-in ability to use other departments for cover availability
 New feature - Add team 'skills' so that certain teachers are preferred for certain types of cover
+Add Logging framework to aid with debugging on deployed devices
 
 
