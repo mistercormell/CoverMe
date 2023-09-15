@@ -40,6 +40,7 @@ class TimetableFileReader {
                 let lines = contents.components(separatedBy: "\n")
                 var timetabledLessons: [TimetabledLesson] = []
                 for line in lines {
+                    if line.isEmpty { continue }
                     if let timetabledLesson = createTimetabledLessonFromLine(line: line, teachers: teachers) {
                         timetabledLessons.append(timetabledLesson)
                     } else {

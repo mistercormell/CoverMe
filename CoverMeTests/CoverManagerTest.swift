@@ -18,18 +18,20 @@ final class CoverManagerTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetCoverOptionsWith1ValidPersonAbleToCoverReturns1CoverArrangementWithCorrectDetails() {
+    func testGetCoverOptionsWith1ValidPersonAbleToCoverReturns2CoverArrangementsWithCorrectDetails() {
         //arrange
         let timetabledLessons = Timetable.example
         let coverManager = CoverManager(timetable: Timetable(timetabledLessons: timetabledLessons))
         let lessonToCover = Lesson.Monday2nd
         //act
-        let actual = coverManager.getCoverOptions(teacher: Teacher(initials: "MC"), lesson: Lesson.Monday2nd)
+        let actual = coverManager.getCoverOptions(teacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), lesson: Lesson.Monday2nd)
         //assert
-        XCTAssertEqual(actual.count, 1)
-        XCTAssertEqual(actual[0].coverTeacher, Teacher(initials: "DPC"))
+        XCTAssertEqual(actual.count, 2)
+        XCTAssertEqual(actual[0].coverTeacher,Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"))
         XCTAssertEqual(actual[0].lesson, lessonToCover)
         XCTAssertEqual(actual[0].room, Room.Keate1)
+        XCTAssertEqual(actual[1].isReadingSchool, true)
+        
     }
 
 }

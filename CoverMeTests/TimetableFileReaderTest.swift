@@ -21,9 +21,10 @@ final class TimetableFileReaderTest: XCTestCase {
     func testCreateTimetabledLessonFromLineWithValidLineReturnsTimetabledLesson() {
         //arrange
         let line = "Monday2nd,BComV-1,MC,Keate1"
-        let expected = TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC"), division: Division(code: "BComV-1"), room: Room.Keate1)
+        let teacher = Teacher(initials: "MC", department: Department.ComputerScience, email: "m.collins@etoncollege.org.uk")
+        let expected = TimetabledLesson(lesson: Lesson.Monday2nd, teacher: teacher, division: Division(code: "BComV-1"), room: Room.Keate1)
         //act
-        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line, teachers: [teacher])
         //assert
         XCTAssertEqual(actual, expected)
         
@@ -32,17 +33,19 @@ final class TimetableFileReaderTest: XCTestCase {
     func testCreateTimetabledLessonFromLineWithInvalidRoomReturnsNil() {
         //arrange
         let line = "Monday1st,BComV-1,MC,Keate3"
+        let teacher = Teacher(initials: "MC", department: Department.ComputerScience, email: "m.collins@etoncollege.org.uk")
         //act
-        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line, teachers: [teacher])
         //assert
         XCTAssertNil(actual)
     }
     
     func testCreateTimetabledLessonFromLineWithInvalidDayReturnsNil() {
         //arrange
-        let line = "Monday7th,BComV-1,MC,Keate1"
+        let line = "Monday8th,BComV-1,MC,Keate1"
+        let teacher = Teacher(initials: "MC", department: Department.ComputerScience, email: "m.collins@etoncollege.org.uk")
         //act
-        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line)
+        let actual = TimetableFileReader.createTimetabledLessonFromLine(line: line, teachers: [teacher])
         //assert
         XCTAssertNil(actual)
     }
@@ -51,7 +54,7 @@ final class TimetableFileReaderTest: XCTestCase {
     func testCreateTimetableFromFileWithGenuineFileReturnsNonNil() {
         //arrange
         //act
-        let actual = TimetableFileReader.createTimetableFromFile(filename: "timetable")
+        let actual = TimetableFileReader.createTimetableFromFileWithTeachers(filename: "timetable", teachers: [])
         //assert
         XCTAssertNotNil(actual)
     }

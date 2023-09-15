@@ -37,7 +37,7 @@ final class TermDatesFileReaderTest: XCTestCase {
     func testCreateTermDatesFromFile() {
         let actual = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
         
-        XCTAssertEqual(actual.startDates.count, 5)
+        XCTAssertEqual(actual.startDates.count, 8)
     }
 
 }

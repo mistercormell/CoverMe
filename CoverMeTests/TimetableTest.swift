@@ -11,13 +11,13 @@ import XCTest
 final class TimetableTest: XCTestCase {
 
     //TODO - change test so no longer dependent on TimetableFileReader
-    func testTimetableGetRoomSKGandWednesday3rdGivesValidRoom()  {
+    func testTimetableGetRoomDPCandWednesday2ndGivesValidRoom()  {
         //arrange
         let timetable = TimetableFileReader.initialiseTimetableAndStaffData().0
-        let expected = Room.Birley2
+        let expected = Room.Keate2
         
         //act
-        let actual = timetable.getRoomFor(lesson: Lesson.Wednesday3rd, teacher: Teacher(initials: "MDS", department: .ComputerScience, email: "m.stockdale@etoncollege.org.uk"))
+        let actual = timetable.getRoomFor(lesson: Lesson.Wednesday2nd, teacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"))
         
         //assert
         XCTAssertEqual(actual, expected)
@@ -32,12 +32,12 @@ final class TimetableTest: XCTestCase {
         //arrange
         let data = TimetableFileReader.initialiseTimetableAndStaffData()
         let timetable = data.0
-        let testCases = [(initials: "SKG", lesson: Lesson.Monday3rd, expected: true),
-                         (initials: "DPC", lesson: Lesson.Tuesday3rd, expected: false),
+        let testCases = [(initials: "MDS", lesson: Lesson.Monday3rd, expected: true),
+                         (initials: "DPC", lesson: Lesson.Tuesday3rd, expected: true),
                          (initials: "JWFS", lesson: Lesson.Saturday3rd, expected: false),
                          (initials: "SJT", lesson: Lesson.Wednesday3rd, expected: false),
                          (initials: "MC", lesson: Lesson.Monday3rd, expected: false),
-                         (initials: "SKG", lesson: Lesson.Thursday5th, expected: true)]
+                         (initials: "MDS", lesson: Lesson.Thursday5th, expected: false)]
         
         //act
         //assert
