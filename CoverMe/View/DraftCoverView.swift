@@ -48,7 +48,7 @@ struct DraftCoverView: View {
     }
     
     func sendEmail(_ coverArrangements: [CoverArrangementWithDate], date: Date) {
-        let mailToUrl = MailHandler.draftCoverEmail(coverArrangements, date: date)
+        let mailToUrl = MailHandler.draftCoverEmail(coverArrangements, date: date, department: viewModel.selectedDepartment)
         if UIApplication.shared.canOpenURL(mailToUrl) {
                 UIApplication.shared.open(mailToUrl, options: [:])
         }
