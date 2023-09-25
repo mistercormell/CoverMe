@@ -44,7 +44,8 @@ class MailHandler {
         let coverDetails = futureCoverArrangements.sorted(by: {$0 < $1}).map({ $0.display})
         var subject = ""
         if isSingleDate {
-            subject = "CONFIRMED Cover On: \(Date.now.longDateDescription)"
+            let dateOfCover = futureCoverArrangements.first?.date
+            subject = "CONFIRMED Cover On: \(dateOfCover?.longDateDescription ?? Date.now.longDateDescription)"
         } else {
             subject = "CONFIRMED Cover From: \(Date.now.longDateDescription) Onwards"
         }

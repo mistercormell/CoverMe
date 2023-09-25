@@ -85,7 +85,7 @@ struct ConfirmedCoverView: View {
     }
     
     func sendEmail(coverArrangements: [CoverArrangementWithDate], isSingleDate: Bool) {
-        let mailToUrl = MailHandler.coverConfirmationEmail(futureCoverArrangements: coverArrangements, isSingleDate: isSingleDate)
+        let mailToUrl = MailHandler.coverConfirmationEmail(futureCoverArrangements: coverArrangements, isSingleDate: isSingleDate, department: viewModel.selectedDepartment)
         if UIApplication.shared.canOpenURL(mailToUrl) {
                 UIApplication.shared.open(mailToUrl, options: [:])
         }
