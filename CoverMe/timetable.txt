@@ -50,7 +50,6 @@ Wednesday7th,BComY-1,DPC,Keate2
 Wednesday7th,ECom7-1,MC,Keate1
 Wednesday7th,FCom3-3,SJT,Birley1
 Wednesday7th,DCom7-1,MDS,Birley2
-Wednesday7th,FSphX-X,JWFS,CIRLObs
 Thursday1st,ECom2-1,SJT,Birley1
 Thursday1st,DCom2-1,MDS,Birley2
 Thursday2nd,BComY-1,DPC,Keate2
