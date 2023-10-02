@@ -92,7 +92,7 @@ struct Division: Equatable {
 }
 
 enum Department: String, Codable, CaseIterable {
-    case ComputerScience, Divinity, History
+    case ComputerScience, Divinity, History,Classics
     
     var display: String {
         if self == .ComputerScience {
@@ -125,7 +125,7 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
 }
 
 enum Room: String, Codable {
-    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2, CIRLObs,Birley5,Lyttelton8,Lyttelton7,Lyttelton6,Lyttelton5,Lyttelton4,Lyttelton3,Lyttelton2,Lyttelton1,NotAvailable
+    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2, CIRLObs,Birley5,Lyttelton8,Lyttelton7,Lyttelton6,Lyttelton5,Lyttelton4,Lyttelton3,Lyttelton2,Lyttelton1,James1,James2,James3,James4,James5,James6,James7,James8,James9,James10,James11,James12,James13,James14,NotAvailable
     
     var displayName: String {
         if self.rawValue.hasSuffix("1") {
@@ -144,7 +144,19 @@ enum Room: String, Codable {
             return "7 \(self.rawValue.prefix(self.rawValue.count-1))"
         } else if self.rawValue.hasSuffix("8") {
             return "8 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else {
+        } else if self.rawValue.hasSuffix("9") {
+            return "9 \(self.rawValue.prefix(self.rawValue.count-1))"
+        } else if self.rawValue.hasSuffix("10") {
+            return "10 \(self.rawValue.prefix(self.rawValue.count-2))"
+        } else if self.rawValue.hasSuffix("11") {
+            return "11 \(self.rawValue.prefix(self.rawValue.count-2))"
+        } else if self.rawValue.hasSuffix("12") {
+            return "12 \(self.rawValue.prefix(self.rawValue.count-2))"
+        } else if self.rawValue.hasSuffix("13") {
+            return "13 \(self.rawValue.prefix(self.rawValue.count-2))"
+        } else if self.rawValue.hasSuffix("14") {
+            return "14 \(self.rawValue.prefix(self.rawValue.count-2))"
+        }else {
             return self.rawValue
         }
     }
