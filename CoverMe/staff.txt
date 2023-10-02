@@ -19,3 +19,15 @@ PEPW,History,p.walsh@etoncollege.org.uk
 SCH,History,s.henderson@etoncollege.org.uk
 TEJN,History,j.nolan@etoncollege.org.uk
 VSJC,History,v.clark@etoncollege.org.uk
+WING,Divinity,W.Griffith@etoncollege.org.uk
+LEM,Divinity,L.Miller@etoncollege.org.uk
+BTP,Divinity,B.Page@etoncollege.org.uk
+DS,Divinity,D.Soars@etoncollege.org.uk
+LSM,Divinity,L.Martin@etoncollege.org.uk
+CMJ,Divinity,c.m.jones@etoncollege.org.uk
+IPMcD,Divinity,I.McDole@etoncollege.org.uk
+PAH,Divinity,P.Hess@etoncollege.org.uk
+RERD,Divinity,R.Demery@etoncollege.org.uk
+SJNG,Divinity,S.Gray@etoncollege.org.uk
+AJK,Divinity,A.Keefer@etoncollege.org.uk
+EJNR,Divinity,e.russell@etoncollege.org.uk
