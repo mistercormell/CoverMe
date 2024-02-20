@@ -31,7 +31,6 @@ struct ConfirmedCoverView: View {
         groupedByDate.map({ $0.key }).sorted()
     }
 
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -71,7 +70,7 @@ struct ConfirmedCoverView: View {
             }
         }
         .popover(isPresented: $showingTallyPopover) {
-            CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown())
+            CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown())
         }
 
     }
