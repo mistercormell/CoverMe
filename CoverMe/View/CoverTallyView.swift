@@ -10,6 +10,7 @@ import SwiftUI
 struct CoverTallyView: View {
     let teacherCoverTally: [(Teacher, Tally)]
     let readerTally: (Int, Int)
+    let reasonCoverTally: [(ReasonForCover, Tally)]
     
     var body: some View {
         List {
@@ -19,6 +20,12 @@ struct CoverTallyView: View {
             }
             Section {
                 CoverTallyItemView(key: "Readers", allTime: readerTally.1, currentHalf: readerTally.0)
+            }
+            Section {
+                ForEach(reasonCoverTally.sorted(by: {
+                    $0.1.currentHalf < $1.1.currentHalf}), id: \.0) { (reason, tally)  in
+                        CoverTallyItemView(key: reason.rawValue, allTime: tally.allTime, currentHalf: tally.currentHalf)
+                }
             }
         }
     }
@@ -56,6 +63,6 @@ struct CoverTallyView_Previews: PreviewProvider {
             (Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), Tally(currentHalf: 3, allTime: 23)),
             (Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), Tally(currentHalf: 0, allTime: 8)),
             (Teacher(initials: "JWFS", department: .ComputerScience, email: "j.stanforth@etoncollege.org.uk"), Tally(currentHalf: 9, allTime: 11))
-        ], readerTally: (5, 14))
+        ], readerTally: (5, 14), reasonCoverTally: [(.health, Tally(currentHalf: 3, allTime: 12)),(.partnerships, Tally(currentHalf: 1, allTime: 9))])
     }
 }

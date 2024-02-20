@@ -13,11 +13,21 @@ struct CoverPickerView: View {
     @State private var selectedCover: CoverArrangement?
 
     var body: some View {
-        Form {
+        NavigationView {
+            Form {
                 Section(header: Text("What needs covering:")) {
                     Picker(selection: $viewModel.selectedTeacherInitials, label: Text("Teacher"), content: {
                         ForEach(viewModel.getTeamInitials(), id: \.self) {
                             Text($0)
+                        }
+                    })
+                    Picker(selection: $viewModel.selectedReason,
+                           label: Text("Reason"), content: {
+                        ForEach(ReasonForCover.allCases, id: \.self) { reason in
+                            HStack {
+                                Text(reason.rawValue)
+                                Image(systemName: reason.iconName)
+                            }.tag(reason)
                         }
                     })
                     DatePicker(selection: $viewModel.selectedDate, displayedComponents: .date) {
@@ -67,7 +77,7 @@ struct CoverPickerView: View {
                                                 .destructive(Text("Cancel")) {
                                                     print("Cancelled")
                                                 }
-
+                                                
                                             ]
                                         )
                                     }
@@ -77,9 +87,10 @@ struct CoverPickerView: View {
                             }
                             
                         }
-                    
+                        
                     }
                 }
+            }
         }
     }
 }

@@ -14,18 +14,18 @@ class CoverManager {
         self.timetable = timetable
     }
         
-    func getCoverOptions(teacher: Teacher, lesson: Lesson) -> [CoverArrangement] {
+    func getCoverOptions(teacher: Teacher, lesson: Lesson, reason: ReasonForCover) -> [CoverArrangement] {
         var coverOptions: [CoverArrangement] = []
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
             let availableTeachers = timetable.findAvailableTeachers(lesson: lesson).filter({
                 $0.department == teacher.department
             })
             for availableTeacher in availableTeachers {
-                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false)
+                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false, reasonForCover: reason)
                 coverOptions.append(coverArrangement)
             }
             if timetabledLesson.canBeGivenReader() {
-                coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true))
+                coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true, reasonForCover: reason))
             }
             return coverOptions
         } else {
@@ -35,8 +35,8 @@ class CoverManager {
         return []
     }
     
-    func getBestCoverOption(teacher: Teacher, lesson: Lesson, coverTally: [Teacher: Int]) -> CoverArrangement {
-        let coverOptions = getCoverOptions(teacher: teacher, lesson: lesson)
+    func getBestCoverOption(teacher: Teacher, lesson: Lesson, coverTally: [Teacher: Int], reasonForCover: ReasonForCover) -> CoverArrangement {
+        let coverOptions = getCoverOptions(teacher: teacher, lesson: lesson, reason: reasonForCover)
         
         if coverOptions.count == 1 {
             return coverOptions[0]
@@ -77,24 +77,24 @@ class CoverManager {
         return lessonsTaughtOnDate
     }
     
-    func getBestCoverOptions(date: Date, teacher: Teacher, coverTally: [Teacher:Int]) -> [CoverArrangement] {
+    func getBestCoverOptions(date: Date, teacher: Teacher, coverTally: [Teacher:Int], reason: ReasonForCover) -> [CoverArrangement] {
         var bestCover: [CoverArrangement] = []
         let lessons = getLessonsTaught(on: date, by: teacher)
         
         for lesson in lessons {
-            let bestOption = getBestCoverOption(teacher: teacher, lesson: lesson, coverTally: coverTally)
+            let bestOption = getBestCoverOption(teacher: teacher, lesson: lesson, coverTally: coverTally, reasonForCover: reason)
             bestCover.append(bestOption)
         }
         
         return bestCover
     }
     
-    func getCoverOptions(date: Date, teacher: Teacher) -> [Lesson:[CoverArrangement]] {
+    func getCoverOptions(date: Date, teacher: Teacher, reason: ReasonForCover) -> [Lesson:[CoverArrangement]] {
         var coverOptions: [Lesson:[CoverArrangement]] = [:]
         let lessons = getLessonsTaught(on: date, by: teacher)
         
         for lesson in lessons {
-            let coverPossibilities = getCoverOptions(teacher: teacher, lesson: lesson)
+            let coverPossibilities = getCoverOptions(teacher: teacher, lesson: lesson, reason: reason)
             coverOptions[lesson] = coverPossibilities
         }
         

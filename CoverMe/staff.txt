@@ -40,7 +40,7 @@ JCAJ,Classics,c.smart@etoncollege.org.uk
 HGPJ,Classics,c.smart@etoncollege.org.uk
 JDM,Classics,c.smart@etoncollege.org.uk
 JN,Classics,c.smart@etoncollege.org.uk
-RDOC,Classics,c.smart@etoncollege.org.uk
+RDO-C,Classics,c.smart@etoncollege.org.uk
 CDNP,Classics,c.smart@etoncollege.org.uk
 RECS,Classics,c.smart@etoncollege.org.uk
 BES,Classics,c.smart@etoncollege.org.uk

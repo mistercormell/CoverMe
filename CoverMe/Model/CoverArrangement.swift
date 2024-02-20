@@ -84,6 +84,35 @@ class CoverArrangementWithDate: Identifiable, Comparable, Codable {
     }
 }
 
+enum ReasonForCover: String, Codable, CaseIterable {
+    case health = "Health"
+    case personal = "Personal"
+    case partnerships = "Partnerships"
+    case coCurricular = "Co-curricular" 
+    case training = "Training"
+    case otherSchoolCommitment = "Other School Commitment"
+    case outsideInterest = "Outside Interest"
+    
+    var iconName: String {
+        switch self {
+        case .health:
+            return "medical.thermometer"
+        case .personal:
+            return "person"
+        case .partnerships:
+            return "figure.2.and.child.holdinghands"
+        case .coCurricular:
+            return "tennis.racket"
+        case .training:
+            return "graduationcap"
+        case .outsideInterest:
+            return "figure.walk.departure"
+        default:
+            return "questionmark.circle"
+        }
+    }
+}
+
 struct CoverArrangement: Identifiable, Codable {
     let originalTeacher: Teacher
     let coverTeacher: Teacher
@@ -92,6 +121,7 @@ struct CoverArrangement: Identifiable, Codable {
     let divisionCode: String
     let notes: String
     let isReadingSchool: Bool
+    let reasonForCover: ReasonForCover
     
     var id: String {
         "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"

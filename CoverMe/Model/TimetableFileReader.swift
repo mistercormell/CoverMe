@@ -9,7 +9,12 @@ import Foundation
 
 class TimetableFileReader {
     static func getTeacher(by initials: String, teachers: [Teacher]) -> Teacher {
-        return teachers.first(where: {$0.initials == initials}) ?? Teacher.dummy
+        if let teacher = teachers.first(where: {$0.initials == initials}) {
+            return teacher
+        } else {
+            print("Failed to get teacher from initials \(initials)")
+            return Teacher.dummy
+        }
     }
     
     static func createTimetabledLessonFromLine(line: String, teachers: [Teacher]) -> TimetabledLesson? {

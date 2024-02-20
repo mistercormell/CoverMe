@@ -10,4 +10,12 @@ New Feature - Add-in ability to use other departments for cover availability
 New feature - Add team 'skills' so that certain teachers are preferred for certain types of cover
 Add Logging framework to aid with debugging on deployed devices
 
+New feature:
+
+- who needs covering picker
+- date of cover
+- school / div selection
+- who is going to cover picker (whole team)
+- reason for cover
+- notes to explain how this cover works even though it's not standard'
 
