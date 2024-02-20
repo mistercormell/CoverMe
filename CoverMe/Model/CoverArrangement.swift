@@ -121,7 +121,7 @@ struct CoverArrangement: Identifiable, Codable {
     let divisionCode: String
     let notes: String
     let isReadingSchool: Bool
-    let reasonForCover: ReasonForCover
+    let reasonForCover: ReasonForCover?
     
     var id: String {
         "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"

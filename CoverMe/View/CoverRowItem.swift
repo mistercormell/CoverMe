@@ -15,7 +15,11 @@ struct CoverRowItem: View {
     var body: some View {
         HStack {
             Text("\(cover.displayWithoutDate)")
-            Image(systemName: cover.coverArrangement.reasonForCover.iconName)
+            Spacer()
+            if let iconName = cover.coverArrangement.reasonForCover?.iconName {
+                Image(systemName: iconName)
+            }
+
         }
             .swipeActions(edge: .leading) {
                 if isDraftCoverRow {
