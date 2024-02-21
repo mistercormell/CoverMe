@@ -40,6 +40,7 @@ struct DraftCoverView: View {
                                 Button("Send Email") {
                                     sendEmail(groupedByDate[header]!, date: header)
                                 }
+                                .buttonStyle(.borderless)
                             }
                         }
                     }
