@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DraftCoverView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
+    @State private var isShowingAddCustom = false
     
     var draftCover: [CoverArrangementWithDate] {
         viewModel.coverRecord.filter({
@@ -25,24 +26,36 @@ struct DraftCoverView: View {
     }
     
     var body: some View {
-        VStack {
-            if draftCover.count <= 0 {
-                Text("No Pending Cover Requests")
-            } else {
-                List {
-                    ForEach(headers, id: \.self) { header in
-                        Section(header: Text(header, style: .date)) {
-                            ForEach(groupedByDate[header]!) { cover in
-                                CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: true)
-                            }
-                            Button("Send Email") {
-                                sendEmail(groupedByDate[header]!, date: header)
+        NavigationView {
+            VStack {
+                if draftCover.count <= 0 {
+                    Text("No Pending Cover Requests")
+                } else {
+                    List {
+                        ForEach(headers, id: \.self) { header in
+                            Section(header: Text(header, style: .date)) {
+                                ForEach(groupedByDate[header]!) { cover in
+                                    CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: true)
+                                }
+                                Button("Send Email") {
+                                    sendEmail(groupedByDate[header]!, date: header)
+                                }
                             }
                         }
                     }
                 }
+                
             }
-
+            .toolbar {
+                Button {
+                    isShowingAddCustom = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .popover(isPresented: $isShowingAddCustom) {
+            AddCustomCoverView(viewModel: viewModel, teacherInitialsToCover: viewModel.getTeamInitials().first ?? "", coverTeacherInitials: viewModel.getTeamInitials().first ?? "", isShowing: $isShowingAddCustom)
         }
 
     }

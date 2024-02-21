@@ -59,8 +59,24 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func addCoverArrangementWithDate(cover: CoverArrangement) {
-        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: selectedDate, timetableTiming: termDates.getTimetableTiming(at: selectedDate))
+        addCoverArrangement(cover: cover, for: selectedDate)
+    }
+    
+    func addCoverArrangement(cover: CoverArrangement, for date: Date) {
+        let coverArrangementWithDate = CoverArrangementWithDate(coverArrangement: cover, date: date, timetableTiming: termDates.getTimetableTiming(at: date))
         coverRecord.append(coverArrangementWithDate)
+    }
+    
+    func addCustomCoverArrangement(reason: ReasonForCover, teacherToCover: String, coverTeacher: String, selectedDate: Date, lesson: Lesson, notes: String) {
+        if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: getTeacherByInitials(initials: teacherToCover)) {
+            let isReader: Bool = teacherToCover == coverTeacher
+            let cover = CoverArrangement(originalTeacher: getTeacherByInitials(initials: teacherToCover), coverTeacher: getTeacherByInitials(initials: coverTeacher), room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: notes, isReadingSchool: isReader, reasonForCover: reason)
+            addCoverArrangement(cover: cover, for: selectedDate)
+        } else {
+            print("Couldn't find timetabled lesson for: \(teacherToCover) during \(lesson.rawValue) where cover would be due to take place")
+        }
+        
+
     }
     
     func updateAvailableCoverAllDay() {
@@ -74,17 +90,20 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func getLessonsTaughtOnDate() -> [Lesson] {
+        return getLessonsTaught(on: selectedDate, by: selectedTeacherInitials)
+    }
+    
+    func getLessonsTaught(on date: Date, by initials: String) -> [Lesson] {
         let lessonsTaught = Lesson.allCases.filter({
-            timetable.doesTeachIn($0, for: getTeacherByInitials(initials: selectedTeacherInitials))
+            timetable.doesTeachIn($0, for: getTeacherByInitials(initials: initials))
         })
         
         let lessonsTaughtOnDate = lessonsTaught.filter({
-            let currentDay = selectedDate.day
+            let currentDay = date.day
             return currentDay == $0.dayOfWeek
         })
         
         return lessonsTaughtOnDate
-        
     }
     
     func confirmCover(_ cover: CoverArrangementWithDate) {
