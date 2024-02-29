@@ -10,6 +10,7 @@ import SwiftUI
 struct ConfirmedCoverView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
     @State private var showingTallyPopover = false
+    let csvGenerator = CSVGenerator()
     
     var confirmedCover: [CoverArrangementWithDate] {
         viewModel.coverRecord.filter({
@@ -57,6 +58,7 @@ struct ConfirmedCoverView: View {
                 }
             }
             .toolbar {
+                ShareLink(item: csvGenerator.generateCSV(confirmedCover: confirmedCover))
                 Button {
                     showingTallyPopover = true
                 } label: {
