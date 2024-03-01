@@ -33,6 +33,10 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    var shortDateDescription: String {
+        return self.formatted(date: .numeric, time: .omitted)
+    }
+    
     var twoDigitYear: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy"
