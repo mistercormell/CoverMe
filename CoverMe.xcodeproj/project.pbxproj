@@ -78,6 +78,7 @@
 		B471D3E429FBE1A9001C15DD /* TermDatesFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesFileReader.swift; sourceTree = "<group>"; };
 		B471D3E629FBE746001C15DD /* termdates.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = termdates.txt; path = CoverMe/termdates.txt; sourceTree = SOURCE_ROOT; };
 		B471D3E829FBE991001C15DD /* TermDatesFileReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesFileReaderTest.swift; sourceTree = "<group>"; };
+		B47464462BD7F46400DB0C59 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = file; name = PrivacyInfo.xcprivacy; path = CoverMe/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 		B48116F829924F7A003F7085 /* CoverMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48116FB29924F7A003F7085 /* CoverMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverMeApp.swift; sourceTree = "<group>"; };
 		B48116FD29924F7A003F7085 /* CoverPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPickerView.swift; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 		B48116FA29924F7A003F7085 /* CoverMe */ = {
 			isa = PBXGroup;
 			children = (
+				B47464462BD7F46400DB0C59 /* PrivacyInfo.xcprivacy */,
 				B448D10F2A0E763300C2B0FB /* Persistence */,
 				B461AF6429BA2A3C005F216E /* Extensions */,
 				B4838FB32993B2F800100C33 /* ViewModel */,
