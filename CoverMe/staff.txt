@@ -31,6 +31,8 @@ RERD,Divinity,R.Demery@etoncollege.org.uk
 SJNG,Divinity,S.Gray@etoncollege.org.uk
 AJK,Divinity,A.Keefer@etoncollege.org.uk
 EJNR,Divinity,e.russell@etoncollege.org.uk
+TAM,Divinity,tariq.mir@etoncollege.org.uk
+PJT,Divinity,p.taylor@etoncollege.org.uk
 CJS,Classics,c.smart@etoncollege.org.uk
 KMA,Classics,c.smart@etoncollege.org.uk
 IH,Classics,c.smart@etoncollege.org.uk
