@@ -30,7 +30,7 @@ struct AddCustomCoverView: View {
                         Text($0)
                     }
                 })
-                Picker(selection: $viewModel.selectedReason,
+                Picker(selection: $selectedReason,
                        label: Text("Reason"), content: {
                     ForEach(ReasonForCover.allCases, id: \.self) { reason in
                         HStack {
