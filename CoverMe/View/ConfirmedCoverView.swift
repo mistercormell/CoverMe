@@ -55,6 +55,10 @@ struct ConfirmedCoverView: View {
                     .onAppear {
                         proxy.scrollTo(getNearestDateToToday(), anchor: .top)
                     }
+                    .popover(isPresented: $showingTallyPopover) {
+                        CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown())
+                            .frame(minWidth: getMinWidth(), minHeight: getMinHeight())
+                    }
                 }
             }
             .toolbar {
@@ -70,10 +74,9 @@ struct ConfirmedCoverView: View {
                     Image(systemName: "envelope")
                 }
             }
+
         }
-        .popover(isPresented: $showingTallyPopover) {
-            CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown())
-        }
+
 
     }
     
@@ -102,6 +105,22 @@ struct ConfirmedCoverView: View {
             dateToReturn = date
         }
         return today
+    }
+    
+    func getMinWidth() -> CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return 500
+        } else {
+            return 0
+        }
+    }
+    
+    func getMinHeight() -> CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return 800
+        } else {
+            return 0
+        }
     }
 }
 

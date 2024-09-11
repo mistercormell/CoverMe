@@ -78,7 +78,7 @@
 		B471D3E429FBE1A9001C15DD /* TermDatesFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesFileReader.swift; sourceTree = "<group>"; };
 		B471D3E629FBE746001C15DD /* termdates.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = termdates.txt; path = CoverMe/termdates.txt; sourceTree = SOURCE_ROOT; };
 		B471D3E829FBE991001C15DD /* TermDatesFileReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDatesFileReaderTest.swift; sourceTree = "<group>"; };
-		B47464462BD7F46400DB0C59 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = file; name = PrivacyInfo.xcprivacy; path = CoverMe/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
+		B47464462BD7F46400DB0C59 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = CoverMe/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 		B48116F829924F7A003F7085 /* CoverMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48116FB29924F7A003F7085 /* CoverMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverMeApp.swift; sourceTree = "<group>"; };
 		B48116FD29924F7A003F7085 /* CoverPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPickerView.swift; sourceTree = "<group>"; };
@@ -606,7 +606,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eton.mrcormell.CoverMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -639,7 +639,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eton.mrcormell.CoverMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
