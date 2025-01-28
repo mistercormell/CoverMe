@@ -46,6 +46,9 @@
 		B4E9C3942A04493500E385C6 /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9C3932A04493500E385C6 /* SetupViewModel.swift */; };
 		B4EE251C2B84FF5B005CCC6E /* AddCustomCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE251B2B84FF5B005CCC6E /* AddCustomCoverView.swift */; };
 		B4EE257D2B90DDB2005CCC6E /* CSVGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE257C2B90DDB2005CCC6E /* CSVGenerator.swift */; };
+		B4FE54642C93393E000033C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FE54632C93393E000033C3 /* SettingsView.swift */; };
+		B4FE54662C933993000033C3 /* ManageTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FE54652C933993000033C3 /* ManageTeamView.swift */; };
+		B4FE54682C9339A3000033C3 /* ManageTeamTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FE54672C9339A3000033C3 /* ManageTeamTimetableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,9 @@
 		B4E9C3932A04493500E385C6 /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
 		B4EE251B2B84FF5B005CCC6E /* AddCustomCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomCoverView.swift; sourceTree = "<group>"; };
 		B4EE257C2B90DDB2005CCC6E /* CSVGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVGenerator.swift; sourceTree = "<group>"; };
+		B4FE54632C93393E000033C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B4FE54652C933993000033C3 /* ManageTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamView.swift; sourceTree = "<group>"; };
+		B4FE54672C9339A3000033C3 /* ManageTeamTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamTimetableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +257,9 @@
 				B4AA93BB2A0425EE00CE3DDB /* CoverSetupView.swift */,
 				B4E9C3912A0444EF00E385C6 /* LaunchScreenView.swift */,
 				B4EE251B2B84FF5B005CCC6E /* AddCustomCoverView.swift */,
+				B4FE54632C93393E000033C3 /* SettingsView.swift */,
+				B4FE54652C933993000033C3 /* ManageTeamView.swift */,
+				B4FE54672C9339A3000033C3 /* ManageTeamTimetableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 			files = (
 				B461AF6829BA6AF0005F216E /* DraftCoverView.swift in Sources */,
 				B471D3E129FBE10C001C15DD /* TermDates.swift in Sources */,
+				B4FE54682C9339A3000033C3 /* ManageTeamTimetableView.swift in Sources */,
 				B48116FE29924F7A003F7085 /* CoverPickerView.swift in Sources */,
 				B4AA93BC2A0425EF00CE3DDB /* CoverSetupView.swift in Sources */,
 				B4EE251C2B84FF5B005CCC6E /* AddCustomCoverView.swift in Sources */,
@@ -419,12 +429,14 @@
 				B471D3E529FBE1A9001C15DD /* TermDatesFileReader.swift in Sources */,
 				B448D1112A0E765000C2B0FB /* DepartmentCoverDao.swift in Sources */,
 				B4811728299259F0003F7085 /* TimetableFileReader.swift in Sources */,
+				B4FE54642C93393E000033C3 /* SettingsView.swift in Sources */,
 				B4D2DD3B29CA089F001BBA84 /* CoverTallyView.swift in Sources */,
 				B4EE257D2B90DDB2005CCC6E /* CSVGenerator.swift in Sources */,
 				B4E9C3902A0428D200E385C6 /* UserDefaults.swift in Sources */,
 				B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */,
 				B4E9C3922A0444EF00E385C6 /* LaunchScreenView.swift in Sources */,
 				B469C45A299262F000DEB92F /* CoverManager.swift in Sources */,
+				B4FE54662C933993000033C3 /* ManageTeamView.swift in Sources */,
 				B461AF6629BA2A50005F216E /* Date.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,
 				B4D2DD5B29CC666E001BBA84 /* MailHandler.swift in Sources */,

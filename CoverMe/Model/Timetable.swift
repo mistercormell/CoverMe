@@ -108,6 +108,13 @@ struct Tally {
     let allTime: Int
 }
 
+struct CoverStatistic {
+    let currentHalf: Int
+    let previousHalf: Int
+    let priorToPreviousHalf: Int
+    let allTime: Int
+}
+
 struct Teacher: Equatable, Hashable, Codable, Comparable {
     static func < (lhs: Teacher, rhs: Teacher) -> Bool {
         return lhs.initials < rhs.initials

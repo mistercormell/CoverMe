@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                NavigationLink(destination: ManageTeamView(), label: { Text("Manage Team") } )
+                NavigationLink(destination: ManageTeamTimetableView(), label: { Text("Manage Timetable") } )
+            }
+            .navigationTitle("Settings")
+        }
     }
 }
 

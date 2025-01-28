@@ -56,7 +56,7 @@ struct ConfirmedCoverView: View {
                         proxy.scrollTo(getNearestDateToToday(), anchor: .top)
                     }
                     .popover(isPresented: $showingTallyPopover) {
-                        CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown())
+                        CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown(), teacherCoverStats: viewModel.getCoverStatistics())
                             .frame(minWidth: getMinWidth(), minHeight: getMinHeight())
                     }
                 }

@@ -19,6 +19,7 @@ struct AddCustomCoverView: View {
     @State private var selectedSchool: Lesson?
     @State private var notes: String = ""
     @State var possibleSchools: [Lesson]
+    @State private var isReader: Bool = false
     
     @Binding var isShowing: Bool
     
@@ -51,16 +52,19 @@ struct AddCustomCoverView: View {
                         }
                     })
                 }
-                Picker(selection: $coverTeacherInitials, label: Text("Cover Teacher"), content: {
-                    ForEach(viewModel.getTeamInitials(), id: \.self) {
-                        Text($0)
-                    }
-                })
+                Toggle(isOn: $isReader, label: { Text("Issue Reader?") })
+                if !isReader {
+                    Picker(selection: $coverTeacherInitials, label: Text("Cover Teacher"), content: {
+                        ForEach(viewModel.getTeamInitials(), id: \.self) {
+                            Text($0)
+                        }
+                    })
+                }
                 TextField("Notes", text: $notes)
                 Section {
                     Button("Add to Pending", action: {
                         if let selectedSchool = selectedSchool {
-                            viewModel.addCustomCoverArrangement(reason: selectedReason, teacherToCover: teacherInitialsToCover, coverTeacher: coverTeacherInitials, selectedDate: selectedDate, lesson: selectedSchool, notes: notes)
+                            viewModel.addCustomCoverArrangement(reason: selectedReason, teacherToCover: teacherInitialsToCover, coverTeacher: coverTeacherInitials, selectedDate: selectedDate, lesson: selectedSchool, isReader: isReader, notes: notes)
                             isShowing = false
                         } else {
                             print("Wasn't able to find any lessons that the person taught, failing to add")

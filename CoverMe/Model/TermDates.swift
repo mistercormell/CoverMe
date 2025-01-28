@@ -29,17 +29,45 @@ struct TermDates {
         return .Normal
     }
     
-    func getTermDisplay(for date: Date) -> String {
+    func getTermDate(for date: Date) -> TermDate? {
         for i in 0..<startDates.count {
             let startDateOfTerm = startDates[i]
             if (date < startDateOfTerm.date && i == 0) || (i == startDates.count - 1 && date >= startDateOfTerm.date) {
-                return startDates[i].term.displayInitial + date.twoDigitYear
+                return startDates[i]
             } else if date < startDateOfTerm.date  {
-                return startDates[i-1].term.displayInitial + date.twoDigitYear
+                return startDates[i-1]
             }
         }
-        print("Couldn't calculate a term display for date: \(date.description), returning empty string")
-        return ""
+        print("Couldn't calculate a term date for date: \(date.description), returning nil")
+        return nil
+    }
+    
+    func getTermDisplay(for date: Date) -> String {
+        if let termDate = getTermDate(for: date) {
+            return termDate.term.displayInitial + date.twoDigitYear
+        } else {
+            print("Couldn't calculate a term display for date: \(date.description), returning empty string")
+            return ""
+        }
+    }
+    
+    func getPast3TermDisplays(for date: Date) -> [String] {
+        var past3Terms: [TermDate] = []
+        if let currentTerm = getTermDate(for: date) {
+            past3Terms.append(currentTerm)
+            if let index = startDates.firstIndex(where: { $0.date == currentTerm.date }) {
+                if index >= 2 {
+                    past3Terms.append(startDates[index-1])
+                    past3Terms.append(startDates[index-2])
+                    return past3Terms.map({
+                        getTermDisplay(for: $0.date)
+                    })
+                }
+            }
+
+        }
+        print("Was not able to find past 3 terms, fatal error")
+        return []
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ManageTeamTimetableView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Here's where we can manage team timetable / block them out for periods of time")
     }
 }
 

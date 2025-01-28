@@ -4,7 +4,7 @@ Clean up architecture and remove dependencies on CoverPickerViewModel
 Fix bug where it currently can assign someone for cover if they are free but down to cover someone else!
 fix bug where if you delete a confirmed person, it's currently impossible to re-confirm them!
 Fix bug where you can't add the same cover twice to the draft list
-New FEature - Add way to generate text file from Excel (the source of timetable data)
+New FEature - Add way to generate text file from Excel (the source of timetable data) - done
 New Feature - Add-in ability to use other departments for cover availability
 New feature - Add team 'skills' so that certain teachers are preferred for certain types of cover
 Add Logging framework to aid with debugging on deployed devices
@@ -12,5 +12,12 @@ UI Fixes: Optimise for iPad display when deployed to iPads
 Fix bug: Where doesn't show sphere for cover! Add Sphere schools into timetable data!
 New Feature - Add settings view where you can: upload timetable data / block out people at certain times:
 ----Option 1 - Get whole school on-boarded, one central timetable file from JMB each half and keep up to date staff list
-----Option 2 - Give each HoD control over their timetable -> upload their own staffingcollator file. Some UI for blocking out days e.g. Picker with Team in drop-down - displaying a list of all schools, un-tick any which they're not available for. Also option to customise team
+----Option 2 - Give each HoD control over their timetable -> upload their own staffingcollator file.
+----In either Option: Some UI for blocking out days e.g. Picker with Team in drop-down - displaying a list of all schools, un-tick any which they're not available for. Also option to customise team
+
+New Feature - adding readers in the pending view - Done
+New feature - Add stats for cover requested - Done
+New feature - custom date range for export to Excel
+New feature - export to Excel showing more useful stuff!
+New Feature - showing difference of covers vs. covers done or average of last X half's'
 

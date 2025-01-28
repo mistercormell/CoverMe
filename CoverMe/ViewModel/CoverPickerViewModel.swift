@@ -67,10 +67,10 @@ class CoverPickerViewModel: ObservableObject {
         coverRecord.append(coverArrangementWithDate)
     }
     
-    func addCustomCoverArrangement(reason: ReasonForCover, teacherToCover: String, coverTeacher: String, selectedDate: Date, lesson: Lesson, notes: String) {
+    func addCustomCoverArrangement(reason: ReasonForCover, teacherToCover: String, coverTeacher: String, selectedDate: Date, lesson: Lesson, isReader: Bool, notes: String) {
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: getTeacherByInitials(initials: teacherToCover)) {
-            let isReader: Bool = teacherToCover == coverTeacher
-            let cover = CoverArrangement(originalTeacher: getTeacherByInitials(initials: teacherToCover), coverTeacher: getTeacherByInitials(initials: coverTeacher), room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: notes, isReadingSchool: isReader, reasonForCover: reason)
+            let revisedCoverTeacher = isReader ? teacherToCover : coverTeacher
+            let cover = CoverArrangement(originalTeacher: getTeacherByInitials(initials: teacherToCover), coverTeacher: getTeacherByInitials(initials: revisedCoverTeacher), room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: notes, isReadingSchool: isReader, reasonForCover: reason)
             addCoverArrangement(cover: cover, for: selectedDate)
         } else {
             print("Couldn't find timetabled lesson for: \(teacherToCover) during \(lesson.rawValue) where cover would be due to take place")
@@ -158,6 +158,36 @@ class CoverPickerViewModel: ObservableObject {
         }
         
         return teacherTally
+    }
+    
+    func getCoverStatistics() -> [(Teacher, CoverStatistic, CoverStatistic)] {
+        var statistics: [(Teacher, CoverStatistic, CoverStatistic)] = []
+        let confirmedCover = coverRecord.filter({
+            $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
+        })
+        
+        let previous3TermDisplays = termDates.getPast3TermDisplays(for: Date.now.startOfDayDate)
+        
+        for teacher in timetable.getTeam(by: selectedDepartment) {
+            let allTimeCoveredCover = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher})
+            let allTimeCovered = allTimeCoveredCover.count
+            let currentHalfCovered = allTimeCoveredCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[0]}).count
+            let previousHalfCovered = allTimeCoveredCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[1]}).count
+            let priorToPreviousHalfCovered = allTimeCoveredCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[2]}).count
+            let coveredStatistic = CoverStatistic(currentHalf: currentHalfCovered, previousHalf: previousHalfCovered, priorToPreviousHalf: priorToPreviousHalfCovered, allTime: allTimeCovered)
+            
+            let allTimeRequestedCover = confirmedCover.filter({$0.coverArrangement.originalTeacher == teacher})
+            let allTimeRequested = allTimeRequestedCover.count
+            let currentHalfRequested = allTimeRequestedCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[0]}).count
+            let previousHalfRequested = allTimeRequestedCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[1]}).count
+            let priorToPreviousHalfRequested = allTimeRequestedCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[2]}).count
+            
+            let requestedStatistic = CoverStatistic(currentHalf: currentHalfRequested, previousHalf: previousHalfRequested, priorToPreviousHalf: priorToPreviousHalfRequested, allTime: allTimeRequested)
+            
+            statistics.append((teacher, coveredStatistic, requestedStatistic))
+        }
+        
+        return statistics
     }
     
     func getReadingSchoolTally() -> Int {
