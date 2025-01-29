@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B404B0692AAB391C00E3062F /* staff.txt in Resources */ = {isa = PBXBuildFile; fileRef = B404B0682AAB391C00E3062F /* staff.txt */; };
+		B443DF6F2D48F9DF0034C68A /* ExportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443DF6E2D48F9DF0034C68A /* ExportDataView.swift */; };
 		B448D10E2A0E626100C2B0FB /* ParseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B448D10D2A0E626100C2B0FB /* ParseSwift */; };
 		B448D1112A0E765000C2B0FB /* DepartmentCoverDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */; };
 		B461AF6629BA2A50005F216E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461AF6529BA2A50005F216E /* Date.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		B404B0682AAB391C00E3062F /* staff.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = staff.txt; sourceTree = "<group>"; };
+		B443DF6E2D48F9DF0034C68A /* ExportDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportDataView.swift; sourceTree = "<group>"; };
 		B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCoverDao.swift; sourceTree = "<group>"; };
 		B461AF6529BA2A50005F216E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B461AF6729BA6AF0005F216E /* DraftCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftCoverView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				B4FE54632C93393E000033C3 /* SettingsView.swift */,
 				B4FE54652C933993000033C3 /* ManageTeamView.swift */,
 				B4FE54672C9339A3000033C3 /* ManageTeamTimetableView.swift */,
+				B443DF6E2D48F9DF0034C68A /* ExportDataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				B4FE54662C933993000033C3 /* ManageTeamView.swift in Sources */,
 				B461AF6629BA2A50005F216E /* Date.swift in Sources */,
 				B48117262992578A003F7085 /* Timetable.swift in Sources */,
+				B443DF6F2D48F9DF0034C68A /* ExportDataView.swift in Sources */,
 				B4D2DD5B29CC666E001BBA84 /* MailHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
