@@ -40,6 +40,20 @@ struct Timetable {
         }
         return false
     }
+    
+    func doesShareDivision(teacher: Teacher, division: Division) -> Bool {
+        return timetabledLessons.filter {
+            $0.teacher == teacher
+        }
+        .map({
+            $0.division
+        })
+        .contains(where: {
+            $0.code == division.code
+        })
+        
+    
+    }
 
     //TODO - potentially remove as unused now as just getting the room is unhelpful
     func getRoomFor(lesson: Lesson, teacher: Teacher) -> Room? {

@@ -58,6 +58,9 @@ struct CoverPickerView: View {
                                         HStack {
                                             Text(cover.coverOptionDisplay)
                                             Spacer()
+                                            if cover.isShared {
+                                                Image(systemName: "person.2.fill")
+                                            }
                                             if viewModel.getTallyDisplay(for: cover) > 0 {
                                                 Image(systemName: "\(viewModel.getTallyDisplay(for: cover)).circle")
                                                     .foregroundColor(.gray)

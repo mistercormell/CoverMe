@@ -70,7 +70,7 @@ class CoverPickerViewModel: ObservableObject {
     func addCustomCoverArrangement(reason: ReasonForCover, teacherToCover: String, coverTeacher: String, selectedDate: Date, lesson: Lesson, isReader: Bool, notes: String) {
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: getTeacherByInitials(initials: teacherToCover)) {
             let revisedCoverTeacher = isReader ? teacherToCover : coverTeacher
-            let cover = CoverArrangement(originalTeacher: getTeacherByInitials(initials: teacherToCover), coverTeacher: getTeacherByInitials(initials: revisedCoverTeacher), room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: notes, isReadingSchool: isReader, reasonForCover: reason)
+            let cover = CoverArrangement(originalTeacher: getTeacherByInitials(initials: teacherToCover), coverTeacher: getTeacherByInitials(initials: revisedCoverTeacher), room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: notes, isReadingSchool: isReader, reasonForCover: reason, isShared: false)
             addCoverArrangement(cover: cover, for: selectedDate)
         } else {
             print("Couldn't find timetabled lesson for: \(teacherToCover) during \(lesson.rawValue) where cover would be due to take place")

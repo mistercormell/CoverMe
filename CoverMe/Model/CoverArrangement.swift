@@ -122,6 +122,7 @@ struct CoverArrangement: Identifiable, Codable {
     let notes: String
     let isReadingSchool: Bool
     let reasonForCover: ReasonForCover?
+    let isShared: Bool
     
     var id: String {
         "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
@@ -142,5 +143,44 @@ struct CoverArrangement: Identifiable, Codable {
             return "\(coverTeacher.initials) to cover in \(room.displayName)"
         }
         
+    }
+    
+    init(originalTeacher: Teacher,
+         coverTeacher: Teacher,
+         room: Room,
+         lesson: Lesson,
+         divisionCode: String,
+         notes: String,
+         isReadingSchool: Bool,
+         reasonForCover: ReasonForCover?,
+         isShared: Bool) {
+        self.originalTeacher = originalTeacher
+        self.coverTeacher = coverTeacher
+        self.room = room
+        self.lesson = lesson
+        self.divisionCode = divisionCode
+        self.notes = notes
+        self.isReadingSchool = isReadingSchool
+        self.reasonForCover = reasonForCover
+        self.isShared = isShared
+    }
+    
+    // Custom Decodable Implementation
+    enum CodingKeys: String, CodingKey {
+        case originalTeacher, coverTeacher, room, lesson, divisionCode, notes, isReadingSchool, reasonForCover, isShared
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.originalTeacher = try container.decode(Teacher.self, forKey: .originalTeacher)
+        self.coverTeacher = try container.decode(Teacher.self, forKey: .coverTeacher)
+        self.room = try container.decode(Room.self, forKey: .room)
+        self.lesson = try container.decode(Lesson.self, forKey: .lesson)
+        self.divisionCode = try container.decode(String.self, forKey: .divisionCode)
+        self.notes = try container.decode(String.self, forKey: .notes)
+        self.isReadingSchool = try container.decode(Bool.self, forKey: .isReadingSchool)
+        self.reasonForCover = try container.decodeIfPresent(ReasonForCover.self, forKey: .reasonForCover)
+        self.isShared = try container.decodeIfPresent(Bool.self, forKey: .isShared) ?? false
     }
 }

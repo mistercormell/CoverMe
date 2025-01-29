@@ -44,6 +44,6 @@ struct CoverRowItem: View {
 
 struct CoverRowItem_Previews: PreviewProvider {
     static var previews: some View {
-        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), coverTeacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: "", isReadingSchool: false, reasonForCover: .health), date: Date.now, timetableTiming: .Normal), vm: CoverPickerViewModel(selectedDepartment: .ComputerScience), isDraftCoverRow: true)
+        CoverRowItem(cover: CoverArrangementWithDate(coverArrangement: CoverArrangement(originalTeacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), coverTeacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), room: Room.Birley1, lesson: Lesson.Wednesday3rd, divisionCode: "BComV-1", notes: "", isReadingSchool: false, reasonForCover: .health, isShared: true), date: Date.now, timetableTiming: .Normal), vm: CoverPickerViewModel(selectedDepartment: .ComputerScience), isDraftCoverRow: true)
     }
 }

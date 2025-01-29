@@ -21,11 +21,12 @@ class CoverManager {
                 $0.department == teacher.department
             })
             for availableTeacher in availableTeachers {
-                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false, reasonForCover: reason)
+                let alsoTeachesThisDivision = timetable.doesShareDivision(teacher: availableTeacher, division: timetabledLesson.division)
+                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false, reasonForCover: reason, isShared: alsoTeachesThisDivision)
                 coverOptions.append(coverArrangement)
             }
             if timetabledLesson.canBeGivenReader() {
-                coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true, reasonForCover: reason))
+                coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true, reasonForCover: reason, isShared: false))
             }
             return coverOptions
         } else {
