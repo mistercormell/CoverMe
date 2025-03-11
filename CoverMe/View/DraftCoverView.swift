@@ -54,7 +54,7 @@ struct DraftCoverView: View {
                     Image(systemName: "plus")
                 }
             }
-            .popover(isPresented: $isShowingAddCustom) {
+            .sheet(isPresented: $isShowingAddCustom) {
                 let initialTeacher = viewModel.getTeamInitials().first ?? ""
                 AddCustomCoverView(viewModel: viewModel, teacherInitialsToCover: initialTeacher, coverTeacherInitials: initialTeacher, possibleSchools: viewModel.getLessonsTaught(on: Date.now, by: initialTeacher), isShowing: $isShowingAddCustom)
             }
