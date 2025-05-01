@@ -12,24 +12,10 @@ struct ConfirmedCoverView: View {
     @State private var showingTallyPopover = false
     @State private var showingExportPopover = false
     
-    var confirmedCover: [CoverArrangementWithDate] {
-        viewModel.coverRecord.filter({
-            $0.status == .confirmed
-        }).sorted()
-    }
-    
     var confirmedCoverFuture: [CoverArrangementWithDate] {
-        confirmedCover.filter({
+        viewModel.confirmedCover.filter({
             $0.date.startOfDayDate >= Date.now.startOfDayDate
         })
-    }
-    
-    var groupedByDate: [Date: [CoverArrangementWithDate]] {
-        Dictionary(grouping: confirmedCover, by: {$0.startOfDayDate})
-    }
-
-    var headers: [Date] {
-        groupedByDate.map({ $0.key }).sorted()
     }
 
     var body: some View {
@@ -37,7 +23,7 @@ struct ConfirmedCoverView: View {
             VStack {
                 ScrollViewReader { proxy in
                     List {
-                        ForEach(headers, id: \.self) { header in
+                        ForEach(viewModel.headers, id: \.self) { header in
                             Section(header: HStack {
                                 Button {
                                     sendEmail(by: header.startOfDayDate)
@@ -46,16 +32,18 @@ struct ConfirmedCoverView: View {
                                 }
                                 Text(header, style: .date)
                             }) {
-                                ForEach(groupedByDate[header]!) { cover in
+                                ForEach(viewModel.groupedByDate[header]!) { cover in
                                     CoverRowItem(cover: cover, vm: viewModel, isDraftCoverRow: false)
                                 }
                             }.id(header)
                         }
                     }
                     .onAppear {
-                        proxy.scrollTo(getNearestDateToToday(), anchor: .top)
+                        if let date = viewModel.nearestDateToToday {
+                            proxy.scrollTo(date, anchor: .top)
+                        }
                     }
-                    .popover(isPresented: $showingTallyPopover) {
+                    .sheet(isPresented: $showingTallyPopover) {
                         CoverTallyView(teacherCoverTally: viewModel.getCoverTallyBreakdown(), readerTally: viewModel.getReadingSchoolTallyBreakdown(), reasonCoverTally: viewModel.getReasonTallyBreakdown(), teacherCoverStats: viewModel.getCoverStatistics())
                             .frame(minWidth: getMinWidth(), minHeight: getMinHeight())
                     }
@@ -67,8 +55,8 @@ struct ConfirmedCoverView: View {
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
-                .popover(isPresented: $showingExportPopover) {
-                    ExportDataView(startDate: viewModel.termDates.getTermDate(for: Date.now)?.date ?? Date.now, confirmedCover: confirmedCover) 
+                .sheet(isPresented: $showingExportPopover) {
+                    ExportDataView(startDate: viewModel.termDates.getTermDate(for: Date.now)?.date ?? Date.now, confirmedCover: viewModel.confirmedCover)
                 }
                 Button {
                     showingTallyPopover = true
@@ -92,7 +80,7 @@ struct ConfirmedCoverView: View {
     }
     
     func sendEmail(by date: Date) {
-        sendEmail(coverArrangements: groupedByDate[date] ?? [], isSingleDate: true)
+        sendEmail(coverArrangements: viewModel.groupedByDate[date] ?? [], isSingleDate: true)
     }
     
     func sendEmail(coverArrangements: [CoverArrangementWithDate], isSingleDate: Bool) {
@@ -105,7 +93,7 @@ struct ConfirmedCoverView: View {
     func getNearestDateToToday() -> Date {
         let today = Date.now.startOfDayDate
         var dateToReturn = today
-        for date in headers {
+        for date in viewModel.headers {
             if date >= today {
                 return dateToReturn
             }

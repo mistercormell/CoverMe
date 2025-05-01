@@ -6,3 +6,6 @@
 02/09/2024,Michaelmas
 06/01/2025,Lent
 22/04/2025,Summer
+01/09/2025,Michaelmas
+05/01/2026,Lent
+13/04/2026,Summer

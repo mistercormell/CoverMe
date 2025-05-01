@@ -25,6 +25,10 @@ class CoverPickerViewModel: ObservableObject {
             self.saveCoverRecord()
         }
     }
+    @Published private(set) var confirmedCover: [CoverArrangementWithDate] = []
+    @Published private(set) var groupedByDate: [Date: [CoverArrangementWithDate]] = [:]
+    @Published private(set) var headers: [Date] = []
+    @Published private(set) var nearestDateToToday: Date?
     
     //TODO replace to dependency inject TimetableFileReader and CoverManager
     init(selectedDepartment: Department) {
@@ -38,7 +42,16 @@ class CoverPickerViewModel: ObservableObject {
         let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
         self.termDates = termDates
         self.coverRecordDaoObjectId = UserDefaults.standard.cloudStorageId
+        processConfirmedCoverData()
         
+    }
+    
+    private func processConfirmedCoverData() {
+        let filtered = coverRecord.filter { $0.status == .confirmed }.sorted()
+        self.confirmedCover = filtered
+        self.groupedByDate = Dictionary(grouping: filtered, by: { $0.startOfDayDate })
+        self.headers = self.groupedByDate.keys.sorted()
+        self.nearestDateToToday = self.headers.first(where: { $0 >= Date.now.startOfDayDate }) ?? Date.now.startOfDayDate
     }
     
     func getTeacherByInitials(initials: String) -> Teacher {
@@ -108,6 +121,7 @@ class CoverPickerViewModel: ObservableObject {
     
     func confirmCover(_ cover: CoverArrangementWithDate) {
         cover.confirm()
+        processConfirmedCoverData()
         self.saveCoverRecord()
         objectWillChange.send()
     }
@@ -116,6 +130,7 @@ class CoverPickerViewModel: ObservableObject {
         coverRecord.removeAll(where: {
             $0 == cover
         })
+        processConfirmedCoverData()
     }
     
     func getTeamInitials() -> [String] {
@@ -273,5 +288,6 @@ class CoverPickerViewModel: ObservableObject {
 
             }
         }
+        processConfirmedCoverData()
     }
 }
