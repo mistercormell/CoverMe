@@ -14,10 +14,12 @@ JMR,History,j.rainey@etoncollege.org.uk
 KCD,History,k.davies@etoncollege.org.uk
 LC,History,lucy.cordingley@etoncollege.org.uk
 NAEJ,History,n.jeffery@etoncollege.org.uk
+OHL,History,O.Lloyd@etoncollege.org.uk
 PEPW,History,p.walsh@etoncollege.org.uk
 SCH,History,s.henderson@etoncollege.org.uk
 TEJN,History,j.nolan@etoncollege.org.uk
 VSJC,History,v.clark@etoncollege.org.uk
+WGN,History,W.Nash@etoncollege.org.uk
 WING,Divinity,W.Griffith@etoncollege.org.uk
 LEM,Divinity,L.Miller@etoncollege.org.uk
 BTP,Divinity,B.Page@etoncollege.org.uk
