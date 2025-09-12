@@ -37,7 +37,7 @@ class CoverPickerViewModel: ObservableObject {
         self.staff = data.1
         self.coverManager = CoverManager(timetable: timetable)
         self.selectedDepartment = selectedDepartment
-        let initialTeacher = timetable.getTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", department: selectedDepartment, email: "")
+        let initialTeacher = timetable.getTimetabledTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", department: selectedDepartment, email: "")
         self.selectedTeacherInitials = initialTeacher.initials
         let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
         self.termDates = termDates
@@ -134,7 +134,11 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func getTeamInitials() -> [String] {
-        return timetable.getTeam(by: selectedDepartment).map({ $0.initials })
+        return timetable.getTimetabledTeam(by: selectedDepartment).map({ $0.initials })
+    }
+    
+    func getCoverStaffInitials() -> [String] {
+        return staff.filter( { $0.department == selectedDepartment} ).map({ $0.initials })
     }
     
     func getCoverTally() -> [Teacher:Int] {
@@ -143,7 +147,7 @@ class CoverPickerViewModel: ObservableObject {
             $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
         })
         
-        for teacher in timetable.getTeam(by: selectedDepartment) {
+        for teacher in timetable.getTimetabledTeam(by: selectedDepartment) {
             dictionary[teacher] = 0
         }
     
@@ -165,7 +169,7 @@ class CoverPickerViewModel: ObservableObject {
             $0.status == .confirmed && $0.coverArrangement.isReadingSchool == false
         })
         
-        for teacher in timetable.getTeam(by: selectedDepartment) {
+        for teacher in timetable.getTimetabledTeam(by: selectedDepartment) {
             let global = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher}).count
             let currentHalf = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher && termDates.getTermDisplay(for: $0.date) == termDates.getTermDisplay(for: Date.now.startOfDayDate)}).count
             
@@ -183,7 +187,7 @@ class CoverPickerViewModel: ObservableObject {
         
         let previous3TermDisplays = termDates.getPast3TermDisplays(for: Date.now.startOfDayDate)
         
-        for teacher in timetable.getTeam(by: selectedDepartment) {
+        for teacher in timetable.getTimetabledTeam(by: selectedDepartment) {
             let allTimeCoveredCover = confirmedCover.filter({$0.coverArrangement.coverTeacher == teacher})
             let allTimeCovered = allTimeCoveredCover.count
             let currentHalfCovered = allTimeCoveredCover.filter({termDates.getTermDisplay(for: $0.date) == previous3TermDisplays[0]}).count

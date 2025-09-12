@@ -3,6 +3,7 @@ SJT,ComputerScience,s.tebbutt@etoncollege.org.uk
 JWFS,ComputerScience,j.stanforth@etoncollege.org.uk
 MDS,ComputerScience,m.stockdale@etoncollege.org.uk
 SFB,ComputerScience,s.birtles@etoncollege.org.uk
+HTB,ComputerScience,h.bersey@etoncollege.org.uk
 ASR,History,a.robinson@etoncollege.org.uk
 DJS,History,d.sullivan@etoncollege.org.uk
 DY,History,d.yuravlivker@etoncollege.org.uk

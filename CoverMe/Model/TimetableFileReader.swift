@@ -52,7 +52,7 @@ class TimetableFileReader {
                         print("Error, could not extract valid timetabled lesson from: \(line)")
                     }
                 }
-                return Timetable(timetabledLessons: timetabledLessons)
+                return Timetable(timetabledLessons: timetabledLessons, teachers: teachers)
             } catch {
                 print("Couldn't load contents of file")
             }
@@ -60,7 +60,7 @@ class TimetableFileReader {
             print("File not found!")
         }
         
-        return Timetable(timetabledLessons: [])
+        return Timetable(timetabledLessons: [], teachers: [])
     }
     
     static func createTeacherFromLine(line: String) -> Teacher? {

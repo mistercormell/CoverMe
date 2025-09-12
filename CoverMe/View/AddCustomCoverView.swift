@@ -55,7 +55,7 @@ struct AddCustomCoverView: View {
                 Toggle(isOn: $isReader, label: { Text("Issue Reader?") })
                 if !isReader {
                     Picker(selection: $coverTeacherInitials, label: Text("Cover Teacher"), content: {
-                        ForEach(viewModel.getTeamInitials(), id: \.self) {
+                        ForEach(viewModel.getCoverStaffInitials(), id: \.self) {
                             Text($0)
                         }
                     })

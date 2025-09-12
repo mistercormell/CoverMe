@@ -9,8 +9,9 @@ import Foundation
 
 struct Timetable {
     var timetabledLessons: [TimetabledLesson]
+    var teachers: [Teacher]
     
-    var allStaff: [Teacher] {
+    var timetabledStaff: [Teacher] {
         var workingTeam: [Teacher] = []
         for timetabledLesson in timetabledLessons {
             if !workingTeam.contains(where: { $0 == timetabledLesson.teacher}) {
@@ -20,10 +21,15 @@ struct Timetable {
         return workingTeam
     }
     
-    func getTeam(by department: Department) -> [Teacher] {
-        return allStaff.filter({ $0.department == department })
+    func getTimetabledTeam(by department: Department) -> [Teacher] {
+        return timetabledStaff.filter({ $0.department == department })
     }
     
+    //this is required because it is possible that there could be a member of a department who isn't timetabled for any schools, but might do cover (e.g. a Graduate Teacher)
+    func getTeam(by department: Department) -> [Teacher] {
+        return teachers.filter({ $0.department == department })
+    }
+
     func getTimetabledLessonFor(lesson: Lesson, teacher: Teacher) -> TimetabledLesson? {
         let timetabledLesson = timetabledLessons
             .first(where: {$0.lesson == lesson && $0.teacher == teacher})
@@ -66,7 +72,7 @@ struct Timetable {
     }
     
     func findAvailableTeachers(lesson: Lesson) -> Set<Teacher> {
-        let availableTeachers = Set(self.allStaff)
+        let availableTeachers = Set(self.timetabledStaff)
         let teachersTeaching = Set(self.timetabledLessons
             .filter({$0.lesson == lesson})
             .map({$0.teacher}))
