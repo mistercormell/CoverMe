@@ -20,12 +20,8 @@ class TimetableFileReader {
     static func createTimetabledLessonFromLine(line: String, teachers: [Teacher]) -> TimetabledLesson? {
         let parts = line.components(separatedBy: ",")
         if let lesson = Lesson(rawValue: parts[0]) {
-            if let room = Room(rawValue: parts[3]) {
-                let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: getTeacher(by: parts[2], teachers: teachers), division: Division(code: parts[1]), room: room)
-                return timetabledLesson
-            } else {
-                print("Invalid room name")
-            }
+            let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: getTeacher(by: parts[2], teachers: teachers), division: Division(code: parts[1]), room: parts[3])
+            return timetabledLesson
         } else {
             print("Invalid lesson code")
         }

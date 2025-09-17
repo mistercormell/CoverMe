@@ -62,7 +62,7 @@ struct Timetable {
     }
 
     //TODO - potentially remove as unused now as just getting the room is unhelpful
-    func getRoomFor(lesson: Lesson, teacher: Teacher) -> Room? {
+    func getRoomFor(lesson: Lesson, teacher: Teacher) -> String? {
         let room = timetabledLessons
             .first(where: {$0.lesson == lesson && $0.teacher == teacher})
             .map({ $0.room })
@@ -82,7 +82,7 @@ struct Timetable {
     }
     
     #if DEBUG
-    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: Room.Keate1),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), division: Division(code: "FCom1-2"), room: Room.Birley1),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: Room.Keate2)]
+    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: "1 Keate"),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), division: Division(code: "FCom1-2"), room: "1 Birley"),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: "2 Keate")]
     #endif
 }
 
@@ -90,7 +90,7 @@ struct TimetabledLesson: Equatable {
     let lesson: Lesson
     let teacher: Teacher
     let division: Division
-    let room: Room
+    let room: String
     
     var display: String {
         "\(lesson.displayName) - \(division.code) (\(teacher.initials))"
@@ -150,45 +150,6 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
     
     static let dummy: Teacher = Teacher(initials: "unknown", department: .ComputerScience, email: "unknownEmail")
 }
-
-enum Room: String, Codable {
-    case Keate1, Keate2, Birley1, Birley2, Caxton1, DrawingSchools, Caxton4, Marten1, Marten6, Marten5, Marten3, MartenLibrary, Marten8, Marten7, Caxton6, Marten4, Caxton3, Marten2,Caxton5, CIRLObs,Birley5,Lyttelton8,Lyttelton7,Lyttelton6,Lyttelton5,Lyttelton4,Lyttelton3,Lyttelton2,Lyttelton1,James1,James2,James3,James4,James5,James6,James7,James8,James9,James10,James11,James12,James13,James14,Elliott1,Elliott2,Elliott3,Elliott4,Elliott5,Elliott6,Elliott7,Elliott8,Elliott9,NotAvailable
-    
-    var displayName: String {
-        if self.rawValue.hasSuffix("1") {
-            return "1 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("2") {
-            return "2 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("3") {
-            return "3 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("4") {
-            return "4 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("5") {
-            return "5 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("6") {
-            return "6 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("7") {
-            return "7 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("8") {
-            return "8 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("9") {
-            return "9 \(self.rawValue.prefix(self.rawValue.count-1))"
-        } else if self.rawValue.hasSuffix("10") {
-            return "10 \(self.rawValue.prefix(self.rawValue.count-2))"
-        } else if self.rawValue.hasSuffix("11") {
-            return "11 \(self.rawValue.prefix(self.rawValue.count-2))"
-        } else if self.rawValue.hasSuffix("12") {
-            return "12 \(self.rawValue.prefix(self.rawValue.count-2))"
-        } else if self.rawValue.hasSuffix("13") {
-            return "13 \(self.rawValue.prefix(self.rawValue.count-2))"
-        } else if self.rawValue.hasSuffix("14") {
-            return "14 \(self.rawValue.prefix(self.rawValue.count-2))"
-        }else {
-            return self.rawValue
-        }
-    }
-}
-
 
 enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {
     static func < (lhs: Lesson, rhs: Lesson) -> Bool {

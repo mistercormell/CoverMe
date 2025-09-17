@@ -116,7 +116,7 @@ enum ReasonForCover: String, Codable, CaseIterable {
 struct CoverArrangement: Identifiable, Codable {
     let originalTeacher: Teacher
     let coverTeacher: Teacher
-    let room: Room
+    let room: String
     let lesson: Lesson
     let divisionCode: String
     let notes: String
@@ -125,7 +125,7 @@ struct CoverArrangement: Identifiable, Codable {
     let isShared: Bool
     
     var id: String {
-        "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room.rawValue)-\(self.lesson.rawValue)"
+        "\(self.originalTeacher.initials)\(self.coverTeacher.initials)-\(self.room)-\(self.lesson.rawValue)"
     }
     
     var display: String {
@@ -140,14 +140,14 @@ struct CoverArrangement: Identifiable, Codable {
         if isReadingSchool {
             return "Reader to be given"
         } else {
-            return "\(coverTeacher.initials) to cover in \(room.displayName)"
+            return "\(coverTeacher.initials) to cover in \(room)"
         }
         
     }
     
     init(originalTeacher: Teacher,
          coverTeacher: Teacher,
-         room: Room,
+         room: String,
          lesson: Lesson,
          divisionCode: String,
          notes: String,
@@ -175,7 +175,7 @@ struct CoverArrangement: Identifiable, Codable {
         
         self.originalTeacher = try container.decode(Teacher.self, forKey: .originalTeacher)
         self.coverTeacher = try container.decode(Teacher.self, forKey: .coverTeacher)
-        self.room = try container.decode(Room.self, forKey: .room)
+        self.room = try container.decode(String.self, forKey: .room)
         self.lesson = try container.decode(Lesson.self, forKey: .lesson)
         self.divisionCode = try container.decode(String.self, forKey: .divisionCode)
         self.notes = try container.decode(String.self, forKey: .notes)
