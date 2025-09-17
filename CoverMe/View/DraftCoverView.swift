@@ -59,6 +59,7 @@ struct DraftCoverView: View {
                 AddCustomCoverView(viewModel: viewModel, teacherInitialsToCover: initialTeacher, coverTeacherInitials: initialTeacher, possibleSchools: viewModel.getLessonsTaught(on: Date.now, by: initialTeacher), isShowing: $isShowingAddCustom)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
 
 
     }

@@ -71,6 +71,7 @@ struct ConfirmedCoverView: View {
             }
 
         }
+        .navigationViewStyle(StackNavigationViewStyle())
 
 
     }

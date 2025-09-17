@@ -95,6 +95,7 @@ struct CoverPickerView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
