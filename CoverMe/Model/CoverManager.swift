@@ -18,7 +18,7 @@ class CoverManager {
         var coverOptions: [CoverArrangement] = []
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
             let availableTeachers = timetable.findAvailableTeachers(lesson: lesson).filter({
-                $0.department == teacher.department
+                !Set($0.departments).isDisjoint(with: teacher.departments)
             })
             for availableTeacher in availableTeachers {
                 let alsoTeachesThisDivision = timetable.doesShareDivision(teacher: availableTeacher, division: timetabledLesson.division)

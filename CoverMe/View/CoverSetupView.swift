@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoverSetupView: View {
-    @State private var selectedDepartment: Department = .ComputerScience
+    @State private var selectedDepartment: Department = .computerScience
     @ObservedObject var viewModel: SetupViewModel
     
     var body: some View {
@@ -17,7 +17,7 @@ struct CoverSetupView: View {
                 Section(header: Text("CoverMe - Initial Setup")) {
                     Picker(selection: $selectedDepartment, label: Text("Department"), content: {
                         ForEach(Department.allCases, id: \.self) {
-                            Text($0.display)
+                            Text($0.displayName)
                         }
                     })
                 }

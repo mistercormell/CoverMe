@@ -20,7 +20,7 @@ class TimetableFileReader {
     static func createTimetabledLessonFromLine(line: String, teachers: [Teacher]) -> TimetabledLesson? {
         let parts = line.components(separatedBy: ",")
         if let lesson = Lesson(rawValue: parts[0]) {
-            let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: getTeacher(by: parts[2], teachers: teachers), division: Division(code: parts[1]), room: parts[3])
+            let timetabledLesson = TimetabledLesson(lesson: lesson, teacher: getTeacher(by: parts[3], teachers: teachers), faculty: Faculty(rawValue: parts[1]) ?? .unknown, division: Division(code: parts[2]), room: parts[4])
             return timetabledLesson
         } else {
             print("Invalid lesson code")
@@ -61,13 +61,17 @@ class TimetableFileReader {
     
     static func createTeacherFromLine(line: String) -> Teacher? {
         let parts = line.components(separatedBy: ",")
-        if let department = Department(rawValue: parts[1]) {
-            let teacher = Teacher(initials: parts[0], department: department, email: parts[2])
-            return teacher
-        } else {
-            print("Invalid teacher's department")
+        let faculties = parts[1].components(separatedBy: "-")
+            .map({
+                Faculty(rawValue: $0) ?? .unknown
+            })
+        
+        if faculties.contains(.unknown) {
+            return nil
         }
-        return nil
+        
+        let teacher = Teacher(initials: parts[0], faculties: faculties, email: parts[2])
+        return teacher
     }
     
     static func getStaffFromFile(filename: String) -> [Teacher] {

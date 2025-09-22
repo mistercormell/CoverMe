@@ -37,7 +37,7 @@ class CoverPickerViewModel: ObservableObject {
         self.staff = data.1
         self.coverManager = CoverManager(timetable: timetable)
         self.selectedDepartment = selectedDepartment
-        let initialTeacher = timetable.getTimetabledTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", department: selectedDepartment, email: "")
+        let initialTeacher = timetable.getTimetabledTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", faculties: [.unknown], email: "")
         self.selectedTeacherInitials = initialTeacher.initials
         let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
         self.termDates = termDates
@@ -138,7 +138,7 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func getCoverStaffInitials() -> [String] {
-        return staff.filter( { $0.department == selectedDepartment} ).map({ $0.initials })
+        return staff.filter( { $0.departments.contains(selectedDepartment)} ).map({ $0.initials })
     }
     
     func getCoverTally() -> [Teacher:Int] {

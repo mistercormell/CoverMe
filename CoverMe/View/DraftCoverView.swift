@@ -74,6 +74,6 @@ struct DraftCoverView: View {
 
 struct CurrentCoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DraftCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .ComputerScience))
+        DraftCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience))
     }
 }

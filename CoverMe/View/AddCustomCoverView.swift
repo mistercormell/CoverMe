@@ -93,5 +93,5 @@ struct AddCustomCoverView: View {
 }
 
 #Preview {
-    AddCustomCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .ComputerScience), teacherInitialsToCover: "DPC", coverTeacherInitials: "DPC", possibleSchools: [.Friday1st,.Friday2nd], isShowing: .constant(true))
+    AddCustomCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience), teacherInitialsToCover: "DPC", coverTeacherInitials: "DPC", possibleSchools: [.Friday1st,.Friday2nd], isShowing: .constant(true))
 }

@@ -38,6 +38,6 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: .ComputerScience))
+        MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience))
     }
 }

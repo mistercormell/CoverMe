@@ -122,6 +122,6 @@ struct ConfirmedCoverView: View {
 
 struct ConfirmedCoverView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmedCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .ComputerScience))
+        ConfirmedCoverView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience))
     }
 }

@@ -22,12 +22,12 @@ struct Timetable {
     }
     
     func getTimetabledTeam(by department: Department) -> [Teacher] {
-        return timetabledStaff.filter({ $0.department == department })
+        return timetabledStaff.filter({ $0.departments.contains(department) })
     }
     
     //this is required because it is possible that there could be a member of a department who isn't timetabled for any schools, but might do cover (e.g. a Graduate Teacher)
     func getTeam(by department: Department) -> [Teacher] {
-        return teachers.filter({ $0.department == department })
+        return teachers.filter({ $0.departments.contains(department) })
     }
 
     func getTimetabledLessonFor(lesson: Lesson, teacher: Teacher) -> TimetabledLesson? {
@@ -82,13 +82,14 @@ struct Timetable {
     }
     
     #if DEBUG
-    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", department: .ComputerScience, email: "m.collins@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: "1 Keate"),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", department: .ComputerScience, email: "s.tebbutt@etoncollege.org.uk"), division: Division(code: "FCom1-2"), room: "1 Birley"),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", department: .ComputerScience, email: "d.cormell@etoncollege.org.uk"), division: Division(code: "BComV-1"), room: "2 Keate")]
+    static let example: [TimetabledLesson] = [TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "MC", faculties: [.computerScience], email: "m.collins@etoncollege.org.uk"), faculty: .computerScience, division: Division(code: "BComV-1"), room: "1 Keate"),TimetabledLesson(lesson: Lesson.Monday2nd, teacher: Teacher(initials: "SJT", faculties: [.computerScience], email: "s.tebbutt@etoncollege.org.uk"), faculty: .computerScience, division: Division(code: "FCom1-2"), room: "1 Birley"),TimetabledLesson(lesson: Lesson.Monday3rd, teacher: Teacher(initials: "DPC", faculties: [.computerScience], email: "d.cormell@etoncollege.org.uk"), faculty: .computerScience, division: Division(code: "BComV-1"), room: "2 Keate")]
     #endif
 }
 
 struct TimetabledLesson: Equatable {
     let lesson: Lesson
     let teacher: Teacher
+    let faculty: Faculty
     let division: Division
     let room: String
     
@@ -111,14 +112,102 @@ struct Division: Equatable {
     let code: String
 }
 
-enum Department: String, Codable, CaseIterable {
-    case ComputerScience,Divinity,History,Classics,Economics
+enum Faculty: String, Codable {
+    case ancientHistory = "Ahy"
+    case art = "Art"
+    case biology = "Bio"
+    case classicalCivilisation = "Ccv"
+    case chemistry = "Che"
+    case chinese = "Chi"
+    case computerScience = "Com"
+    case design = "Des"
+    case divinity = "Div"
+    case drama = "Dra"
+    case economics = "Eco"
+    case english = "Eng"
+    case french = "Fre"
+    case geography = "Geo"
+    case german = "Ger"
+    case greek = "Grk"
+    case history = "His"
+    case historyEarlyModern = "Hem"
+    case historyModern = "Hmn"
+    case historyMedieval = "Hml"
+    case historyOfArt = "Hoa"
+    case italian = "Ita"
+    case japanese = "Jpn"
+    case latin = "Lat"
+    case maths = "Mat"
+    case mathsFurtherPure = "Mdp"
+    case mathsFurtherApplied = "Mda"
+    case musicRe = "Mre"
+    case mathsSingle = "Msi"
+    case music = "Mus"
+    case musicTech = "Mut"
+    case option = "Opt"
+    case physicalEducation = "Ped"
+    case physics = "Phy"
+    case politics = "Pol"
+    case russian = "Rus"
+    case spanish = "Spn"
+    case sphere = "Spr"
+    case theology = "The"
+    case unknown
+}
+
+enum Department: String, CaseIterable {
+    case history
+    case computerScience
+    case modernLanguages
+    case divinity
+    case classics
+    case english
+    case biology
+    case physics
+    case chemistry
+    case maths
+    case music
+    case politics
+    case economics
+    case sphere
+    case art
+    case drama
+    case pe
+    case option
+    case geography
+    case design
     
-    var display: String {
-        if self == .ComputerScience {
-            return "Computer Science"
-        } else {
-            return self.rawValue
+    var displayName: String {
+        // Insert a space before each capital letter
+        let withSpaces = rawValue
+            .replacingOccurrences(of: "([A-Z])", with: " $1", options: .regularExpression)
+        
+        // Capitalise first letter
+        return withSpaces.capitalized
+    }
+    
+    var faculties: [Faculty] {
+        switch self {
+        case .english: return [.english]
+        case .physics: return [.physics]
+        case .chemistry: return [.chemistry]
+        case .biology: return [.biology]
+        case .maths: return [.maths, .mathsSingle, .mathsFurtherPure, .mathsFurtherApplied]
+        case .music: return [.music, .musicRe, .musicTech]
+        case .history: return [.history, .historyModern, .historyEarlyModern, .historyMedieval, .historyOfArt]
+        case .computerScience: return [.computerScience]
+        case .modernLanguages: return [.french, .german, .italian, .russian, .spanish, .japanese, .chinese]
+        case .divinity: return [.divinity, .theology]
+        case .classics: return [.latin, .greek, .classicalCivilisation, .ancientHistory]
+        case .drama: return [.drama]
+        case .politics: return [.politics]
+        case .economics: return [.economics]
+        case .sphere: return [.sphere]
+        case .art: return [.art]
+        case .pe: return [.physicalEducation]
+        case .option: return [.option]
+        case .geography: return [.geography]
+        case .design: return [.design]
         }
     }
 }
@@ -141,14 +230,16 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
     }
     
     let initials: String
-    let department: Department
+    let faculties: [Faculty]
     let email: String
-
-    func getEmail() -> String {
-        return email
+    
+    var departments: [Department] {
+        Department.allCases.filter { department in
+            !Set(department.faculties).isDisjoint(with: Set(faculties))
+        }
     }
     
-    static let dummy: Teacher = Teacher(initials: "unknown", department: .ComputerScience, email: "unknownEmail")
+    static let dummy: Teacher = Teacher(initials: "unknown", faculties: [.computerScience], email: "unknownEmail")
 }
 
 enum Lesson: String, CaseIterable, Hashable, Comparable, Codable {

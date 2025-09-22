@@ -9,13 +9,7 @@ import Foundation
 
 class MailHandler {
     private static func getSenderName(by department: Department) -> String {
-        if department == .ComputerScience {
-            return "Dave"
-        } else if department == .History {
-            return "Dror"
-        } else {
-            return "Head of \(department.display)"
-        }
+        return department.displayName
     }
     
     private static func mailToUrl(recipients: Set<String>, subject: String, body: String, coverDetailsList: [String], senderName: String) -> URL {
@@ -29,7 +23,7 @@ class MailHandler {
     }
     
     static func draftCoverEmail(_ coverArrangements: [CoverArrangementWithDate], date: Date, department: Department) -> URL {
-        let emails = Set(coverArrangements.map({ $0.coverArrangement.coverTeacher.getEmail()}))
+        let emails = Set(coverArrangements.map({ $0.coverArrangement.coverTeacher.email}))
         let coverDetails = coverArrangements.sorted(by: { $0 < $1 }).map({ $0.displayWithoutDate })
         let subject = "COVER REQUESTS FOR: \(date.longDateDescription)"
         let body = "Please can you respond and let me know if you can or can't cover the request/s shown below. Any subsequent email overrides any previously communicated cover requests for this day: \(date.longDateDescription)"
@@ -38,8 +32,8 @@ class MailHandler {
     }
     
     static func coverConfirmationEmail(futureCoverArrangements: [CoverArrangementWithDate], isSingleDate: Bool, department: Department) -> URL {
-        let coverEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.coverTeacher.getEmail()}))
-        let coveredEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.originalTeacher.getEmail()}))
+        let coverEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.coverTeacher.email}))
+        let coveredEmails = Set(futureCoverArrangements.map({ $0.coverArrangement.originalTeacher.email}))
         let emails = coverEmails.union(coveredEmails)
         let coverDetails = futureCoverArrangements.sorted(by: {$0 < $1}).map({ $0.display})
         var subject = ""
