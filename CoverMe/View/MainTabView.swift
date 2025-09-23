@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainTabView: View {
     @StateObject var viewModel: CoverPickerViewModel
+    @ObservedObject var authViewModel: LoginViewModel
     
     var body: some View {
         TabView {
-            CoverPickerView(viewModel: viewModel)
+            CoverPickerView(viewModel: viewModel, authViewModel: authViewModel)
                 .tabItem {
                     Label("Set", systemImage: "list.dash")
                 }
@@ -38,6 +39,6 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience))
+        MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience), authViewModel: LoginViewModel())
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CoverPickerView: View {
     @ObservedObject var viewModel: CoverPickerViewModel
+    @ObservedObject var authViewModel: LoginViewModel
     @State private var showConfirmation = false
     @State private var selectedCover: CoverArrangement?
 
@@ -94,6 +95,13 @@ struct CoverPickerView: View {
                     }
                 }
             }
+            .toolbar {
+                Button {
+                    authViewModel.logout()
+                } label: {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -101,6 +109,6 @@ struct CoverPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverPickerView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience))
+        CoverPickerView(viewModel: CoverPickerViewModel(selectedDepartment: .computerScience), authViewModel: LoginViewModel())
     }
 }

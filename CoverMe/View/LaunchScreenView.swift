@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LaunchScreenView: View {
-    @StateObject var viewModel: SetupViewModel = SetupViewModel()
+    @StateObject var viewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
-        if let department = viewModel.selectedDepartment {
-            MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: department))
+        if viewModel.isLoggedIn {
+            MainTabView(viewModel: CoverPickerViewModel(selectedDepartment: viewModel.currentUser?.department ?? .computerScience), authViewModel: viewModel)
         } else {
-            CoverSetupView(viewModel: viewModel)
+            LoginView(vm: viewModel)
         }
     }
 }

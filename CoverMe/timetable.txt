@@ -215,8 +215,8 @@ Tuesday2nd,Bio,BBioX-1,AZB,Queen's B1
 Tuesday2nd,Che,BCheX-1,AMM,Queen's C7
 Tuesday2nd,Dra,BDraX-1,H-MH,Empty Space
 Tuesday2nd,Eco,BEcoX-1,AAB,5 Elliot
-Tuesday2nd,Eco,BEcoX-2,CC,3 Elliot
-Tuesday2nd,Eco,BEcoX-3,AUI,2 Elliot
+Tuesday2nd,Eco,BEcoX-2,PRKB,24 Birley
+Tuesday2nd,Eco,BEcoX-3,AUI,8 Elliot
 Tuesday2nd,Eng,BEngX-1,JMOB,8 Caxton
 Tuesday2nd,Fre,BFreX-1,ETVP,13 Birley
 Tuesday2nd,Geo,BGeoX-1,CDE,3 Cannon Yard
@@ -247,8 +247,8 @@ Monday6th,Bio,BBioZ-2,NPTL,Queen's B8
 Monday6th,Che,BCheZ-1,DMT,Queen's C1
 Monday6th,Chi,BChiZ-1,M-LL,22 Birley
 Monday6th,Dra,BDraZ-1,RZRG,Empty Space
-Monday6th,Eco,BEcoZ-1,AUI,2 Elliot
-Monday6th,Eco,BEcoZ-2,REB,3 Elliot
+Monday6th,Eco,BEcoZ-1,AUI,8 Elliot
+Monday6th,Eco,BEcoZ-2,SRM,3 Elliot
 Monday6th,Fre,BFreZ-1,REJ,8 Birley
 Monday6th,Hem,BHemZ-1,JDH,1 Marten
 Monday6th,Hmn,BHmnZ-1,ASR,8 Marten
@@ -261,7 +261,7 @@ Monday6th,Phy,BPhyZ-1,PDAM,Queen's P5
 Monday6th,Phy,BPhyZ-2,IRG,Queen's P7
 Monday6th,Phy,BPhyZ-3,GBG,Queen's P9
 Monday6th,Pol,BPolZ-1,BJMC,1 Elliot
-Monday6th,The,BTheZ-1,EJNR,1 Lyttelton
+Monday6th,The,BTheZ-1,EJNR,4 Lyttelton
 Monday6th,The,BTheZ-2,PAH,7 Lyttelton
 Thursday4th,Opt,BOpt1-1,KAH,CIRL
 Thursday4th,Opt,BOpt1-11,NAEJ,3 Caxton
@@ -282,7 +282,7 @@ Wednesday1st,Che,BCheY-1,RRM,Queen's C1
 Wednesday1st,Che,BCheY-2,DN-J,Queen's C5
 Wednesday1st,Com,BComY-1,DPC,2 Keate's
 Wednesday1st,Des,BDesY-1,OTC,Design Schools
-Wednesday1st,Eco,BEcoY-1,REB,3 Elliot
+Wednesday1st,Eco,BEcoY-1,PRKB,3 Elliot
 Wednesday1st,Eco,BEcoY-2,AAB,5 Elliot
 Wednesday1st,Eco,BEcoY-3,TGS,2 Elliot
 Wednesday1st,Eng,BEngY-1,TAD,10 Alington
@@ -304,7 +304,7 @@ Friday5th,Bio,BBioX-1,AZB,Queen's B1
 Friday5th,Che,BCheX-1,AMM,Queen's C8
 Friday5th,Dra,BDraX-1,H-MH,Empty Space
 Friday5th,Eco,BEcoX-1,AAB,5 Elliot
-Friday5th,Eco,BEcoX-2,PRKB,8 Elliot
+Friday5th,Eco,BEcoX-2,CC,3 Elliot
 Friday5th,Eco,BEcoX-3,RGC,9 Elliot
 Friday5th,Eng,BEngX-1,JMOB,8 Caxton
 Friday5th,Fre,BFreX-1,ETVP,13 Birley
@@ -329,7 +329,7 @@ Saturday3rd,Bio,BBioX-1,SPS,Queen's B6
 Saturday3rd,Che,BCheX-1,AMM,Queen's C8
 Saturday3rd,Dra,BDraX-1,H-MH,Empty Space
 Saturday3rd,Eco,BEcoX-1,AAB,5 Elliot
-Saturday3rd,Eco,BEcoX-2,PRKB,8 Elliot
+Saturday3rd,Eco,BEcoX-2,PRKB,3 Elliot
 Saturday3rd,Eco,BEcoX-3,RGC,9 Elliot
 Saturday3rd,Eng,BEngX-1,JMOB,8 Caxton
 Saturday3rd,Fre,BFreX-1,ETVP,13 Birley
@@ -354,8 +354,8 @@ Wednesday2nd,Bio,BBioX-1,SPS,Queen's B6
 Wednesday2nd,Che,BCheX-1,AMM,Queen's C8
 Wednesday2nd,Dra,BDraX-1,H-MH,Empty Space
 Wednesday2nd,Eco,BEcoX-1,AAB,5 Elliot
-Wednesday2nd,Eco,BEcoX-2,CC,8 Elliot
-Wednesday2nd,Eco,BEcoX-3,RGC,9 Elliot
+Wednesday2nd,Eco,BEcoX-2,CC,9 Elliot
+Wednesday2nd,Eco,BEcoX-3,AUI,8 Elliot
 Wednesday2nd,Eng,BEngX-1,JMOB,8 Caxton
 Wednesday2nd,Fre,BFreX-1,ETVP,13 Birley
 Wednesday2nd,Geo,BGeoX-1,CDE,3 Cannon Yard
@@ -378,9 +378,9 @@ Wednesday3rd,Art,BArtX-2,CLC,Drawing Schools
 Wednesday3rd,Bio,BBioX-1,SPS,Queen's B6
 Wednesday3rd,Che,BCheX-1,AMM,Queen's C8
 Wednesday3rd,Dra,BDraX-1,H-MH,Empty Space
-Wednesday3rd,Eco,BEcoX-1,MH,5 Elliot
-Wednesday3rd,Eco,BEcoX-2,CC,8 Elliot
-Wednesday3rd,Eco,BEcoX-3,AUI,9 Elliot
+Wednesday3rd,Eco,BEcoX-1,MH,7 Elliot
+Wednesday3rd,Eco,BEcoX-2,CC,9 Elliot
+Wednesday3rd,Eco,BEcoX-3,AUI,8 Elliot
 Wednesday3rd,Eng,BEngX-1,DAG,2 Alington
 Wednesday3rd,Fre,BFreX-1,J-MD,4 Birley
 Wednesday3rd,Geo,BGeoX-1,JDMcR,2 Cannon Yard
@@ -403,9 +403,9 @@ Monday7th,Art,BArtX-2,CLC,Drawing Schools
 Monday7th,Bio,BBioX-1,SPS,Queen's B6
 Monday7th,Che,BCheX-1,AMM,Queen's C8
 Monday7th,Dra,BDraX-1,H-MH,Empty Space
-Monday7th,Eco,BEcoX-1,MH,5 Elliot
-Monday7th,Eco,BEcoX-2,CC,8 Elliot
-Monday7th,Eco,BEcoX-3,AUI,9 Elliot
+Monday7th,Eco,BEcoX-1,MH,7 Elliot
+Monday7th,Eco,BEcoX-2,CC,9 Elliot
+Monday7th,Eco,BEcoX-3,AUI,8 Elliot
 Monday7th,Eng,BEngX-1,DAG,2 Alington
 Monday7th,Fre,BFreX-1,J-MD,4 Birley
 Monday7th,Geo,BGeoX-1,JDMcR,2 Cannon Yard
@@ -428,9 +428,9 @@ Friday4th,Art,BArtX-2,CLC,Drawing Schools
 Friday4th,Bio,BBioX-1,AZB,Queen's B1
 Friday4th,Che,BCheX-1,AMM,Queen's C8
 Friday4th,Dra,BDraX-1,H-MH,Empty Space
-Friday4th,Eco,BEcoX-1,MH,5 Elliot
-Friday4th,Eco,BEcoX-2,PRKB,8 Elliot
-Friday4th,Eco,BEcoX-3,AUI,9 Elliot
+Friday4th,Eco,BEcoX-1,MH,7 Elliot
+Friday4th,Eco,BEcoX-2,PRKB,3 Elliot
+Friday4th,Eco,BEcoX-3,RGC,9 Elliot
 Friday4th,Eng,BEngX-1,DAG,2 Alington
 Friday4th,Fre,BFreX-1,J-MD,4 Birley
 Friday4th,Geo,BGeoX-1,JDMcR,2 Cannon Yard
@@ -453,8 +453,8 @@ Tuesday1st,Art,BArtX-2,CLC,Drawing Schools
 Tuesday1st,Bio,BBioX-1,AZB,Queen's B1
 Tuesday1st,Che,BCheX-1,AMM,Queen's C7
 Tuesday1st,Dra,BDraX-1,H-MH,Empty Space
-Tuesday1st,Eco,BEcoX-1,MH,5 Elliot
-Tuesday1st,Eco,BEcoX-2,PRKB,8 Elliot
+Tuesday1st,Eco,BEcoX-1,MH,7 Elliot
+Tuesday1st,Eco,BEcoX-2,PRKB,24 Birley
 Tuesday1st,Eco,BEcoX-3,RGC,9 Elliot
 Tuesday1st,Eng,BEngX-1,DAG,2 Alington
 Tuesday1st,Fre,BFreX-1,J-MD,4 Birley
@@ -505,7 +505,7 @@ Monday5th,Che,BCheY-1,RRM,Queen's C1
 Monday5th,Che,BCheY-2,DN-J,Queen's C5
 Monday5th,Com,BComY-1,MDS,2 Birley
 Monday5th,Des,BDesY-1,OTC,Design Schools
-Monday5th,Eco,BEcoY-1,REB,3 Elliot
+Monday5th,Eco,BEcoY-1,PRKB,3 Elliot
 Monday5th,Eco,BEcoY-2,AAB,5 Elliot
 Monday5th,Eco,BEcoY-3,LJP,4 Elliot
 Monday5th,Eng,BEngY-1,TAD,10 Alington
@@ -530,7 +530,7 @@ Thursday2nd,Che,BCheY-1,RRM,Queen's C1
 Thursday2nd,Che,BCheY-2,DN-J,Queen's C5
 Thursday2nd,Com,BComY-1,DPC,2 Keate's
 Thursday2nd,Des,BDesY-1,OTC,Design Schools
-Thursday2nd,Eco,BEcoY-1,REB,3 Elliot
+Thursday2nd,Eco,BEcoY-1,PRKB,3 Elliot
 Thursday2nd,Eco,BEcoY-2,AAB,5 Elliot
 Thursday2nd,Eco,BEcoY-3,LJP,4 Elliot
 Thursday2nd,Eng,BEngY-1,H-EO,4 Alington
@@ -631,7 +631,7 @@ Friday1st,Che,BCheY-2,DN-J,Queen's C5
 Friday1st,Com,BComY-1,MDS,2 Birley
 Friday1st,Des,BDesY-1,JOS,Design Schools
 Friday1st,Des,BDesY-1,OTC,Design Schools
-Friday1st,Eco,BEcoY-1,REB,3 Elliot
+Friday1st,Eco,BEcoY-1,PRKB,5 Elliot
 Friday1st,Eco,BEcoY-2,MH,7 Elliot
 Friday1st,Eco,BEcoY-3,LJP,4 Elliot
 Friday1st,Eng,BEngY-1,H-EO,4 Alington
@@ -655,7 +655,7 @@ Tuesday5th,Che,BCheZ-1,DMT,Queen's C2
 Tuesday5th,Chi,BChiZ-1,HJRM,23 Birley
 Tuesday5th,Dra,BDraZ-1,RGF,Empty Space
 Tuesday5th,Eco,BEcoZ-1,PRKB,8 Elliot
-Tuesday5th,Eco,BEcoZ-2,REB,3 Elliot
+Tuesday5th,Eco,BEcoZ-2,SRM,3 Elliot
 Tuesday5th,Fre,BFreZ-1,REJ,8 Birley
 Tuesday5th,Hem,BHemZ-1,JDH,1 Marten
 Tuesday5th,Hmn,BHmnZ-1,ASR,8 Marten
@@ -676,7 +676,7 @@ Wednesday6th,Che,BCheZ-1,DMT,Queen's C2
 Wednesday6th,Chi,BChiZ-1,HJRM,23 Birley
 Wednesday6th,Dra,BDraZ-1,RZRG,Empty Space
 Wednesday6th,Eco,BEcoZ-1,PRKB,8 Elliot
-Wednesday6th,Eco,BEcoZ-2,AAB,7 Elliot
+Wednesday6th,Eco,BEcoZ-2,SRM,3 Elliot
 Wednesday6th,Fre,BFreZ-1,REJ,8 Birley
 Wednesday6th,Hem,BHemZ-1,PEPW,1 Marten
 Wednesday6th,Hmn,BHmnZ-1,JLS,2 Marten
@@ -696,8 +696,8 @@ Friday2nd,Bio,BBioZ-2,NPTL,Queen's B8
 Friday2nd,Che,BCheZ-1,DMT,Queen's C2
 Friday2nd,Chi,BChiZ-1,HJRM,23 Birley
 Friday2nd,Dra,BDraZ-1,RGF,Empty Space
-Friday2nd,Eco,BEcoZ-1,PRKB,8 Elliot
-Friday2nd,Eco,BEcoZ-2,REB,3 Elliot
+Friday2nd,Eco,BEcoZ-1,PRKB,5 Elliot
+Friday2nd,Eco,BEcoZ-2,AAB,3 Elliot
 Friday2nd,Fre,BFreZ-1,REJ,8 Birley
 Friday2nd,Hem,BHemZ-1,JDH,1 Marten
 Friday2nd,Hmn,BHmnZ-1,ASR,8 Marten
@@ -718,7 +718,7 @@ Friday3rd,Che,BCheZ-1,DMT,Queen's C2
 Friday3rd,Chi,BChiZ-1,M-LL,22 Birley
 Friday3rd,Dra,BDraZ-1,RGF,Empty Space
 Friday3rd,Eco,BEcoZ-1,AUI,8 Elliot
-Friday3rd,Eco,BEcoZ-2,REB,3 Elliot
+Friday3rd,Eco,BEcoZ-2,AAB,3 Elliot
 Friday3rd,Fre,BFreZ-1,J-MD,4 Birley
 Friday3rd,Hem,BHemZ-1,JDH,1 Marten
 Friday3rd,Hmn,BHmnZ-1,ASR,8 Marten
@@ -739,7 +739,7 @@ Saturday4th,Che,BCheZ-1,DMT,Queen's C2
 Saturday4th,Chi,BChiZ-1,M-LL,22 Birley
 Saturday4th,Dra,BDraZ-1,RZRG,Empty Space
 Saturday4th,Eco,BEcoZ-1,PRKB,8 Elliot
-Saturday4th,Eco,BEcoZ-2,AAB,7 Elliot
+Saturday4th,Eco,BEcoZ-2,AAB,3 Elliot
 Saturday4th,Fre,BFreZ-1,J-MD,4 Birley
 Saturday4th,Hem,BHemZ-1,JDH,1 Marten
 Saturday4th,Hmn,BHmnZ-1,ASR,8 Marten
@@ -760,7 +760,7 @@ Tuesday4th,Che,BCheZ-1,DMT,Queen's C2
 Tuesday4th,Chi,BChiZ-1,M-LL,22 Birley
 Tuesday4th,Dra,BDraZ-1,RGF,Empty Space
 Tuesday4th,Eco,BEcoZ-1,AUI,8 Elliot
-Tuesday4th,Eco,BEcoZ-2,AAB,7 Elliot
+Tuesday4th,Eco,BEcoZ-2,SRM,3 Elliot
 Tuesday4th,Fre,BFreZ-1,J-MD,4 Birley
 Tuesday4th,Hem,BHemZ-1,JDH,1 Marten
 Tuesday4th,Hmn,BHmnZ-1,ASR,8 Marten
@@ -781,7 +781,7 @@ Monday1st,Che,BCheZ-1,DMT,Queen's C2
 Monday1st,Chi,BChiZ-1,M-LL,22 Birley
 Monday1st,Dra,BDraZ-1,RGF,Empty Space
 Monday1st,Eco,BEcoZ-1,AUI,8 Elliot
-Monday1st,Eco,BEcoZ-2,AAB,5 Elliot
+Monday1st,Eco,BEcoZ-2,AAB,3 Elliot
 Monday1st,Fre,BFreZ-1,J-MD,4 Birley
 Monday1st,Hem,BHemZ-1,PEPW,1 Marten
 Monday1st,Hmn,BHmnZ-1,JLS,2 Marten
@@ -796,7 +796,6 @@ Monday1st,Phy,BPhyZ-3,GBG,Queen's P9
 Monday1st,Pol,BPolZ-1,DSB,6 Elliot
 Monday1st,The,BTheZ-1,EJNR,1 Lyttelton
 Monday1st,The,BTheZ-2,DS,5 Lyttelton
-UnknownSchool,Jpn,BJpnX-1,DMS-H,20 Birley
 Wednesday5th,Art,CArtV-1,EJF,Drawing Schools
 Wednesday5th,Art,CArtV-2,DR,Drawing Schools
 Wednesday5th,Che,CCheV-1,AKC,Queen's C3
@@ -984,7 +983,7 @@ Thursday5th,Che,CCheW-1,SPH,Queen's C8
 Thursday5th,Chi,CChiW-1,M-LL,22 Birley
 Thursday5th,Com,CComW-1,DPC,2 Keate's
 Thursday5th,Dra,CDraW-1,CAB,Empty Space
-Thursday5th,Eco,CEcoW-1,PRKB,8 Elliot
+Thursday5th,Eco,CEcoW-1,CC,8 Elliot
 Thursday5th,Eco,CEcoW-2,RGC,9 Elliot
 Thursday5th,Eng,CEngW-1,CMV,5 Alington
 Thursday5th,Eng,CEngW-2,NJM,2 Caccia
@@ -1007,8 +1006,8 @@ Friday6th,Che,CCheW-1,SPH,Queen's C8
 Friday6th,Chi,CChiW-1,HJRM,23 Birley
 Friday6th,Com,CComW-1,DPC,2 Keate's
 Friday6th,Dra,CDraW-1,CAB,Empty Space
-Friday6th,Eco,CEcoW-1,PRKB,8 Elliot
-Friday6th,Eco,CEcoW-2,RGC,6 Elliot
+Friday6th,Eco,CEcoW-1,CC,3 Elliot
+Friday6th,Eco,CEcoW-2,RGC,9 Elliot
 Friday6th,Eng,CEngW-1,CMV,5 Alington
 Friday6th,Eng,CEngW-2,NJM,2 Caccia
 Friday6th,Fre,CFreW-1,PFMH,9 Birley
@@ -1030,8 +1029,8 @@ Tuesday2nd,Che,CCheW-1,SPH,Queen's C8
 Tuesday2nd,Chi,CChiW-1,M-LL,22 Birley
 Tuesday2nd,Com,CComW-1,DPC,2 Keate's
 Tuesday2nd,Dra,CDraW-1,CAB,10 Alington
-Tuesday2nd,Eco,CEcoW-1,PRKB,7 Elliot
-Tuesday2nd,Eco,CEcoW-2,RGC,6 Elliot
+Tuesday2nd,Eco,CEcoW-1,CC,7 Elliot
+Tuesday2nd,Eco,CEcoW-2,RGC,9 Elliot
 Tuesday2nd,Eng,CEngW-1,CMV,5 Alington
 Tuesday2nd,Eng,CEngW-2,NJM,2 Caccia
 Tuesday2nd,Fre,CFreW-1,PFMH,9 Birley
@@ -1053,7 +1052,7 @@ Tuesday3rd,Che,CCheW-1,SPH,Queen's C8
 Tuesday3rd,Chi,CChiW-1,M-LL,22 Birley
 Tuesday3rd,Com,CComW-1,DPC,2 Keate's
 Tuesday3rd,Dra,CDraW-1,CAB,Empty Space
-Tuesday3rd,Eco,CEcoW-1,CC,8 Elliot
+Tuesday3rd,Eco,CEcoW-1,CC,7 Elliot
 Tuesday3rd,Eco,CEcoW-2,RGC,9 Elliot
 Tuesday3rd,Eng,CEngW-1,AFC,1 Caccia
 Tuesday3rd,Eng,CEngW-2,ML,6 Alington
@@ -1144,7 +1143,7 @@ Friday5th,Bio,CBioX-1,CLK,Queen's B3
 Friday5th,Che,CCheX-1,DLB,Queen's C6
 Friday5th,Che,CCheX-2,RNE,Queen's C9
 Friday5th,Des,CDesX-1,HER,Design Schools
-Friday5th,Eco,CEcoX-1,REB,3 Elliot
+Friday5th,Eco,CEcoX-1,AUI,8 Elliot
 Friday5th,Eco,CEcoX-2,TGS,2 Elliot
 Friday5th,Eco,CEcoX-3,LWB,7 Elliot
 Friday5th,Eng,CEngX-1,S-JB,2 Caxton
@@ -1168,7 +1167,7 @@ Saturday3rd,Bio,CBioX-1,CLK,Queen's B3
 Saturday3rd,Che,CCheX-1,DLB,Queen's C6
 Saturday3rd,Che,CCheX-2,RNE,Queen's C9
 Saturday3rd,Des,CDesX-1,HER,Design Schools
-Saturday3rd,Eco,CEcoX-1,REB,3 Elliot
+Saturday3rd,Eco,CEcoX-1,AUI,8 Elliot
 Saturday3rd,Eco,CEcoX-2,TGS,2 Elliot
 Saturday3rd,Eco,CEcoX-3,LWB,7 Elliot
 Saturday3rd,Eng,CEngX-1,S-JB,2 Caxton
@@ -1192,7 +1191,7 @@ Wednesday2nd,Bio,CBioX-1,CLK,Queen's B3
 Wednesday2nd,Che,CCheX-1,DLB,Queen's C6
 Wednesday2nd,Che,CCheX-2,RNE,Queen's C9
 Wednesday2nd,Des,CDesX-1,HER,Design Schools
-Wednesday2nd,Eco,CEcoX-1,REB,3 Elliot
+Wednesday2nd,Eco,CEcoX-1,SRM,3 Elliot
 Wednesday2nd,Eco,CEcoX-2,TGS,2 Elliot
 Wednesday2nd,Eco,CEcoX-3,LWB,7 Elliot
 Wednesday2nd,Eng,CEngX-1,PFH,1 Alington
@@ -1216,9 +1215,9 @@ Wednesday3rd,Bio,CBioX-1,CLK,Queen's B3
 Wednesday3rd,Che,CCheX-1,DLB,Queen's C6
 Wednesday3rd,Che,CCheX-2,RNE,Queen's C9
 Wednesday3rd,Des,CDesX-1,HER,Design Schools
-Wednesday3rd,Eco,CEcoX-1,REB,3 Elliot
+Wednesday3rd,Eco,CEcoX-1,SRM,3 Elliot
 Wednesday3rd,Eco,CEcoX-2,TGS,2 Elliot
-Wednesday3rd,Eco,CEcoX-3,LWB,7 Elliot
+Wednesday3rd,Eco,CEcoX-3,LWB,5 Elliot
 Wednesday3rd,Eng,CEngX-1,S-JB,2 Caxton
 Wednesday3rd,Geo,CGeoX-1,DEA,7 Cannon Yard
 Wednesday3rd,Grk,CGrkX-1,RDO-C,13 James
@@ -1240,9 +1239,9 @@ Monday7th,Bio,CBioX-1,CLK,Queen's B3
 Monday7th,Che,CCheX-1,DLB,Queen's C6
 Monday7th,Che,CCheX-2,RNE,Queen's C9
 Monday7th,Des,CDesX-1,JOS,Design Schools
-Monday7th,Eco,CEcoX-1,REB,3 Elliot
+Monday7th,Eco,CEcoX-1,SRM,3 Elliot
 Monday7th,Eco,CEcoX-2,TGS,2 Elliot
-Monday7th,Eco,CEcoX-3,LWB,7 Elliot
+Monday7th,Eco,CEcoX-3,LWB,5 Elliot
 Monday7th,Eng,CEngX-1,PFH,1 Alington
 Monday7th,Geo,CGeoX-1,DEA,7 Cannon Yard
 Monday7th,Grk,CGrkX-1,RDO-C,13 James
@@ -1264,9 +1263,9 @@ Friday4th,Bio,CBioX-1,CLK,Queen's B3
 Friday4th,Che,CCheX-1,DLB,Queen's C6
 Friday4th,Che,CCheX-2,RNE,Queen's C9
 Friday4th,Des,CDesX-1,HER,Design Schools
-Friday4th,Eco,CEcoX-1,REB,3 Elliot
+Friday4th,Eco,CEcoX-1,AUI,8 Elliot
 Friday4th,Eco,CEcoX-2,TGS,2 Elliot
-Friday4th,Eco,CEcoX-3,LWB,7 Elliot
+Friday4th,Eco,CEcoX-3,LWB,5 Elliot
 Friday4th,Eng,CEngX-1,PFH,1 Alington
 Friday4th,Geo,CGeoX-1,DEA,7 Cannon Yard
 Friday4th,Grk,CGrkX-1,RDO-C,13 James
@@ -1289,9 +1288,9 @@ Tuesday1st,Che,CCheX-1,DLB,Queen's C6
 Tuesday1st,Che,CCheX-2,RNE,Queen's C9
 Tuesday1st,Des,CDesX-1,HER,Design Schools
 Tuesday1st,Des,CDesX-1,JOS,Design Schools
-Tuesday1st,Eco,CEcoX-1,REB,3 Elliot
+Tuesday1st,Eco,CEcoX-1,SRM,3 Elliot
 Tuesday1st,Eco,CEcoX-2,TGS,2 Elliot
-Tuesday1st,Eco,CEcoX-3,LWB,7 Elliot
+Tuesday1st,Eco,CEcoX-3,LWB,5 Elliot
 Tuesday1st,Eng,CEngX-1,S-JB,2 Caxton
 Tuesday1st,Geo,CGeoX-1,DEA,7 Cannon Yard
 Tuesday1st,Grk,CGrkX-1,RDO-C,13 James
@@ -1324,7 +1323,7 @@ Monday5th,Spr,CSprY-2,PJT,5 Lyttelton
 Monday5th,Spr,CSprY-3,WING,4 Lyttelton
 Monday5th,Spr,CSprY-4,EJNR,1 Lyttelton
 Monday5th,Spr,CSprY-5,CMJ,2 Lyttelton
-Monday5th,Spr,CSprY-6,TGS,2 Elliot
+Monday5th,Spr,CSprY-6,RPC,7 Lyttelton
 Monday5th,Spr,CSprY-7,NWF,4 Cannon Yard
 Monday5th,Spr,CSprY-8,LWB,7 Elliot
 Monday5th,Spr,CSprY-9,WMLE,7 Caxton
@@ -1368,7 +1367,7 @@ Tuesday5th,Bio,CBioZ-2,ALR,Queen's B4
 Tuesday5th,Che,CCheZ-1,GRP,Queen's C4
 Tuesday5th,Eco,CEcoZ-1,LWB,2 Elliot
 Tuesday5th,Eco,CEcoZ-2,RGC,9 Elliot
-Tuesday5th,Eco,CEcoZ-3,MH,5 Elliot
+Tuesday5th,Eco,CEcoZ-3,MH,7 Elliot
 Tuesday5th,Fre,CFreZ-1,PFMH,9 Birley
 Tuesday5th,Geo,CGeoZ-1,ELA,5 Cannon Yard
 Tuesday5th,Ger,CGerZ-1,KSKP,11 Birley
@@ -1386,14 +1385,14 @@ Tuesday5th,Pol,CPolZ-1,LJP,4 Elliot
 Tuesday5th,Rus,CRusZ-1,JMB,24 Birley
 Tuesday5th,Spn,CSpnZ-1,MB,17 Birley
 Tuesday5th,The,CTheZ-1,LEM,4 Lyttelton
-Tuesday5th,The,CTheZ-2,LSM,8 Lyttelton
+Tuesday5th,The,CTheZ-2,RPC,8 Lyttelton
 Wednesday6th,Ahy,CAhyZ-1,MAW,11 James
 Wednesday6th,Bio,CBioZ-1,SWH,Queen's B7
 Wednesday6th,Bio,CBioZ-2,ALR,Queen's B4
 Wednesday6th,Che,CCheZ-1,GRP,Queen's C4
 Wednesday6th,Eco,CEcoZ-1,LWB,2 Elliot
 Wednesday6th,Eco,CEcoZ-2,RGC,9 Elliot
-Wednesday6th,Eco,CEcoZ-3,MH,5 Elliot
+Wednesday6th,Eco,CEcoZ-3,MH,7 Elliot
 Wednesday6th,Fre,CFreZ-1,PFMH,9 Birley
 Wednesday6th,Geo,CGeoZ-1,ELA,5 Cannon Yard
 Wednesday6th,Ger,CGerZ-1,KSKP,11 Birley
@@ -1418,7 +1417,7 @@ Friday2nd,Bio,CBioZ-2,ALR,Queen's B4
 Friday2nd,Che,CCheZ-1,GRP,Queen's C4
 Friday2nd,Eco,CEcoZ-1,LWB,2 Elliot
 Friday2nd,Eco,CEcoZ-2,RGC,9 Elliot
-Friday2nd,Eco,CEcoZ-3,MH,5 Elliot
+Friday2nd,Eco,CEcoZ-3,MH,7 Elliot
 Friday2nd,Fre,CFreZ-1,PFMH,9 Birley
 Friday2nd,Geo,CGeoZ-1,ELA,5 Cannon Yard
 Friday2nd,Ger,CGerZ-1,KSKP,11 Birley
@@ -1443,7 +1442,7 @@ Friday3rd,Bio,CBioZ-2,ALR,Queen's B4
 Friday3rd,Che,CCheZ-1,SPH,Queen's C4
 Friday3rd,Eco,CEcoZ-1,LWB,2 Elliot
 Friday3rd,Eco,CEcoZ-2,RGC,9 Elliot
-Friday3rd,Eco,CEcoZ-3,MH,5 Elliot
+Friday3rd,Eco,CEcoZ-3,MH,7 Elliot
 Friday3rd,Fre,CFreZ-1,REJ,8 Birley
 Friday3rd,Geo,CGeoZ-1,JDMcR,2 Cannon Yard
 Friday3rd,Ger,CGerZ-1,EMD,10 Birley
@@ -1468,7 +1467,7 @@ Saturday4th,Bio,CBioZ-2,ALR,Queen's B4
 Saturday4th,Che,CCheZ-1,SPH,Queen's C8
 Saturday4th,Eco,CEcoZ-1,LWB,2 Elliot
 Saturday4th,Eco,CEcoZ-2,RGC,9 Elliot
-Saturday4th,Eco,CEcoZ-3,MH,5 Elliot
+Saturday4th,Eco,CEcoZ-3,MH,7 Elliot
 Saturday4th,Fre,CFreZ-1,REJ,8 Birley
 Saturday4th,Geo,CGeoZ-1,JDMcR,2 Cannon Yard
 Saturday4th,Ger,CGerZ-1,KSKP,11 Birley
@@ -1486,14 +1485,14 @@ Saturday4th,Pol,CPolZ-1,LJP,4 Elliot
 Saturday4th,Rus,CRusZ-1,JMB,24 Birley
 Saturday4th,Spn,CSpnZ-1,MPM,14 Birley
 Saturday4th,The,CTheZ-1,PJT,3 Lyttelton
-Saturday4th,The,CTheZ-2,RPC,2 Lyttelton
+Saturday4th,The,CTheZ-2,LSM,8 Lyttelton
 Tuesday4th,Ahy,CAhyZ-1,RDO-C,13 James
 Tuesday4th,Bio,CBioZ-1,SWH,Queen's B7
 Tuesday4th,Bio,CBioZ-2,ALR,Queen's B4
 Tuesday4th,Che,CCheZ-1,GRP,Queen's C4
 Tuesday4th,Eco,CEcoZ-1,LWB,2 Elliot
 Tuesday4th,Eco,CEcoZ-2,RGC,9 Elliot
-Tuesday4th,Eco,CEcoZ-3,MH,5 Elliot
+Tuesday4th,Eco,CEcoZ-3,MH,7 Elliot
 Tuesday4th,Fre,CFreZ-1,REJ,8 Birley
 Tuesday4th,Geo,CGeoZ-1,JDMcR,2 Cannon Yard
 Tuesday4th,Ger,CGerZ-1,EMD,10 Birley
@@ -1537,7 +1536,6 @@ Monday1st,Rus,CRusZ-1,JG,25 Birley
 Monday1st,Spn,CSpnZ-1,MPM,14 Birley
 Monday1st,The,CTheZ-1,PJT,2 Lyttelton
 Monday1st,The,CTheZ-2,LSM,8 Lyttelton
-UnknownSchool,Fak,CFakeZ-1,ZZZ,TBC
 Wednesday5th,Art,DArt1-1,CLC,Drawing Schools
 Wednesday5th,Art,DArt1-2,CG,Drawing Schools
 Wednesday5th,Bio,DBio1-1,SPS,Queen's B6
@@ -1869,7 +1867,7 @@ Friday4th,Ped,DPed1-9,LSH,Gymnasium
 Friday4th,Spr,DSpr6-1,HWTA,Queen's B2
 Friday4th,Spr,DSpr6-2,JDM,4 James
 Friday4th,Spr,DSpr6-3,RCH,3 Cannon Yard
-Friday4th,Spr,DSpr6-4,JFL,7 Marten
+Friday4th,Spr,DSpr6-4,OTC,Design Schools
 Friday4th,Spr,DSpr6-5,OHL,2 Marten
 Friday4th,Spr,DSpr6-6,TJMA,4 Caxton
 Tuesday1st,Che,DChe6-1,AKC,Queen's C3
@@ -2098,7 +2096,6 @@ Monday1st,Mat,DMat10-4,JMS,24 New
 Monday1st,Mat,DMat10-5,JM,2 New
 Monday1st,Mat,DMat10-6,AMS,15 New
 Monday1st,Mat,DMat10-7,BJH,14 New
-UnknownSchool,Spr,DSprZ-1,RGWC,16 Birley
 Wednesday5th,Bio,EBio1-1,JHO,Queen's B5
 Wednesday5th,Bio,EBio1-2,CLK,Queen's B3
 Wednesday5th,Bio,EBio1-3,AZB,Queen's B1
@@ -2667,7 +2664,6 @@ Monday1st,Lat,ELat10-3,RECS,2 James
 Monday1st,Phy,EPhy10-1,BJPC,Queen's P6
 Monday1st,Phy,EPhy10-2,WESC,Queen's P8
 Monday1st,Phy,EPhy10-3,RPDF,Queen's P2
-UnknownSchool,Fak,EFakeZ-1,ZZZ,TBC
 Wednesday5th,Art,FArt1-1,GML,Drawing Schools
 Wednesday5th,Chi,FChi1-1,HJRM,23 Birley
 Wednesday5th,Des,FDes1-1,HER,DesMedia
@@ -2834,7 +2830,7 @@ Tuesday3rd,Phy,FPhy2-2,BJPC,Queen's P6
 Monday6th,Bio,FBio1-1,ALR,Queen's B4
 Monday6th,Bio,FBio1-2,AZB,Queen's B1
 Monday6th,Div,FDiv3-1,BTP,6 Lyttelton
-Monday6th,Div,FDiv3-2,PJT,4 Lyttelton
+Monday6th,Div,FDiv3-2,PJT,1 Lyttelton
 Monday6th,Div,FDiv3-3,RPC,8 Lyttelton
 Monday6th,Div,FDiv3-4,SJNG,3 Lyttelton
 Monday6th,Lat,FLat2-1,KMA,1 James
@@ -3202,4 +3198,157 @@ Monday1st,Mat,FMat2-4,IRS,26 New
 Monday1st,Mat,FMat2-5,DAS,7 New
 Monday1st,Mat,FMat2-6,JT,17 New
 Monday1st,Mat,FMat2-7,HJP,18 New
-UnknownSchool,Fak,FFakeZ-1,ZZZ,TBC
+Monday1st,Not,Unavailable,LC,Marten6
+Monday2nd,Not,Unavailable,LC,Marten6
+Monday6th,Not,Unavailable,LC,Marten6
+Monday7th,Not,Unavailable,LC,Marten6
+Friday1st,Not,Unavailable,LC,Marten6
+Friday2nd,Not,Unavailable,LC,Marten6
+Tuesday1st,Not,Unavailable,VSJC,Caxton4
+Tuesday2nd,Not,Unavailable,VSJC,Caxton4
+Tuesday3rd,Not,Unavailable,VSJC,Caxton4
+Tuesday4th,Not,Unavailable,VSJC,Caxton4
+Tuesday5th,Not,Unavailable,VSJC,Caxton4
+Wednesday6th,Not,Unavailable,VSJC,Caxton4
+Wednesday7th,Not,Unavailable,VSJC,Caxton4
+Monday1st,Not,Unavailable,JDH,Marten1
+Monday2nd,Not,Unavailable,JDH,Marten1
+Monday3rd,Not,Unavailable,JDH,Marten1
+Wednesday6th,Not,Unavailable,JDH,Marten1
+Wednesday7th,Not,Unavailable,JDH,Marten1
+Tuesday1st,Not,Unavailable,PEPW,Marten3
+Tuesday2nd,Not,Unavailable,PEPW,Marten3
+Tuesday3rd,Not,Unavailable,PEPW,Marten3
+Tuesday4th,Not,Unavailable,PEPW,Marten3
+Tuesday5th,Not,Unavailable,PEPW,Marten3
+Friday1st,Not,Unavailable,PEPW,Marten3
+Friday2nd,Not,Unavailable,PEPW,Marten3
+Friday3rd,Not,Unavailable,PEPW,Marten3
+Saturday4th,Not,Unavailable,PEPW,Marten3
+Monday1st,Not,Unavailable,HSJP,Marten5
+Monday2nd,Not,Unavailable,HSJP,Marten5
+Monday3rd,Not,Unavailable,HSJP,Marten5
+Monday4th,Not,Unavailable,HSJP,Marten5
+Monday5th,Not,Unavailable,HSJP,Marten5
+Wednesday4th,Not,Unavailable,HSJP,Marten5
+Wednesday5th,Not,Unavailable,HSJP,Marten5
+Wednesday6th,Not,Unavailable,HSJP,Marten5
+Wednesday7th,Not,Unavailable,HSJP,Marten5
+Thursday1st,Not,Unavailable,HSJP,Marten5
+Thursday2nd,Not,Unavailable,HSJP,Marten5
+Thursday3rd,Not,Unavailable,HSJP,Marten5
+Friday1st,Not,Unavailable,HSJP,Marten5
+Friday2nd,Not,Unavailable,HSJP,Marten5
+Friday3rd,Not,Unavailable,HSJP,Marten5
+Saturday1st,Not,Unavailable,HSJP,Marten5
+Saturday2nd,Not,Unavailable,HSJP,Marten5
+Saturday3rd,Not,Unavailable,HSJP,Marten5
+Saturday4th,Not,Unavailable,HSJP,Marten5
+Monday6th,Not,Unavailable,KCD,Marten3
+Monday7th,Not,Unavailable,KCD,Marten3
+Wednesday6th,Not,Unavailable,ASR,Marten8
+Wednesday7th,Not,Unavailable,ASR,Marten8
+Tuesday1st,Not,Unavailable,JMR,Marten7
+Tuesday2nd,Not,Unavailable,JMR,Marten7
+Tuesday3rd,Not,Unavailable,JMR,Marten7
+Tuesday4th,Not,Unavailable,JMR,Marten7
+Tuesday5th,Not,Unavailable,JMR,Marten7
+Wednesday6th,Not,Unavailable,JMR,Marten7
+Wednesday7th,Not,Unavailable,JMR,Marten7
+Thursday4th,Not,Unavailable,JMR,Marten7
+Thursday5th,Not,Unavailable,JMR,Marten7
+Friday1st,Not,Unavailable,JMR,Marten7
+Friday2nd,Not,Unavailable,JMR,Marten7
+Friday3rd,Not,Unavailable,JMR,Marten7
+Friday4th,Not,Unavailable,JMR,Marten7
+Friday5th,Not,Unavailable,JMR,Marten7
+Saturday1st,Not,Unavailable,DJS,Caxton6
+Saturday2nd,Not,Unavailable,DJS,Caxton6
+Saturday3rd,Not,Unavailable,DJS,Caxton6
+Saturday4th,Not,Unavailable,DJS,Caxton6
+Wednesday1st,Not,Unavailable,DY,Marten4
+Wednesday2nd,Not,Unavailable,DY,Marten4
+Friday1st,Not,Unavailable,DY,Marten4
+Friday2nd,Not,Unavailable,DY,Marten4
+Friday6th,Not,Unavailable,DY,Marten4
+Friday7th,Not,Unavailable,DY,Marten4
+Monday6th,Not,Unavailable,DY,Marten4
+Monday7th,Not,Unavailable,DY,Marten4
+Monday6th,Not,Unavailable,NAEJ,Caxton3
+Monday7th,Not,Unavailable,NAEJ,Caxton3
+Monday2nd,Not,Unavailable,JLS,Marten4
+Monday3rd,Not,Unavailable,JLS,Marten4
+Tuesday4th,Not,Unavailable,JLS,Marten4
+Tuesday5th,Not,Unavailable,JLS,Marten4
+Friday1st,Not,Unavailable,JLS,Marten4
+Friday2nd,Not,Unavailable,JLS,Marten4
+Friday3rd,Not,Unavailable,JLS,Marten4
+Friday4th,Not,Unavailable,JLS,Marten4
+Friday5th,Not,Unavailable,JLS,Marten4
+Friday6th,Not,Unavailable,JLS,Marten4
+Friday7th,Not,Unavailable,JLS,Marten4
+Saturday1st,Not,Unavailable,JLS,Marten4
+Saturday2nd,Not,Unavailable,JLS,Marten4
+Saturday3rd,Not,Unavailable,JLS,Marten4
+Saturday4th,Not,Unavailable,JLS,Marten4
+Monday1st,Not,Unavailable,JAGF,Marten5
+Monday2nd,Not,Unavailable,JAGF,Marten5
+Monday3rd,Not,Unavailable,JAGF,Marten5
+Monday4th,Not,Unavailable,JAGF,Marten5
+Monday5th,Not,Unavailable,JAGF,Marten5
+Monday6th,Not,Unavailable,JAGF,Marten5
+Monday7th,Not,Unavailable,JAGF,Marten5
+Wednesday1st,Not,Unavailable,JAGF,Marten5
+Wednesday2nd,Not,Unavailable,JAGF,Marten5
+Wednesday3rd,Not,Unavailable,JAGF,Marten5
+Thursday4th,Not,Unavailable,JAGF,Marten5
+Thursday5th,Not,Unavailable,JAGF,Marten5
+Friday4th,Not,Unavailable,JAGF,Marten5
+Friday5th,Not,Unavailable,JAGF,Marten5
+Saturday1st,Not,Unavailable,JAGF,Marten5
+Saturday2nd,Not,Unavailable,JAGF,Marten5
+Saturday3rd,Not,Unavailable,JAGF,Marten5
+Saturday4th,Not,Unavailable,JAGF,Marten5
+Friday6th,Not,Unavailable,OHL,Marten5
+Friday7th,Not,Unavailable,OHL,Marten5
+Friday1st,Not,Unavailable,WGN,Marten5
+Friday2nd,Not,Unavailable,WGN,Marten5
+Friday3rd,Not,Unavailable,WGN,Marten5
+Friday4th,Not,Unavailable,WGN,Marten5
+Friday5th,Not,Unavailable,WGN,Marten5
+Friday6th,Not,Unavailable,WGN,Marten5
+Friday7th,Not,Unavailable,WGN,Marten5
+Monday1st,Not,Unavailable,TEJN,Marten5
+Monday2nd,Not,Unavailable,TEJN,Marten5
+Monday3rd,Not,Unavailable,TEJN,Marten5
+Monday4th,Not,Unavailable,TEJN,Marten5
+Monday5th,Not,Unavailable,TEJN,Marten5
+Monday6th,Not,Unavailable,TEJN,Marten5
+Monday7th,Not,Unavailable,TEJN,Marten5
+Tuesday1st,Not,Unavailable,TEJN,Marten5
+Tuesday2nd,Not,Unavailable,TEJN,Marten5
+Tuesday3rd,Not,Unavailable,TEJN,Marten5
+Tuesday4th,Not,Unavailable,TEJN,Marten5
+Tuesday5th,Not,Unavailable,TEJN,Marten5
+Wednesday1st,Not,Unavailable,TEJN,Marten5
+Wednesday2nd,Not,Unavailable,TEJN,Marten5
+Wednesday3rd,Not,Unavailable,TEJN,Marten5
+Wednesday4th,Not,Unavailable,TEJN,Marten5
+Wednesday5th,Not,Unavailable,TEJN,Marten5
+Wednesday6th,Not,Unavailable,TEJN,Marten5
+Wednesday7th,Not,Unavailable,TEJN,Marten5
+Friday1st,Not,Unavailable,TEJN,Marten5
+Friday2nd,Not,Unavailable,TEJN,Marten5
+Friday3rd,Not,Unavailable,TEJN,Marten5
+Friday4th,Not,Unavailable,TEJN,Marten5
+Friday5th,Not,Unavailable,TEJN,Marten5
+Friday6th,Not,Unavailable,TEJN,Marten5
+Friday7th,Not,Unavailable,TEJN,Marten5
+Saturday1st,Not,Unavailable,TEJN,Marten5
+Saturday2nd,Not,Unavailable,TEJN,Marten5
+Saturday3rd,Not,Unavailable,TEJN,Marten5
+Saturday4th,Not,Unavailable,TEJN,Marten5
+Wednesday3rd,Not,Unavailable,WGN,Marten5
+Monday7th,Not,Unavailable,WGN,Marten5
+Thursday3rd,Not,Unavailable,WGN,Marten5
+Saturday1st,Not,Unavailable,WGN,Marten5

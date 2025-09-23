@@ -113,6 +113,7 @@ struct Division: Equatable {
 }
 
 enum Faculty: String, Codable {
+    case arabic = "Ara"
     case ancientHistory = "Ahy"
     case art = "Art"
     case biology = "Bio"
@@ -152,10 +153,12 @@ enum Faculty: String, Codable {
     case spanish = "Spn"
     case sphere = "Spr"
     case theology = "The"
+    case learningSupport = "Ls"
+    case careerEducation = "Car"
     case unknown
 }
 
-enum Department: String, CaseIterable {
+enum Department: String, Codable, CaseIterable {
     case history
     case computerScience
     case modernLanguages
@@ -176,6 +179,8 @@ enum Department: String, CaseIterable {
     case option
     case geography
     case design
+    case learningSupport
+    case careerEducation
     
     var displayName: String {
         // Insert a space before each capital letter
@@ -196,7 +201,7 @@ enum Department: String, CaseIterable {
         case .music: return [.music, .musicRe, .musicTech]
         case .history: return [.history, .historyModern, .historyEarlyModern, .historyMedieval, .historyOfArt]
         case .computerScience: return [.computerScience]
-        case .modernLanguages: return [.french, .german, .italian, .russian, .spanish, .japanese, .chinese]
+        case .modernLanguages: return [.arabic, .french, .german, .italian, .russian, .spanish, .japanese, .chinese]
         case .divinity: return [.divinity, .theology]
         case .classics: return [.latin, .greek, .classicalCivilisation, .ancientHistory]
         case .drama: return [.drama]
@@ -208,6 +213,8 @@ enum Department: String, CaseIterable {
         case .option: return [.option]
         case .geography: return [.geography]
         case .design: return [.design]
+        case .learningSupport: return [.learningSupport]
+        case .careerEducation: return [.careerEducation]
         }
     }
 }
