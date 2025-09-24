@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     @Published var username = ""
     @Published var password = ""
     @Published var errorMessage: String?
+    @Published var isLoading = false
 
     init() {
         currentUser = CoverUser.current
@@ -31,6 +32,7 @@ class LoginViewModel: ObservableObject {
     }
 
     func login() {
+        isLoading = true
         Task {
             do {
                 let user = try await CoverUser.login(username: username, password: password)
@@ -39,6 +41,7 @@ class LoginViewModel: ObservableObject {
             } catch {
                 errorMessage = error.localizedDescription
             }
+            isLoading = false
         }
     }
 
