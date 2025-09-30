@@ -155,7 +155,7 @@ class CoverPickerViewModel: ObservableObject {
             if dictionary[cover.coverArrangement.coverTeacher] != nil {
                 dictionary[cover.coverArrangement.coverTeacher]! += 1
             } else {
-                print("{} is no longer in the team, discounting their tally")
+                print("\(cover.coverArrangement.coverTeacher.initials) is no longer in the team, discounting their tally")
             }
             
         }

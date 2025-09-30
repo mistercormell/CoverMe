@@ -236,6 +236,16 @@ struct Teacher: Equatable, Hashable, Codable, Comparable {
         return lhs.initials < rhs.initials
     }
     
+    static func == (lhs: Teacher, rhs: Teacher) -> Bool {
+        lhs.initials.caseInsensitiveCompare(rhs.initials) == .orderedSame &&
+        lhs.email.caseInsensitiveCompare(rhs.email) == .orderedSame
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(initials.lowercased())
+        hasher.combine(email.lowercased())
+    }
+    
     let initials: String
     let faculties: [Faculty]
     let email: String
