@@ -8,6 +8,7 @@
 import SwiftUI
 import ParseSwift
 
+@MainActor
 class LoginViewModel: ObservableObject {
     private(set) var currentUser: CoverUser?
     @Published var isLoggedIn = false
