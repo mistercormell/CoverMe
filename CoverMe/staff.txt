@@ -217,7 +217,7 @@ VSJC,His-Hoa,V.Clark@etoncollege.org.uk
 WEN,Opt-Ped,w.norton@etoncollege.org.uk
 WESC,Phy,w.casson@etoncollege.org.uk
 WFM,Mat,w.moore@etoncollege.org.uk
-WGN,Opt-Spr,W.Nash@etoncollege.org.uk
+WGN,Opt-Spr-His,W.Nash@etoncollege.org.uk
 WING,Div-Opt-Spr-The,W.Griffith@etoncollege.org.uk
 WMLE,Eng-Spr,W.Evans@etoncollege.org.uk
 ZD,Ger,Z.Dogan@etoncollege.org.uk
