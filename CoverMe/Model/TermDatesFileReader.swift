@@ -25,10 +25,10 @@ class TermDatesFileReader {
         return nil
     }
     
-    static func createTermDatesFromFile(filename: String) -> TermDates {
-        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
+    static func createTermDatesFromFile() -> TermDates {
+        if let fileUrl = TimetableDataStore.shared.termDatesUrl {
             do {
-                let contents = try String(contentsOfFile: filepath)
+                let contents = try String(contentsOf: fileUrl)
                 let trimmedContent = contents.trimmingCharacters(in: .whitespacesAndNewlines)
                 let lines = trimmedContent.components(separatedBy: "\n")
                 var startDates: [TermDate] = []

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B404B0692AAB391C00E3062F /* staff.txt in Resources */ = {isa = PBXBuildFile; fileRef = B404B0682AAB391C00E3062F /* staff.txt */; };
+		B4421A6C2E8D2BDE0012889C /* TimetableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4421A6B2E8D2BDD0012889C /* TimetableData.swift */; };
+		B4421A6E2E8D2D1B0012889C /* LocalTimetableCacheMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4421A6D2E8D2D1B0012889C /* LocalTimetableCacheMetadata.swift */; };
+		B4421A702E8D2D600012889C /* TimetableDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4421A6F2E8D2D600012889C /* TimetableDataStore.swift */; };
 		B443DF6F2D48F9DF0034C68A /* ExportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443DF6E2D48F9DF0034C68A /* ExportDataView.swift */; };
 		B448D10E2A0E626100C2B0FB /* ParseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B448D10D2A0E626100C2B0FB /* ParseSwift */; };
 		B448D1112A0E765000C2B0FB /* DepartmentCoverDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */; };
@@ -74,6 +77,9 @@
 
 /* Begin PBXFileReference section */
 		B404B0682AAB391C00E3062F /* staff.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = staff.txt; sourceTree = "<group>"; };
+		B4421A6B2E8D2BDD0012889C /* TimetableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableData.swift; sourceTree = "<group>"; };
+		B4421A6D2E8D2D1B0012889C /* LocalTimetableCacheMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTimetableCacheMetadata.swift; sourceTree = "<group>"; };
+		B4421A6F2E8D2D600012889C /* TimetableDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDataStore.swift; sourceTree = "<group>"; };
 		B443DF6E2D48F9DF0034C68A /* ExportDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportDataView.swift; sourceTree = "<group>"; };
 		B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCoverDao.swift; sourceTree = "<group>"; };
 		B44ACBEF2E82D2A000EAC45E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				B448D1102A0E765000C2B0FB /* DepartmentCoverDao.swift */,
+				B4421A6B2E8D2BDD0012889C /* TimetableData.swift */,
+				B4421A6D2E8D2D1B0012889C /* LocalTimetableCacheMetadata.swift */,
+				B4421A6F2E8D2D600012889C /* TimetableDataStore.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -436,6 +445,7 @@
 				B469C45C2992638100DEB92F /* CoverArrangement.swift in Sources */,
 				B4D2DD3729C9F714001BBA84 /* ConfirmedCoverView.swift in Sources */,
 				B4838FB52993B30700100C33 /* CoverPickerViewModel.swift in Sources */,
+				B4421A6E2E8D2D1B0012889C /* LocalTimetableCacheMetadata.swift in Sources */,
 				B461AF6A29BA6BDA005F216E /* MainTabView.swift in Sources */,
 				B4D2DD3929C9FF20001BBA84 /* CoverRowItem.swift in Sources */,
 				B471D3E529FBE1A9001C15DD /* TermDatesFileReader.swift in Sources */,
@@ -447,6 +457,8 @@
 				B4EE257D2B90DDB2005CCC6E /* CSVGenerator.swift in Sources */,
 				B4E9C3902A0428D200E385C6 /* UserDefaults.swift in Sources */,
 				B4D2DD3529C9F67E001BBA84 /* FileManager.swift in Sources */,
+				B4421A702E8D2D600012889C /* TimetableDataStore.swift in Sources */,
+				B4421A6C2E8D2BDE0012889C /* TimetableData.swift in Sources */,
 				B44ACBF62E82D62F00EAC45E /* LoginView.swift in Sources */,
 				B44ACBF02E82D2AF00EAC45E /* LoginViewModel.swift in Sources */,
 				B4E9C3922A0444EF00E385C6 /* LaunchScreenView.swift in Sources */,

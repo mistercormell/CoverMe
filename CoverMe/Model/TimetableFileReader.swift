@@ -29,15 +29,15 @@ class TimetableFileReader {
     }
     
     static func initialiseTimetableAndStaffData() -> (Timetable,[Teacher]) {
-        let teachers = getStaffFromFile(filename: "staff")
+        let teachers = getStaffFromFile()
         
-        return (createTimetableFromFileWithTeachers(filename: "timetable", teachers: teachers), teachers)
+        return (createTimetableFromFileWithTeachers(teachers: teachers), teachers)
     }
     
-    static func createTimetableFromFileWithTeachers(filename: String, teachers: [Teacher]) -> Timetable {
-        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
+    static func createTimetableFromFileWithTeachers(teachers: [Teacher]) -> Timetable {
+        if let fileUrl = TimetableDataStore.shared.timetableUrl {
             do {
-                let contents = try String(contentsOfFile: filepath)
+                let contents = try String(contentsOf: fileUrl)
                 let lines = contents.components(separatedBy: "\n")
                 var timetabledLessons: [TimetabledLesson] = []
                 for line in lines {
@@ -74,10 +74,10 @@ class TimetableFileReader {
         return teacher
     }
     
-    static func getStaffFromFile(filename: String) -> [Teacher] {
-        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
+    static func getStaffFromFile() -> [Teacher] {
+        if let fileUrl = TimetableDataStore.shared.staffingUrl {
             do {
-                let contents = try String(contentsOfFile: filepath)
+                let contents = try String(contentsOf: fileUrl)
                 let lines = contents.components(separatedBy: "\n")
                 var allStaff: [Teacher] = []
                 for line in lines {

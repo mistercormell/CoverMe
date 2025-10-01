@@ -39,7 +39,7 @@ class CoverPickerViewModel: ObservableObject {
         self.selectedDepartment = selectedDepartment
         let initialTeacher = timetable.getTimetabledTeam(by: selectedDepartment).first ?? Teacher(initials: "Unknown", faculties: [.unknown], email: "")
         self.selectedTeacherInitials = initialTeacher.initials
-        let termDates = TermDatesFileReader.createTermDatesFromFile(filename: "termdates")
+        let termDates = TermDatesFileReader.createTermDatesFromFile()
         self.termDates = termDates
         self.coverRecordDaoObjectId = UserDefaults.standard.cloudStorageId
         processConfirmedCoverData()
