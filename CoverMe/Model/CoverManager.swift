@@ -17,13 +17,18 @@ class CoverManager {
     func getCoverOptions(teacher: Teacher, lesson: Lesson, reason: ReasonForCover) -> [CoverArrangement] {
         var coverOptions: [CoverArrangement] = []
         if let timetabledLesson = timetable.getTimetabledLessonFor(lesson: lesson, teacher: teacher) {
-            let availableTeachers = timetable.findAvailableTeachers(lesson: lesson).filter({
-                !Set($0.departments).isDisjoint(with: teacher.departments)
-            })
-            for availableTeacher in availableTeachers {
-                let alsoTeachesThisDivision = timetable.doesShareDivision(teacher: availableTeacher, division: timetabledLesson.division)
-                let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false, reasonForCover: reason, isShared: alsoTeachesThisDivision)
-                coverOptions.append(coverArrangement)
+            if let lessonDepartment = timetabledLesson.faculty.department {
+                let availableTeachers = timetable.findAvailableTeachers(lesson: lesson).filter({
+                    $0.departments.contains(lessonDepartment)
+                })
+                
+                for availableTeacher in availableTeachers {
+                    let alsoTeachesThisDivision = timetable.doesShareDivision(teacher: availableTeacher, division: timetabledLesson.division)
+                    let coverArrangement = CoverArrangement(originalTeacher: teacher, coverTeacher: availableTeacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: false, reasonForCover: reason, isShared: alsoTeachesThisDivision)
+                    coverOptions.append(coverArrangement)
+                }
+            } else {
+                print("Unable to get a department for faculty: \(timetabledLesson.faculty.rawValue)")
             }
             if timetabledLesson.canBeGivenReader() {
                 coverOptions.append(CoverArrangement(originalTeacher: teacher, coverTeacher: teacher, room: timetabledLesson.room, lesson: lesson, divisionCode: timetabledLesson.division.code, notes: "", isReadingSchool: true, reasonForCover: reason, isShared: false))

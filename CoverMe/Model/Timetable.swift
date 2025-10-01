@@ -156,7 +156,13 @@ enum Faculty: String, Codable {
     case learningSupport = "Ls"
     case careerEducation = "Car"
     case unknown
+
+    var department: Department? {
+        Department.allCases.first { $0.faculties.contains(self) }
+    }
 }
+
+
 
 enum Department: String, Codable, CaseIterable {
     case history
