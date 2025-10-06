@@ -18,7 +18,7 @@ struct TermDates {
                     return .Summer
                 } else if startDates[i-1].term == Term.Michaelmas {
                     if let weeksDifference = Calendar.current.dateComponents([.weekOfYear], from: startDates[i-1].date, to: date).weekOfYear {
-                        if weeksDifference <= 6 {
+                        if weeksDifference <= 4 {
                             return .EarlyMichaelmas
                         }
                     }
