@@ -8,6 +8,7 @@
 import Foundation
 import ParseSwift
 
+@MainActor
 class CoverPickerViewModel: ObservableObject {
     static private let defaultLesson = Lesson.Monday2nd
     let timetable: Timetable
@@ -274,7 +275,7 @@ class CoverPickerViewModel: ObservableObject {
         }
     }
     
-    func restoreCoverRecord() {
+    func restoreCoverRecord() async {
         isRestoringCoverRecordFromStorage = true
         if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.load(from: "coverRecord.json") {
             coverRecord = loadedCoverRecord
@@ -283,7 +284,7 @@ class CoverPickerViewModel: ObservableObject {
             let constraint: QueryConstraint = "departmentName" == selectedDepartment.rawValue
             let query = DepartmentCoverDao.query(constraint).order([.descending("updatedAt")])
             
-            let departmentCoverDaos = try? query.find()
+            let departmentCoverDaos = try? await query.find()
             if let departmentCoverDao = departmentCoverDaos?.first {
                 if let departmentCoverDaoJson = departmentCoverDao.json {
                     if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.deserializeJson(from: departmentCoverDaoJson) {
