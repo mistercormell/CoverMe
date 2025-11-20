@@ -41,7 +41,7 @@ class TermDatesFileReader {
                 }
                 return TermDates(startDates: startDates)
             } catch {
-                print("Couldn't load contents of file")
+                print("Couldn't load contents of file \(fileUrl)")
             }
         } else {
             print("File not found!")

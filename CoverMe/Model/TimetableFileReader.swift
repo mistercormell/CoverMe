@@ -50,7 +50,7 @@ class TimetableFileReader {
                 }
                 return Timetable(timetabledLessons: timetabledLessons, teachers: teachers)
             } catch {
-                print("Couldn't load contents of file")
+                print("Couldn't load contents of file \(fileUrl)")
             }
         } else {
             print("File not found!")
@@ -91,7 +91,7 @@ class TimetableFileReader {
                 }
                 return allStaff
             } catch {
-                print("Couldn't load contents of staff file")
+                print("Couldn't load contents of staff file \(fileUrl)")
             }
         } else {
             print("File not found! (staffing)")

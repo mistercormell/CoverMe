@@ -10,5 +10,5 @@ import Foundation
 struct LocalTimetableCacheMetadata: Codable {
     var objectId: String
     var lastUpdated: Date
-    var localFileURLs: [URL]
+    var localFilenames: [String]
 }

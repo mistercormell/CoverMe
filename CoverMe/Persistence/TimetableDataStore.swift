@@ -26,15 +26,13 @@ class TimetableDataStore {
     }
     
     func saveDataLocally(data: Data, filename: String) throws -> URL {
-        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = docs.appendingPathComponent(filename)
+        let fileURL = getDocumentsURL().appendingPathComponent(filename)
         try data.write(to: fileURL)
         return fileURL
     }
     
     func saveCacheMetadata(_ metadata: LocalTimetableCacheMetadata) {
-        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let url = docs.appendingPathComponent("\(metadata.objectId).json")
+        let url = getDocumentsURL().appendingPathComponent("\(metadata.objectId).json")
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(metadata) {
             try? encoded.write(to: url)
@@ -42,10 +40,13 @@ class TimetableDataStore {
     }
 
     func loadCacheMetadata(for objectId: String) -> LocalTimetableCacheMetadata? {
-        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let url = docs.appendingPathComponent("\(objectId).json")
+        let url = getDocumentsURL().appendingPathComponent("\(objectId).json")
         guard let data = try? Data(contentsOf: url) else { return nil }
         return try? JSONDecoder().decode(LocalTimetableCacheMetadata.self, from: data)
+    }
+    
+    private func getDocumentsURL() -> URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
     fileprivate func getFileDataAndSaveUrl(_ parseFile: ParseFile?) async throws -> URL? {
@@ -77,9 +78,9 @@ class TimetableDataStore {
             // Compare dates
             if let cached = metadata, cached.lastUpdated >= updatedAt {
                 print("Local cache is up-to-date.")
-                staffingUrl = cached.localFileURLs[0]
-                termDatesUrl = cached.localFileURLs[1]
-                timetableUrl = cached.localFileURLs[2]
+                staffingUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[0])
+                termDatesUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[1])
+                timetableUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[2])
                 return
             }
             
@@ -95,15 +96,15 @@ class TimetableDataStore {
                 return
             }
             
-            let newMetadata = LocalTimetableCacheMetadata(objectId: objectId, lastUpdated: updatedAt, localFileURLs: [staffingUrl, termDatesUrl, timetableUrl].compactMap { $0 })
+            let newMetadata = LocalTimetableCacheMetadata(objectId: objectId, lastUpdated: updatedAt, localFilenames: [staffingUrl.lastPathComponent, termDatesUrl.lastPathComponent, timetableUrl.lastPathComponent].compactMap { $0 })
             saveCacheMetadata(newMetadata)
             
         } else {
             print("No connection to Parse. Attempting to Load local cache")
             if let cached = metadata {
-                staffingUrl = cached.localFileURLs[0]
-                termDatesUrl = cached.localFileURLs[1]
-                timetableUrl = cached.localFileURLs[2]
+                staffingUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[0])
+                termDatesUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[1])
+                timetableUrl = getDocumentsURL().appendingPathComponent(cached.localFilenames[2])
             } else {
                 print("No cache and no connection to Parse")
             }
