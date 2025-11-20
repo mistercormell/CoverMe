@@ -14,10 +14,22 @@ class MailHandler {
     
     private static func mailToUrl(recipients: Set<String>, subject: String, body: String, coverDetailsList: [String], senderName: String) -> URL {
         let emailSequence = recipients.joined(separator: ",")
+        let to = emailSequence.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let coverDetailsMessage = coverDetailsList.joined(separator: "\n")
+        let subject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
-        let mailtoString = "mailto:\(emailSequence)?subject=\(subject)&body=\(body)\n\n \(coverDetailsMessage)\n\n Best wishes,\n\(senderName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let mailtoUrl = URL(string: mailtoString!)!
+        let bodyTemplate = """
+        \(body)
+
+        \(coverDetailsMessage)
+
+        Best wishes,
+        \(senderName)
+        """
+        let body = bodyTemplate.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
+        let mailtoString = "ms-outlook://compose?to=\(to)&subject=\(subject)&body=\(body)"
+        let mailtoUrl = URL(string: mailtoString)!
 
         return mailtoUrl
     }

@@ -68,7 +68,7 @@ extension FileManager {
                 return nil
             }
         } else {
-            print("Couldn't find file at given path")
+            print("Couldn't find file \(filepath)")
             return nil
         }
     }

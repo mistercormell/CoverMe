@@ -22,13 +22,16 @@ class CoverPickerViewModel: ObservableObject {
     @Published var selectedDepartment: Department //default subject!
     @Published var coverRecord: [CoverArrangementWithDate] = [] {
         didSet {
-            self.saveCoverRecord()
+            if !isRestoringCoverRecordFromStorage {
+                self.saveCoverRecord()
+            }
         }
     }
     @Published private(set) var confirmedCover: [CoverArrangementWithDate] = []
     @Published private(set) var groupedByDate: [Date: [CoverArrangementWithDate]] = [:]
     @Published private(set) var headers: [Date] = []
     @Published private(set) var nearestDateToToday: Date?
+    private var isRestoringCoverRecordFromStorage = false
     
     //TODO replace to dependency inject TimetableFileReader and CoverManager
     init(selectedDepartment: Department) {
@@ -272,9 +275,11 @@ class CoverPickerViewModel: ObservableObject {
     }
     
     func restoreCoverRecord() {
+        isRestoringCoverRecordFromStorage = true
         if let loadedCoverRecord: [CoverArrangementWithDate] = FileManager.default.load(from: "coverRecord.json") {
             coverRecord = loadedCoverRecord
         } else {
+            print("Loading cover record from the Cloud")
             let constraint: QueryConstraint = "departmentName" == selectedDepartment.rawValue
             let query = DepartmentCoverDao.query(constraint).order([.descending("updatedAt")])
             
@@ -292,6 +297,7 @@ class CoverPickerViewModel: ObservableObject {
 
             }
         }
+        isRestoringCoverRecordFromStorage = false
         processConfirmedCoverData()
     }
 }

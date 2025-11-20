@@ -2166,7 +2166,7 @@ Friday7th,Che,EChe2-2,GRP,Queen's C4
 Friday7th,Che,EChe2-3,RRM,Queen's C1
 Friday7th,Com,ECom2-1,JWFS,1 Keate's
 Friday7th,Des,EDes2-1,HER,Design Schools
-Friday7th,His,EHis2-1,JAGF,5 Marten
+Friday7th,His,EHis2-1,DY,4 Marten
 Friday7th,His,EHis2-2,VSJC,4 Caxton
 Friday7th,Mre,EMre1-2,CJBA,Music Schools
 Friday7th,Ped,EPed2-5,RGWC,Gymnasium
@@ -2188,7 +2188,7 @@ Wednesday4th,Des,EDes2-1,HER,Design Schools
 Wednesday4th,Fre,EFre2-1,REJ,8 Birley
 Wednesday4th,Fre,EFre2-2,J-MD,4 Birley
 Wednesday4th,Fre,EFre2-3,PFMH,9 Birley
-Wednesday4th,His,EHis2-1,JAGF,5 Marten
+Wednesday4th,His,EHis2-1,DY,4 Marten
 Wednesday4th,His,EHis2-2,VSJC,4 Caxton
 Wednesday4th,Phy,EPhy2-1,RPDF,Queen's P2
 Wednesday4th,Phy,EPhy2-2,TGM,Queen's P4
@@ -2200,7 +2200,7 @@ Thursday1st,Des,EDes2-1,HER,Design Schools
 Thursday1st,Fre,EFre2-1,REJ,8 Birley
 Thursday1st,Fre,EFre2-2,J-MD,4 Birley
 Thursday1st,Fre,EFre2-3,PFMH,9 Birley
-Thursday1st,His,EHis2-1,JAGF,5 Marten
+Thursday1st,His,EHis2-1,DY,4 Marten
 Thursday1st,His,EHis2-2,VSJC,4 Caxton
 Thursday1st,Mre,EMre1-3,MAOD,Music Schools
 Thursday1st,Ped,EPed2-10,NWF,Gymnasium
