@@ -222,3 +222,9 @@ WING,Div-Opt-Spr-The,W.Griffith@etoncollege.org.uk
 WMLE,Eng-Spr,W.Evans@etoncollege.org.uk
 ZD,Ger,Z.Dogan@etoncollege.org.uk
 ZW,Mat-Mdp-Msi,Z.Wang@etoncollege.org.uk
+KEA,Eng,K.Addison@etoncollege.org.uk
+NKD,Phy,n.dey@etoncollege.org.uk
+YYZ,Chi,Yanyan.Zhao@etoncollege.org.uk
+JXT,Eco,J.Troy@etoncollege.org.uk
+TXP,Eco,T.Parkinson@etoncollege.org.uk
+HTA,Des,H.Allen@etoncollege.org.uk
