@@ -218,7 +218,6 @@ Tuesday2nd,Phy,BPhyX-1,BJPC,Queen's P6
 Tuesday2nd,Pol,BPolX-1,BJMC,1 Elliot
 Tuesday2nd,Spn,BSpnX-1,MB,17 Birley
 Tuesday2nd,The,BTheX-1,PAH,2 Lyttelton
-Tuesday3rd,Fak,BFakK-1,ZZZ,TBC
 Monday6th,Art,BArtZ-1,EJF,Drawing Schools
 Monday6th,Art,BArtZ-2,DR,Drawing Schools
 Monday6th,Che,BCheZ-1,RNE,Queen's C9
@@ -239,7 +238,6 @@ Monday6th,Phy,BPhyZ-1,HGCC,Queen's P7
 Monday6th,Phy,BPhyZ-2,JD,Queen's P1
 Monday6th,Pol,BPolZ-1,LJP,4 Elliot
 Monday6th,The,BTheZ-1,LSM,8 Lyttelton
-Thursday4th,Fak,BFakK-2,ZZZ,TBC
 Wednesday1st,Ahy,BAhyY-1,RDO-C,13 James
 Wednesday1st,Che,BCheY-1,AMM,Queen's C7
 Wednesday1st,Che,BCheY-2,AKC,Queen's C3
@@ -1293,7 +1291,6 @@ Tuesday1st,Phy,CPhyX-1,WESC,Queen's P8
 Tuesday1st,Phy,CPhyX-2,GBG,Queen's P9
 Tuesday1st,Pol,CPolX-1,LJP,4 Elliot
 Tuesday1st,The,CTheX-1,LEM,1 Lyttelton
-Wednesday7th,Fak,CFakV-1,ZZZ,TBC
 Monday5th,Spr,CSprY-1,ABH,7 Cannon Yard
 Monday5th,Spr,CSprY-10,JGA,4 Elliot
 Monday5th,Spr,CSprY-11,MAG,5 Caxton
