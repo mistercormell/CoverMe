@@ -95,7 +95,7 @@ JDM,Grk-Lat-Spr,j.macartney@etoncollege.org.uk
 JDMcR,Geo-Spr,J.McRae@etoncollege.org.uk
 JDN,Eng,J.Newton@etoncollege.org.uk
 JET,Mat,j.thorne@etoncollege.org.uk
-JFL,Opt-Spr,F.Lonergan@etoncollege.org.uk
+JFL,Opt-Spr-His,F.Lonergan@etoncollege.org.uk
 JG,Ger-Rus,J.Greenwood@etoncollege.org.uk
 J-HM,Mre,Jennie-Helen.Moston@etoncollege.org.uk
 JHO,Bio,j.owen@etoncollege.org.uk
@@ -166,7 +166,7 @@ PFH,Eng,P.Houston@etoncollege.org.uk
 PFMH,Fre,P.Herbommez@etoncollege.org.uk
 PGW,Msi,p.williams@etoncollege.org.uk
 PIM,Geo-Ped-Spr,p.macleod@etoncollege.org.uk
-PJT,Div-Spr-The,P.Taylor@etoncollege.org.uk
+PJT,Div-Spr-The-His,P.Taylor@etoncollege.org.uk
 PRKB,Eco,P.Bird@etoncollege.org.uk
 PRL,Spn,P.Requejo_de_Lamo@etoncollege.org.uk
 PSS,Pol,Paul.Smith@etoncollege.org.uk
